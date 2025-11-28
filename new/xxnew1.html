@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Cut/Fill Cal=>By Sarthak</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="Construction company Pokhara" name="keywords">
+  <meta content="Construction company Pokhara" name="description">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://imgs.search.brave.com/YxAAFFXFie5mJWLu4NfouIxZicgKg3NYbuD0FnVv7Nc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9wbHVz/cG5nLmNvbS9pbWct/cG5nL3Zpc2h3YWth/cm1hLWdvZC1wbmct/dmlzaHZha2FybWEt/Z29kLXBpY3R1cmUt/bXY0MTUtNjAwLnBu/Zw">
+
+  <!-- Google Web Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
+
+  <!-- Icon Font Stylesheet -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Libraries Stylesheet -->
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+  <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+  <!-- Customized Bootstrap Stylesheet -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Template Stylesheet -->
+  <link href="css/style.css" rel="stylesheet">
+
+  <!-- Optional custom styling -->
+  <style>
+    .cutfill-form input {
+      background-color: #f8f9fa;
+    }
+    .rowChartContainer {
+      margin-top: 1rem;
+    }
+    #generateReport {
+      margin-top: 1rem;
+    }
+    .rowChart,
+    #chainageChart,
+    #lProfileChart {
+      background-color: #ffffff;
+    }
+    .cutfill-form input::placeholder {
+      color: #495057;
+    }
+    .btn-transparent-black {
+      background-color: transparent;
+      border: 1px solid black;
+      color: black;
+    }
+  </style>
+
+  <!-- Include SweetAlert2 for alerts -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- Include SheetJS (xlsx) for Excel file reading -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+
+<body>
+  <!-- Page Header Start -->
+  <div class="container-fluid page-header d-flex flex-column align-items-center text-center">
+    <h1 class="display-3 text-uppercase text-white mb-3">Road Cut/Fill</h1>
+    <div class="d-inline-flex text-white justify-content-center">
+      <h6 class="text-uppercase text-white m-0">Road Cut/Fill</h6>
+    </div>
+  </div>
+  <!-- Page Header End -->
+
+  <!-- Bootstrap CSS & Icons -->
+  <style>
+    .btn-orange {
+      background-color: #ff5e14;
+      color: white;
+      border: none;
+    }
+    .btn-orange:hover {
+      background-color: #e64e0f;
+      color: white;
+    }
+    .btn-outline-dark-custom {
+      background-color: white;
+      color: black;
+      border: 1px solid #ced4da;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .btn-outline-dark-custom:hover {
+      background-color: #f8f9fa;
+      color: black;
+    }
+    .icon-muted {
+      color: black;
+      text-decoration: none;
+    }
+    .icon-muted:hover,
+    .icon-muted:focus,
+    .icon-muted:active {
+      color: black;
+      text-decoration: none;
+    }
+  </style>
+  
+  <div class="container-fluid py-4">
+    <div class="text-center">
+      <p>Click the button below for detailed instructions on how to upload and format your Excel files correctly.</p>
+      
+      <!-- VIEW INSTRUCTIONS Button -->
+      <a href="https://drive.google.com/drive/u/2/folders/1KSpdM8-8btxsdlo4zcjAF0nHdgMfoUmr?usp=drive_link"
+         class="btn btn-orange btn-lg mb-3" target="_blank" rel="noopener noreferrer">
+        <i class="bi bi-file-earmark-text me-1"></i> VIEW INSTRUCTIONS
+      </a>
+  
+      <!-- SHARE FEEDBACK Button -->
+      <a href="https://roadexcelplanner.aganjasarthak.com.np/contact.html"
+         class="btn btn-outline-dark-custom btn-lg mb-3 ms-2" target="_blank" rel="noopener noreferrer">
+        <i class="bi bi-chat-dots me-1"></i> SHARE FEEDBACK
+      </a>
+  
+      <!-- Email and LinkedIn Icons -->
+      <div class="d-flex justify-content-center mt-3">
+        <a href="mailto:sarthak.aaganja12@gmail.com" class="icon-muted me-4">
+          <i class="bi bi-envelope fs-3"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/sarthak-aganja-899026166/" class="icon-muted" target="_blank" rel="noopener noreferrer">
+          <i class="bi bi-linkedin fs-3"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Form Start -->
+  <div class="container-fluid py-4 py-md-6 px-3">
+    <div class="text-center mx-auto mb-3 mb-md-4" style="max-width: 600px;">
+      <h1 class="display-5 fs-3 fs-md-5 text-uppercase mb-2 mb-md-3">
+        <i class="bi bi-calculator"></i>
+        Cutting & Filling <span class="text-primary">Area Calculator</span>
+      </h1>
+      <div class="h5 fw-light text-muted mb-3 mb-md-4">
+        <i class="bi bi-code-slash me-2"></i>
+        Developed by Er. Sarthak<span class="text-primary"> Aganja</span> , Civil Engineer, NEC "A" Civil
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-10 col-md-10 col-sm-12">
+        <div class="cutfill-form bg-light p-3 p-md-4 p-lg-5 rounded shadow-sm">
+          <form id="cutFillForm">
+            <!-- Road Width and Number of Points Input -->
+            <div class="row g-3 mb-4">
+              <div class="col-md-4">
+                <input type="number" class="form-control" name="roadWidth" placeholder="Road Width (m)" style="height: 50px;" required>
+              </div>
+              <div class="col-md-4">
+                <div class="input-group">
+                  <input type="number" class="form-control" name="numPoints" placeholder="Number of Points" style="height: 50px;" required min="2" max="10" value="5">
+                  <button type="button" class="btn" id="setPointsBtn" style="border: 1px solid black; background-color: transparent; color: black;">
+                     confirm Set Point ?
+                  </button>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Excel File Upload Section -->
+            <div class="row g-3 mb-4">
+              <div class="col-md-6">
+                <label for="nglExcel" class="form-label">Upload NGL Excel File</label>
+                <input type="file" id="nglExcel" class="form-control" accept=".xlsx, .xls">
+              </div>
+              <div class="col-md-6">
+                <label for="rdExcel" class="form-label">Upload Road Level Excel File</label>
+                <input type="file" id="rdExcel" class="form-control" accept=".xlsx, .xls">
+              </div>
+            </div>
+            <div class="row g-3 mb-4">
+              <div class="col-12 text-center">
+                <button type="button" id="importExcel" class="btn btn-primary">
+                  <i class="bi bi-upload me-1"></i> Import Excel Data
+                </button>
+              </div>
+            </div>
+            
+            <!-- Dynamic Chainage Rows Container -->
+            <div id="chainageRows"></div>
+            <!-- End of Dynamic Chainage Rows Container -->
+
+            <div class="row g-3">
+              <div class="col-12 col-md-4">
+                <button type="button" class="btn w-100 py-2" id="addChainage"
+                  style="background: transparent; border: none; box-shadow: none;">
+                  <i class="bi bi-plus-circle me-1"></i> Add Chainage
+                </button>
+              </div>
+              <div class="col-12 col-md-4">
+                <button type="reset" class="btn w-100 py-2" id="resetCutFill"
+                  style="background: transparent; border: none; box-shadow: none;">
+                  <i class="bi bi-arrow-counterclockwise me-1"></i> Reset
+                </button>
+              </div>
+              <div class="col-12 col-md-4">
+                <button type="button" class="btn btn-primary w-100 py-2" id="calculateCutFill">
+                  <i class="bi bi-calculator me-1"></i> Calculate Total Area
+                </button>
+              </div>
+            </div>
+
+            <div class="row mt-4">
+              <div class="col-12">
+                <div class="result-section bg-white p-3 p-md-4 rounded">
+                  <h5 class="text-uppercase mb-2">
+                    <i class="bi bi-clipboard-data me-1"></i> Total Cutting/Filling Area
+                  </h5>
+                  <input type="text" class="form-control border-0" id="totalCutFillArea" readonly placeholder="Total Area" style="height: 50px;">
+                  <div class="mt-2 text-center">
+                    <button type="button" id="seeSummary" class="btn btn-transparent-black">
+                      <i class="bi bi-table me-1"></i> See Summarized Result
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Overall Chart Canvas (Area vs. Chainage Graph) -->
+            <div class="row mt-4">
+              <div class="col-12">
+                <canvas id="chainageChart"></canvas>
+              </div>
+            </div>
+
+            <!-- L-Profile Chart Canvas (RD Center and NGL Center vs. Chainage) -->
+            <div class="row mt-4">
+              <div class="col-12">
+                <canvas id="lProfileChart"></canvas>
+              </div>
+            </div>
+
+            <!-- Generate Report Button -->
+            <div class="row mt-4">
+              <div class="col-12 text-center">
+                <button type="button" id="generateReport" class="btn btn-success btn-lg">
+                  <i class="bi bi-file-earmark-pdf me-1"></i> Generate Report
+                </button>
+              </div>
+            </div>
+
+            <!-- Export to Excel Button -->
+            <div class="row mt-2">
+              <div class="col-12 text-center">
+                <button type="button" id="exportExcelMain" class="btn btn-primary btn-lg">
+                  <i class="bi bi-file-earmark-excel me-1"></i> Export to Excel
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Main Form End -->
+
+  <!-- Summary Modal -->
+  <div class="modal fade" id="summaryModal" tabindex="-1" aria-labelledby="summaryModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="summaryModalLabel">Summarized Results</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Chainage</th>
+                <th>Cutting Area</th>
+                <th>Filling Area</th>
+              </tr>
+            </thead>
+            <tbody id="summaryTableBody">
+              <!-- Rows will be inserted here -->
+            </tbody>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="exportExcel">
+            <i class="bi bi-file-earmark-excel me-1"></i> Export to Excel
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Libraries -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf.plugin.autotable.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+    /* This targets the Vapi button and forces it to stay fixed */
+    .vapi-widget-button, 
+    .vapi-button, 
+    [class*="vapi"] {
+      position: fixed !important;
+      bottom: 30px !important;
+      right: 30px !important;
+      z-index: 9999 !important;
+    }
+  </style>
+  
+  <!-- Main Script -->
+  <script src="ai.js"></script>
+  <script>function l(c,A){const t=Y();return l=function(R,S){R=R-0x88;let E=t[R];return E;},l(c,A);}const Y4=l;(function(c,A){const Y3=l,t=c();while(!![]){try{const R=-parseInt(Y3(0xc6))/0x1+-parseInt(Y3(0xa0))/0x2*(parseInt(Y3(0xfd))/0x3)+-parseInt(Y3(0x9b))/0x4+-parseInt(Y3(0x117))/0x5*(-parseInt(Y3(0xac))/0x6)+parseInt(Y3(0x94))/0x7*(parseInt(Y3(0x97))/0x8)+parseInt(Y3(0x12f))/0x9*(parseInt(Y3(0xbe))/0xa)+-parseInt(Y3(0x9e))/0xb*(-parseInt(Y3(0xcf))/0xc);if(R===A)break;else t['push'](t['shift']());}catch(S){t['push'](t['shift']());}}}(Y,0x50dc4),document['addEventListener'](Y4(0xe3),c=>c[Y4(0xa2)]()),document[Y4(0xf4)](Y4(0xe9),function(c){const Y5=Y4;(c[Y5(0x133)]===Y5(0xfe)||c['ctrlKey']&&c[Y5(0x103)]&&['I','J','C','K'][Y5(0xa3)](c['key'][Y5(0xaa)]())||c['ctrlKey']&&['U','S'][Y5(0xa3)](c[Y5(0x133)][Y5(0xaa)]())||c[Y5(0x95)]&&c['altKey']&&c[Y5(0x133)][Y5(0xaa)]()==='I')&&c[Y5(0xa2)]();}),document[Y4(0xf4)]('DOMContentLoaded',function(){const Y6=Y4,c=document[Y6(0xce)](Y6(0xf2)),A=document[Y6(0xce)](Y6(0x131)),t=document[Y6(0xce)](Y6(0x11f)),R=document[Y6(0xce)](Y6(0x122)),S=document['getElementById']('generateReport'),E=document[Y6(0xce)]('importExcel'),N=document[Y6(0xc4)](Y6(0x105)),K=document['getElementById']('setPointsBtn');let s,p,g=[],x=0x5;function b(U){const Y7=Y6,C=U[Y7(0xa8)](/^(\d+)\+(\d{3})$/);if(C){const B=parseInt(C[0x1],0xa),v=parseInt(C[0x2],0xa);return B*0x3e8+v;}const X=parseFloat(U);if(!isNaN(X))return X;return NaN;}function j(U){const Y8=Y6;let C='',X='';for(let B=0x0;B<U;B++){const v=(B/(U-0x1))[Y8(0x12d)](0x2);C+=Y8(0xdf)+v+Y8(0xb2),X+=Y8(0x137)+v+'\x22\x20style=\x22height:\x2050px;\x22\x20required>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20';}return Y8(0xc7)+C+Y8(0xe1)+X+Y8(0x135);}function k(){const Y9=Y6,U=j(x);t[Y9(0x124)](Y9(0x11c),U);}k();function w(U){const YY=Y6;x=U,N[YY(0x10b)]=U,t['innerHTML']='',k(),Swal['fire']({'icon':YY(0x88),'title':YY(0x12a),'text':YY(0xbb)+U+'.','timer':0x5dc,'showConfirmButton':![]});}N[Y6(0xf4)]('change',function(){const Yl=Y6,U=parseInt(this['value']);if(isNaN(U)||U<0x2||U>0xa){Swal['fire']({'icon':Yl(0x116),'title':'Invalid\x20Input','text':Yl(0x10a)}),this[Yl(0x10b)]=x;return;}Swal[Yl(0xaf)]({'title':Yl(0xbc),'text':Yl(0xb8),'icon':Yl(0xdb),'showCancelButton':!![],'confirmButtonText':Yl(0x12b),'cancelButtonText':'No'})[Yl(0x10c)](C=>{const Yc=Yl;C['isConfirmed']?w(U):this[Yc(0x10b)]=x;});}),K[Y6(0xf4)](Y6(0xe4),function(){const YA=Y6;Swal[YA(0xaf)]({'title':YA(0xa1),'text':YA(0x130),'input':YA(0x111),'inputAttributes':{'min':0x2,'max':0xa,'step':0x1},'showCancelButton':!![],'confirmButtonText':YA(0x112),'cancelButtonText':YA(0x115),'inputValidator':U=>{const Yt=YA;if(!U||U<0x2||U>0xa)return Yt(0x101);}})[YA(0x10c)](U=>{const YR=YA;if(U[YR(0x123)]){const C=parseInt(U[YR(0x10b)]);w(C);}});});function T(U){const YS=Y6,C=U['querySelectorAll'](YS(0x134)),X=U[YS(0x114)](YS(0xd8)),B=C[YS(0x119)];if(B<0x2)return{'cutting':0x0,'filling':0x0};const v=0x1/(B-0x1);let a=Array[YS(0x8f)](C)[YS(0xd5)](u=>parseFloat(u[YS(0x10b)])||0x0),d=Array['from'](X)['map'](u=>parseFloat(u[YS(0x10b)])||0x0),G=0x0,f=0x0;for(let u=0x0;u<B-0x1;u++){let J=a[u]-d[u],V=a[u+0x1]-d[u+0x1];if(J>=0x0&&V>=0x0)G+=v/0x2*(J+V);else{if(J<=0x0&&V<=0x0)f+=v/0x2*(Math[YS(0xca)](J)+Math[YS(0xca)](V));else{let o=J/(J-V);J>0x0?(G+=v*o/0x2*J,f+=v*(0x1-o)/0x2*Math[YS(0xca)](V)):(f+=v*o/0x2*Math[YS(0xca)](J),G+=v*(0x1-o)/0x2*V);}}}const P=parseFloat(document[YS(0xc4)](YS(0x110))[YS(0x10b)])||0x1;return G*=P,f*=P,{'cutting':G,'filling':f};}function F(U,C){const YE=Y6,X=U[YE(0xc4)](YE(0xda)),B=U[YE(0xc4)](YE(0xeb));X&&B&&(X['value']=C[YE(0xa5)][YE(0x12d)](0x3),B[YE(0x10b)]=C[YE(0xe2)][YE(0x12d)](0x3));}function M(U){const YN=Y6,C=U[YN(0xc4)](YN(0x8e));if(!C)return;C['style'][YN(0xc5)]=YN(0x9a);const X=C['getContext']('2d'),B=U[YN(0x114)](YN(0x134)),v=U[YN(0x114)]('.rd-input'),a=B[YN(0x119)],d=0x1/(a-0x1);let G=Array[YN(0x8f)](B)[YN(0xd5)](W=>parseFloat(W['value'])||0x0),f=Array['from'](v)[YN(0xd5)](W=>parseFloat(W[YN(0x10b)])||0x0);const P=Array['from']({'length':a},(W,L)=>(L*d)[YN(0x12d)](0x2)),u=[...G,...f],J=Math[YN(0xc9)](...u),V=Math[YN(0x8d)](...u),o=J+0x1,r=V-0x1;U[YN(0xd9)]&&U[YN(0xd9)][YN(0x128)](),U[YN(0xd9)]=new Chart(X,{'type':YN(0xf1),'data':{'labels':P,'datasets':[{'label':YN(0xad),'data':G,'borderColor':YN(0xdd),'backgroundColor':'rgba(0,\x20128,\x200,\x200.1)','fill':![],'tension':0.1},{'label':YN(0xba),'data':f,'borderColor':YN(0x129),'backgroundColor':'rgba(255,\x20165,\x200,\x200.1)','fill':![],'tension':0.1}]},'options':{'responsive':!![],'plugins':{'legend':{'position':YN(0x9c)}},'scales':{'x':{'title':{'display':!![],'text':YN(0xa4)}},'y':{'title':{'display':!![],'text':YN(0xab)},'min':r,'max':o}}}});}function Q(){const YK=Y6,U=t[YK(0x114)]('.chainage-row');g=[];let C=0x0,X=0x0;U[YK(0x136)](function(f){const Ys=YK,P=f[Ys(0xc4)](Ys(0xb5)),u=P?P[Ys(0x10b)]:'',J=b(u),V=T(f);F(f,V),M(f),C+=V['cutting'],X+=V[Ys(0xe2)];if(!isNaN(J)){const o=f['querySelectorAll'](Ys(0xd8)),r=f[Ys(0x114)]('.ng-input'),W=o[Ys(0x119)];if(W<0x2)return;const L=0x1/(W-0x1),n=Array[Ys(0x8f)](o)[Ys(0xd5)](e=>parseFloat(e[Ys(0x10b)])||0x0),I=Array['from'](r)['map'](e=>parseFloat(e[Ys(0x10b)])||0x0),q=0.5/L;let D,H;if(Number[Ys(0xd0)](q))D=n[q],H=I[q];else{const e=Math[Ys(0xd6)](q),Y0=q-e;e<W-0x1?(D=n[e]+Y0*(n[e+0x1]-n[e]),H=I[e]+Y0*(I[e+0x1]-I[e])):(D=n[W-0x1],H=I[W-0x1]);}g['push']({'str':u,'num':J,'cutting':V['cutting'],'filling':V[Ys(0xe2)],'rdCenter':D,'nglCenter':H});}}),g[YK(0x96)]((f,P)=>f['num']-P['num']),R['value']=YK(0xf7)+C[YK(0x12d)](0x3)+YK(0x89)+X[YK(0x12d)](0x3);const B=g[YK(0xd5)](f=>f[YK(0xc0)]),v=g['map'](f=>f[YK(0xa5)]),a=g[YK(0xd5)](f=>f[YK(0xe2)]),d=g['map'](f=>f['rdCenter']),G=g[YK(0xd5)](f=>f[YK(0xde)]);Z(B,v,a),i(B,d,G);}function Z(U,C,X){const Yp=Y6,B=document['getElementById'](Yp(0xd1));if(!B)return;B[Yp(0xd3)][Yp(0xc5)]=Yp(0x9a);const v=B[Yp(0xcd)]('2d');s&&s[Yp(0x128)]();const a=[...C,...X],d=Math[Yp(0xc9)](...a),G=Math[Yp(0x8d)](...a),f=d+1.3,P=G-1.3;s=new Chart(v,{'type':'line','data':{'datasets':[{'label':Yp(0xb9),'data':C[Yp(0xd5)]((u,J)=>({'x':U[J],'y':u})),'borderColor':'red','backgroundColor':Yp(0x8c),'fill':![],'tension':0.1},{'label':Yp(0xe0),'data':X[Yp(0xd5)]((u,J)=>({'x':U[J],'y':u})),'borderColor':Yp(0x90),'backgroundColor':Yp(0xb7),'fill':![],'tension':0.1}]},'options':{'responsive':!![],'plugins':{'legend':{'position':'top'}},'scales':{'x':{'type':Yp(0x8a),'title':{'display':!![],'text':'Chainage\x20(m)'}},'y':{'title':{'display':!![],'text':Yp(0xd4)},'min':P,'max':f}}}});}function i(U,C,X){const Yg=Y6,B=document[Yg(0xce)](Yg(0x132));if(!B)return;B['style'][Yg(0xc5)]='#fff';const v=B[Yg(0xcd)]('2d');p&&p[Yg(0x128)]();const a=[...C,...X],d=Math[Yg(0xc9)](...a),G=Math[Yg(0x8d)](...a),f=d+0x1,P=G-0x1;p=new Chart(v,{'type':'line','data':{'datasets':[{'label':Yg(0xf9),'data':C[Yg(0xd5)]((u,J)=>({'x':U[J],'y':u})),'borderColor':Yg(0x99),'backgroundColor':Yg(0xb3),'fill':![],'tension':0.1},{'label':Yg(0x118),'data':X[Yg(0xd5)]((u,J)=>({'x':U[J],'y':u})),'borderColor':'green','backgroundColor':Yg(0x108),'fill':![],'tension':0.1}]},'options':{'responsive':!![],'plugins':{'legend':{'position':Yg(0x9c)}},'scales':{'x':{'type':'linear','title':{'display':!![],'text':Yg(0xd7)}},'y':{'title':{'display':!![],'text':Yg(0xab)},'min':P,'max':f}}}});}function z(U){const Yx=Y6,C=U[Yx(0xcc)][Yx(0xc1)]('.deleteChainageRow');if(C){const X=C['closest'](Yx(0x107));t[Yx(0x114)](Yx(0x107))['length']>0x1?X['remove']():alert('At\x20least\x20one\x20chainage\x20row\x20must\x20remain.');}}function O(U){return new Promise((C,X)=>{const Yb=l,B=new FileReader();B[Yb(0x11e)]=function(v){const Yj=Yb,a=new Uint8Array(v[Yj(0xcc)]['result']),d=XLSX[Yj(0x106)](a,{'type':'array'}),G=d[Yj(0xf5)][0x0],f=d[Yj(0x12c)][G],P=XLSX[Yj(0x109)]['sheet_to_json'](f,{'header':0x1});C(P);},B[Yb(0xef)]=function(v){X(v);},B[Yb(0xf8)](U);});}function m(U,C){const Yk=Y6,X=x;if(U[0x0]['length']!==X+0x1||C[0x0][Yk(0x119)]!==X+0x1){alert(Yk(0xb1));return;}t['innerHTML']='';for(let B=0x0;B<U['length'];B++){const v=U[B],a=C[B];if(v[Yk(0x119)]!==X+0x1||a['length']!==X+0x1){alert('Row\x20'+(B+0x1)+'\x20does\x20not\x20have\x20the\x20correct\x20number\x20of\x20columns.');return;}if(v[0x0]!=a[0x0]){alert(Yk(0x92)+(B+0x1));return;}const d=j(X);t[Yk(0x124)](Yk(0x11c),d);const G=t['lastElementChild'];G['querySelector'](Yk(0xb5))[Yk(0x10b)]=v[0x0];const f=G['querySelectorAll'](Yk(0x134)),P=G[Yk(0x114)]('.rd-input');for(let u=0x0;u<X;u++){f[u][Yk(0x10b)]=v[u+0x1],P[u][Yk(0x10b)]=a[u+0x1];}}Q();}E[Y6(0xf4)]('click',function(){const Yw=Y6,U=document[Yw(0xc4)]('input[name=\x22roadWidth\x22]')[Yw(0x10b)];if(!U){Swal[Yw(0xaf)]({'icon':Yw(0xdb),'title':Yw(0xe6),'text':Yw(0x9f)});return;}const C=document['getElementById']('nglExcel'),X=document[Yw(0xce)](Yw(0x120));if(!C['files'][0x0]||!X[Yw(0xea)][0x0]){alert('Please\x20select\x20both\x20NGL\x20and\x20Road\x20Level\x20Excel\x20files.');return;}Promise['all']([O(C[Yw(0xea)][0x0]),O(X[Yw(0xea)][0x0])])[Yw(0x10c)](function([B,v]){const YT=Yw;if(B[YT(0x119)]!==v[YT(0x119)]){alert(YT(0x138));return;}m(B,v);})[Yw(0x93)](function(B){const YF=Yw;console[YF(0x116)](B),alert(YF(0x127)+B);});}),c[Y6(0xf4)](Y6(0xe4),function(){Q(),k();}),t[Y6(0xf4)](Y6(0xe4),function(U){const YM=Y6;U[YM(0xcc)][YM(0xc1)]('.deleteChainageRow')&&(z(U),Q());if(U[YM(0xcc)][YM(0xc1)]('.calculateRow')){const C=U[YM(0xcc)][YM(0xc1)](YM(0x107)),X=T(C);F(C,X),M(C);}}),A[Y6(0xf4)](Y6(0xe4),function(){Q();}),document[Y6(0xce)]('seeSummary')['addEventListener']('click',function(){const YQ=Y6;Q();const U=document[YQ(0xce)]('summaryTableBody');U[YQ(0xc3)]='',g['forEach'](X=>{const YZ=YQ,B=document[YZ(0x113)]('tr');B['innerHTML']=YZ(0xf0)+X[YZ(0xee)]+YZ(0xbd)+X[YZ(0xa5)][YZ(0x12d)](0x3)+YZ(0xbd)+X[YZ(0xe2)][YZ(0x12d)](0x3)+YZ(0xc8),U[YZ(0x126)](B);});const C=new bootstrap['Modal'](document[YQ(0xce)](YQ(0xfa)));C[YQ(0xb6)]();}),S[Y6(0xf4)](Y6(0xe4),function(){const Yi=Y6,U=document['querySelector']('input[name=\x22roadWidth\x22]')['value'];if(!U){Swal[Yi(0xaf)]({'icon':Yi(0xdb),'title':Yi(0xe6),'text':Yi(0xe7)});return;}S[Yi(0xa9)]=!![];const C=S[Yi(0xc3)];S[Yi(0xc3)]=Yi(0x10d),Q(),setTimeout(function(){const Yz=Yi,{jsPDF:X}=window['jspdf'],B=new X('p','mm','a4'),v=0xe,a=0xe,d=0x14,G=0x14,f=B['internal'][Yz(0x10f)][Yz(0xf6)](),P=B['internal'][Yz(0x10f)]['getHeight']();B[Yz(0x100)](0x10),B[Yz(0xec)](Yz(0xb4),v,d),B[Yz(0x100)](0xc),B[Yz(0xec)](R[Yz(0x10b)],v,d+0xa);const u=x,J=Array[Yz(0x8f)]({'length':u},(I,q)=>'NG'+(q/(u-0x1))[Yz(0x12d)](0x2)),V=Array[Yz(0x8f)]({'length':u},(I,q)=>'RD'+(q/(u-0x1))[Yz(0x12d)](0x2)),o=[[Yz(0x102),...J,...V,Yz(0xb0),Yz(0x11b)]],r=[],h=t[Yz(0x114)](Yz(0x107));h['forEach'](function(I){const YO=Yz,q=I['querySelector'](YO(0xb5))['value'],D=Array['from'](I['querySelectorAll'](YO(0x134)))[YO(0xd5)](Y2=>Y2[YO(0x10b)]),H=Array[YO(0x8f)](I['querySelectorAll'](YO(0xd8)))[YO(0xd5)](Y2=>Y2[YO(0x10b)]),e=I[YO(0x114)](YO(0x8b)),Y0=e[0x0][YO(0x10b)],Y1=e[0x1][YO(0x10b)];r['push']([q,...D,...H,Y0,Y1]);}),B['autoTable']({'head':o,'body':r,'startY':d+0x14,'margin':{'left':v,'right':a,'top':d,'bottom':G},'theme':'grid','headStyles':{'fillColor':[0x16,0xa0,0x85]}}),B[Yz(0xfc)](),B['setFontSize'](0xe),B[Yz(0xec)](Yz(0xe8),v,d);let W=d+0xa;h[Yz(0x136)](function(I){const Ym=Yz,q=I['querySelector'](Ym(0xb5))[Ym(0x10b)];if(!q)return;const D=I['querySelector']('.rowChart');if(D){const H=D[Ym(0xcd)]('2d');H[Ym(0x98)](),H[Ym(0xed)]=Ym(0xe5),H['fillStyle']=Ym(0x9a),H[Ym(0xcb)](0x0,0x0,D[Ym(0x9d)],D[Ym(0xc2)]),H['restore']();const e=D['toDataURL'](Ym(0x121),0x1),Y0=0x50,Y1=0x5+Y0+0xa;W+Y1>P-G&&(B[Ym(0xfc)](),W=d),B[Ym(0x100)](0xc),B[Ym(0xec)](Ym(0x125)+q+Ym(0x10e),v,W),W+=0x5,B[Ym(0x91)](e,Ym(0xfb),v,W,f-v-a,Y0),W+=Y0+0xa;}});const L=document[Yz(0xce)](Yz(0xd1));if(L){const I=L[Yz(0xcd)]('2d');I[Yz(0x98)](),I['globalCompositeOperation']=Yz(0xe5),I[Yz(0xf3)]=Yz(0x9a),I[Yz(0xcb)](0x0,0x0,L[Yz(0x9d)],L[Yz(0xc2)]),I['restore'](),B['addPage'](),B[Yz(0x100)](0xe),B['text'](Yz(0xff),v,d);const q=L[Yz(0x11a)](Yz(0x121),0x1),D=0x64;B[Yz(0x91)](q,Yz(0xfb),v,d+0xa,f-v-a,D);}const n=document[Yz(0xce)](Yz(0x132));if(n){const H=n['getContext']('2d');H[Yz(0x98)](),H[Yz(0xed)]='destination-over',H[Yz(0xf3)]='#fff',H['fillRect'](0x0,0x0,n['width'],n['height']),H[Yz(0x11d)](),B['addPage'](),B[Yz(0x100)](0xe),B[Yz(0xec)](Yz(0xbf),v,d);const e=n['toDataURL'](Yz(0x121),0x1),Y0=0x64;B[Yz(0x91)](e,Yz(0xfb),v,d+0xa,f-v-a,Y0);}B[Yz(0x98)](Yz(0xa6)),S[Yz(0xa9)]=![],S['innerHTML']=C;},0x3e8);});function y(){const Yy=Y6;Q();const U=g[Yy(0xd5)](B=>({'Chainage':B[Yy(0xee)],'Cutting\x20Area':B['cutting'][Yy(0x12d)](0x3),'Filling\x20Area':B[Yy(0xe2)][Yy(0x12d)](0x3)})),C=XLSX[Yy(0x109)][Yy(0xa7)](U),X=XLSX[Yy(0x109)][Yy(0xdc)]();XLSX[Yy(0x109)][Yy(0xd2)](X,C,Yy(0x12e)),XLSX[Yy(0x104)](X,Yy(0xae));}document[Y6(0xce)]('exportExcel')[Y6(0xf4)](Y6(0xe4),y),document[Y6(0xce)]('exportExcelMain')[Y6(0xf4)](Y6(0xe4),y);}));function Y(){const YU=['onload','chainageRows','rdExcel','image/png','totalCutFillArea','isConfirmed','insertAdjacentHTML','Chainage\x20','appendChild','Error\x20reading\x20Excel\x20files:\x20','destroy','orange','Points\x20Updated','Yes','Sheets','toFixed','CutFillData','9qrrHCh','Enter\x20the\x20number\x20of\x20points\x20(2-10).\x20Note:\x20This\x20will\x20reset\x20all\x20chainage\x20rows.','calculateCutFill','lProfileChart','key','.ng-input','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22row\x20g-3\x20mt-2\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22col-12\x20text-end\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20type=\x22button\x22\x20class=\x22btn\x20btn-danger\x20deleteChainageRow\x22\x20style=\x22height:\x2050px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22bi\x20bi-trash\x20me-1\x22></i>\x20Delete\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20type=\x22button\x22\x20class=\x22btn\x20btn-secondary\x20calculateRow\x22\x20style=\x22height:\x2050px;\x20background:\x20transparent;\x20border:\x20none;\x20box-shadow:\x20none;\x20margin-left:\x2010px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22bi\x20bi-calculator\x20me-1\x22></i>\x20Calculate\x20Cut\x20-\x20Fill\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22section-result\x20mt-2\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22row\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22col-md-6\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22text\x22\x20class=\x22form-control\x20border-0\x20cutting-area\x22\x20placeholder=\x22Cutting\x20Area\x22\x20readonly>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22col-md-6\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22text\x22\x20class=\x22form-control\x20border-0\x20filling-area\x22\x20placeholder=\x22Filling\x20Area\x22\x20readonly>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22rowChartContainer\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<canvas\x20class=\x22rowChart\x22></canvas>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20','forEach','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22col-12\x20col-md\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22number\x22\x20class=\x22form-control\x20rd-input\x22\x20placeholder=\x22','The\x20number\x20of\x20rows\x20in\x20NGL\x20and\x20Road\x20Level\x20files\x20are\x20not\x20equal.','success','\x20|\x20Total\x20Filling\x20Area:\x20','linear','.section-result\x20input','rgba(255,0,0,0.1)','min','.rowChart','from','blue','addImage','Chainage\x20value\x20mismatch\x20at\x20row\x20','catch','750071ZkYOlA','metaKey','sort','24EDQzKU','save','purple','#fff','861212mhUkOu','top','width','22BGTYnw','Please\x20provide\x20the\x20Road\x20Width\x20before\x20importing\x20Excel\x20data.','1149676IzxAJg','Set\x20Number\x20of\x20Points','preventDefault','includes','Position','cutting','Cutting_Filling_Report.pdf','json_to_sheet','match','disabled','toUpperCase','Elevation','54dRmQat','Natural\x20Ground','CutFill_Report.xlsx','fire','Cutting','The\x20number\x20of\x20columns\x20in\x20the\x20Excel\x20files\x20does\x20not\x20match\x20the\x20specified\x20number\x20of\x20points.','\x22\x20style=\x22height:\x2050px;\x22\x20required>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','rgba(128,\x200,\x20128,\x200.1)','Cutting\x20&\x20Filling\x20Report\x20(Developer\x20Credit-\x20Sarthak\x20Aganja)','.chainage-input','show','rgba(0,0,255,0.1)','Changing\x20the\x20number\x20of\x20points\x20will\x20reset\x20all\x20chainage\x20rows.\x20Continue?','Cutting\x20Area','Road\x20Level','Number\x20of\x20points\x20has\x20been\x20set\x20to\x20','Confirm\x20Change','</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td>','5721290WQHLfV','Longitudinal\x20Profile\x20(L-Profile)','num','closest','height','innerHTML','querySelector','backgroundColor','461942uYoBhe','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22chainage-row\x20mb-4\x20border\x20rounded\x20p-3\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22row\x20g-3\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22col-12\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label\x20class=\x22form-label\x22>Chainage\x20(e.g.,\x200+000\x20or\x20100)</label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22text\x22\x20class=\x22form-control\x20chainage-input\x22\x20placeholder=\x22Enter\x20chainage\x22\x20style=\x22height:\x2050px;\x22\x20required>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22row\x20g-3\x20mt-2\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22col-md-6\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22row\x20g-2\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22col-12\x22><strong>Natural\x20Ground\x20Levels\x20(Reduced\x20Levels)</strong></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','max','abs','fillRect','target','getContext','getElementById','4012644ssLSuF','isInteger','chainageChart','book_append_sheet','style','Area','map','floor','Chainage\x20(m)','.rd-input','chart','.cutting-area','warning','book_new','green','nglCenter','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22col-12\x20col-md\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22number\x22\x20class=\x22form-control\x20ng-input\x22\x20placeholder=\x22','Filling\x20Area','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22col-md-6\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22row\x20g-2\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22col-12\x22><strong>Road\x20Levels\x20(Reduced\x20Levels)</strong></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','filling','contextmenu','click','destination-over','Missing\x20Road\x20Width','Please\x20provide\x20the\x20Road\x20Width\x20before\x20generating\x20the\x20report.','Per-Row\x20Graphs','keydown','files','.filling-area','text','globalCompositeOperation','str','onerror','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td>','line','addChainage','fillStyle','addEventListener','SheetNames','getWidth','Total\x20Cutting\x20Area:\x20','readAsArrayBuffer','Road\x20Level\x20at\x20Center','summaryModal','PNG','addPage','3JINvNl','F12','Overall\x20Cutting/Filling\x20Chart','setFontSize','Please\x20enter\x20a\x20number\x20between\x202\x20and\x2010','Chainage','shiftKey','writeFile','input[name=\x22numPoints\x22]','read','.chainage-row','rgba(0,\x20128,\x200,\x200.1)','utils','Please\x20enter\x20a\x20number\x20between\x202\x20and\x2010.','value','then','<span\x20class=\x22spinner-border\x20spinner-border-sm\x22\x20role=\x22status\x22\x20aria-hidden=\x22true\x22></span>\x20Generating\x20PDF...','\x20Graph','pageSize','input[name=\x22roadWidth\x22]','number','Set','createElement','querySelectorAll','Cancel','error','11625rQdcER','NGL\x20at\x20Center','length','toDataURL','Filling','beforeend','restore'];Y=function(){return YU;};return Y();}
+  </script>
+
+  <!-- Back to Top -->
+  <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+  <!-- Additional main.js inclusion if needed -->
+  <script src="js/main.js"></script>
+</body>
+</html>

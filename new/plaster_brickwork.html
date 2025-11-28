@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>BECB-Consultant and Builders</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Construction company Pokhara santosh sunar Bishwokarma engineering name="keywords">
+    <meta content="Construction company Pokhara" name="description">
+
+
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://imgs.search.brave.com/YxAAFFXFie5mJWLu4NfouIxZicgKg3NYbuD0FnVv7Nc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9wbHVz/cG5nLmNvbS9pbWct/cG5nL3Zpc2h3YWth/cm1hLWdvZC1wbmct/dmlzaHZha2FybWEt/Z29kLXBpY3R1cmUt/bXY0MTUtNjAwLnBu/Zw">
+
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet"> 
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Topbar Start -->
+    <div class="container-fluid px-5 d-none d-lg-block">
+        <div class="row gx-5">
+            <div class="col-lg-4 text-center py-3">
+                <div class="d-inline-flex align-items-center">
+                    <i class="bi bi-geo-alt fs-1 text-primary me-3"></i>
+                    <div class="text-start">
+                        <h6 class="text-uppercase fw-bold">Our Office</h6>
+                        <span>Srijana Chowk, Pokhara </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center border-start border-end py-3">
+                <div class="d-inline-flex align-items-center">
+                    <i class="bi bi-envelope-open fs-1 text-primary me-3"></i>
+                    <div class="text-start">
+                        <h6 class="text-uppercase fw-bold">Email Us</h6>
+                        <span>bishwokarma1025@gmail.com</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center py-3">
+                <div class="d-inline-flex align-items-center">
+                    <i class="bi bi-phone-vibrate fs-1 text-primary me-3"></i>
+                    <div class="text-start">
+                        <h6 class="text-uppercase fw-bold">Call Us</h6>
+                        <span>+977 9867705029</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    
+    <!-- Navbar End -->
+
+
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header d-flex flex-column align-items-center text-center">
+        <h1 class="display-3 text-uppercase text-white mb-3">Plaster & BWwork</h1>
+        <div class="d-inline-flex text-white justify-content-center">
+            <h6 class="text-uppercase m-0"><a href="">Dash</a></h6>
+            <h6 class="text-white m-0 px-3">/</h6>
+            <h6 class="text-uppercase text-white m-0">Plaster & BWwork</h6>
+        </div>
+    </div>
+    
+
+
+
+<div class="container-fluid py-4 py-md-6 px-3">
+        <div class="text-center mx-auto mb-3 mb-md-4" style="max-width: 600px;">
+            <h1 class="display-5 fs-3 fs-md-5 text-uppercase mb-2 mb-md-3">
+                <i class="bi bi-building me-2"></i>
+                Brick <span class="text-primary">Work</span> Calculator
+            </h1>
+            <div class="h5 fw-light text-muted mb-3 mb-md-4">
+                <i class="bi bi-code-slash me-2"></i>
+                Developed by Er. Sarthak<span class="text-primary"> Aganja</span>, Civil Engineer, NEC "A" Civil
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-6 col-md-8 col-sm-10">
+                <div class="contact-form bg-light p-3 p-md-4 p-lg-5 rounded shadow-sm">
+                    <form id="constructionCalculatorForm">
+                        <div class="row g-3">
+                            <!-- Unit Selection -->
+                            <div class="col-12">
+                                <div class="input-group">
+                                    <span class="input-group-text border-0">
+                                        <i class="bi bi-rulers"></i>
+                                    </span>
+                                    <select class="form-control border-0" id="unitType" style="height: 50px;">
+                                        <option value="">Select Unit Type</option>
+                                        <option value="cubicMeter"><i class="bi bi-box"></i> Cubic Meter (m³)</option>
+                                        <option value="cubicFeet"><i class="bi bi-boxes"></i> Cubic Feet (ft³)</option>
+                                    </select>
+                                </div>
+                            </div>
+    
+                            <!-- Cement-to-Sand Ratio Selection -->
+                            <div class="col-12">
+                                <div class="input-group">
+                                    <span class="input-group-text border-0">
+                                        <i class="bi bi-percent"></i>
+                                    </span>
+                                    <select class="form-control border-0" id="cementSandRatio" style="height: 50px;">
+                                        <option value="">Select Cement:Sand Ratio</option>
+                                        <option value="1:3">1:3</option>
+                                        <option value="1:4">1:4</option>
+                                        <option value="1:5">1:5</option>
+                                        <option value="1:6">1:6</option>
+                                    </select>
+                                </div>
+                            </div>
+    
+                            <!-- Value Input -->
+                            <div class="col-12">
+                                <div class="input-group">
+                                    <span class="input-group-text border-0">
+                                        <i class="bi bi-input-cursor-text"></i>
+                                    </span>
+                                    <input type="number" class="form-control border-0" id="inputValue" placeholder="Enter Value" style="height: 50px;">
+                                </div>
+                            </div>
+    
+                            <!-- Calculate Button -->
+                            <div class="col-12">
+                                <button class="btn btn-primary w-100 py-2 py-md-3" type="button" id="calculateButton">
+                                    <i class="bi bi-calculator me-2"></i>
+                                    Calculate
+                                </button>
+                            </div>
+    
+                            <!-- Results Section -->
+                            <div class="col-12">
+                                <div class="result-section bg-white p-3 p-md-4 rounded">
+                                    <h5 class="text-uppercase mb-2 mb-md-3">
+                                        <i class="bi bi-clipboard-data me-2"></i>
+                                        Calculation Results
+                                    </h5>
+                                    <div class="row g-2 g-md-3">
+                                        <!-- Cement Bags/Bora -->
+                                        <div class="col-12 col-sm-6">
+                                            <div class="input-group">
+                                                <span class="input-group-text border-0">
+                                                    <i class="bi bi-bag"></i>
+                                                </span>
+                                                <input type="text" class="form-control border-0" id="cementBags" readonly placeholder="Cement Bags/Bora" style="height: 50px;">
+                                            </div>
+                                        </div>
+    
+                                        <!-- Sand (Cubic Meters) -->
+                                        <div class="col-12 col-sm-6">
+                                            <div class="input-group">
+                                                <span class="input-group-text border-0">
+                                                    <i class="bi bi-moisture"></i>
+                                                </span>
+                                                <input type="text" class="form-control border-0" id="sandCubicMeters" readonly placeholder="Sand (m³)" style="height: 50px;">
+                                            </div>
+                                        </div>
+    
+                                        <!-- Number of Bricks -->
+                                        <div class="col-12 col-sm-6">
+                                            <div class="input-group">
+                                                <span class="input-group-text border-0">
+                                                    <i class="bi bi-bricks"></i>
+                                                </span>
+                                                <input type="text" class="form-control border-0" id="numberOfBricks" readonly placeholder="Number of Bricks" style="height: 50px;">
+                                            </div>
+                                        </div>
+    
+                                        <!-- Cubic Feet (if input is in cubic meters) -->
+                                        <div class="col-12 col-sm-6">
+                                            <div class="input-group">
+                                                <span class="input-group-text border-0">
+                                                    <i class="bi bi-boxes"></i>
+                                                </span>
+                                                <input type="text" class="form-control border-0" id="cubicFeet" readonly placeholder="Cubic Feet (ft³)" style="height: 50px;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <!-- Quick Info Section -->
+                            <div class="col-12">
+                                <div class="info-section bg-white p-3 p-md-4 rounded mt-3">
+                                    <h6 class="text-uppercase mb-2 mb-md-3">
+                                        <i class="bi bi-info-circle me-2"></i>
+                                        Quick Conversions
+                                    </h6>
+                                    <div class="row g-2">
+                                        <div class="col-12 col-sm-6">
+                                            <small><i class="bi bi-arrow-right-short"></i> 1 m³ = 35.3147 ft³</small>
+                                        </div>
+                                        <div class="col-12 col-sm-6">
+                                            <small><i class="bi bi-arrow-right-short"></i> 1 ft³ = 0.0283168 m³</small>
+                                        </div>
+                                        <div class="col-12 col-sm-6">
+                                            <small><i class="bi bi-arrow-right-short"></i> 1 bag cement = 0.035 m³</small>
+                                        </div>
+                                        <div class="col-12 col-sm-6">
+                                            <small><i class="bi bi-arrow-right-short"></i> 1 brick = 0.0019 m³</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container my-5">
+        <div class="d-flex justify-content-center align-items-center">
+            <hr class="flex-grow-1 border-3 border-primary">
+            <div class="mx-4 d-flex gap-3">
+                <i class="bi bi-hammer text-primary fs-2"></i>
+                <i class="bi bi-bricks text-danger fs-2"></i>
+                <i class="bi bi-rulers text-warning fs-2"></i>
+                <i class="bi bi-bucket text-success fs-2"></i>
+                <i class="bi bi-tools text-info fs-2"></i>
+            </div>
+            <hr class="flex-grow-1 border-3 border-primary">
+        </div>
+    </div>
+    
+    
+
+<div class="container-fluid py-4 py-md-6 px-3">
+        <div class="text-center mx-auto mb-3 mb-md-4" style="max-width: 600px;">
+            <h1 class="display-5 fs-3 fs-md-5 text-uppercase mb-2 mb-md-3">
+                <i class="bi bi-brush me-2"></i>
+                Plaster <span class="text-primary">Work</span> Calculator
+            </h1>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-6 col-md-8 col-sm-10">
+                <div class="contact-form bg-light p-3 p-md-4 p-lg-5 rounded shadow-sm">
+                    <form id="plasterCalculatorForm">
+                        <div class="row g-3">
+                            <!-- Unit Selection -->
+                            <div class="col-12">
+                                <div class="input-group">
+                                    <span class="input-group-text border-0">
+                                        <i class="bi bi-rulers"></i>
+                                    </span>
+                                    <select class="form-control border-0" id="plasterUnitType" style="height: 50px;">
+                                        <option value="">Select Unit Type</option>
+                                        <option value="squareMeter">Square Meter (m²)</option>
+                                        <option value="squareFeet">Square Feet (ft²)</option>
+                                    </select>
+                                </div>
+                            </div>
+    
+                            <!-- Cement-to-Sand Ratio Selection -->
+                            <div class="col-12">
+                                <div class="input-group">
+                                    <span class="input-group-text border-0">
+                                        <i class="bi bi-percent"></i>
+                                    </span>
+                                    <select class="form-control border-0" id="plasterRatio" style="height: 50px;">
+                                        <option value="">Select Cement:Sand Ratio</option>
+                                        <option value="1:5_12">1:5 (12mm Thick)</option>
+                                        <option value="1:5_14">1:5 (14mm Thick)</option>
+                                        <option value="1:6_12">1:6 (12mm Thick)</option>
+                                        <option value="1:6_14">1:6 (14mm Thick)</option>
+                                    </select>
+                                </div>
+                            </div>
+    
+                            <!-- Surface Area Input -->
+                            <div class="col-12">
+                                <div class="input-group">
+                                    <span class="input-group-text border-0">
+                                        <i class="bi bi-input-cursor-text"></i>
+                                    </span>
+                                    <input type="number" class="form-control border-0" id="plasterArea" placeholder="Enter Area" style="height: 50px;">
+                                </div>
+                            </div>
+    
+                            <!-- Calculate Button -->
+                            <div class="col-12">
+                                <button class="btn btn-primary w-100 py-2 py-md-3" type="button" id="plasterCalculateButton">
+                                    <i class="bi bi-calculator me-2"></i>
+                                    Calculate
+                                </button>
+                            </div>
+    
+                            <!-- Results Section -->
+                            <div class="col-12">
+                                <div class="result-section bg-white p-3 p-md-4 rounded">
+                                    <h5 class="text-uppercase mb-2 mb-md-3">
+                                        <i class="bi bi-clipboard-data me-2"></i>
+                                        Calculation Results
+                                    </h5>
+                                    <div class="row g-2 g-md-3">
+                                        <!-- Cement Bags -->
+                                        <div class="col-12 col-sm-6">
+                                            <div class="input-group">
+                                                <span class="input-group-text border-0">
+                                                    <i class="bi bi-bag"></i>
+                                                </span>
+                                                <input type="text" class="form-control border-0" id="plasterCementBags" readonly placeholder="Cement Bags" style="height: 50px;">
+                                            </div>
+                                        </div>
+    
+                                        <!-- Sand (Cubic Meters) -->
+                                        <div class="col-12 col-sm-6">
+                                            <div class="input-group">
+                                                <span class="input-group-text border-0">
+                                                    <i class="bi bi-moisture"></i>
+                                                </span>
+                                                <input type="text" class="form-control border-0" id="plasterSandCubicMeters" readonly placeholder="Sand (m³)" style="height: 50px;">
+                                            </div>
+                                        </div>
+    
+                                        <!-- Plaster Volume -->
+                                        <div class="col-12 col-sm-6">
+                                            <div class="input-group">
+                                                <span class="input-group-text border-0">
+                                                    <i class="bi bi-box"></i>
+                                                </span>
+                                                <input type="text" class="form-control border-0" id="plasterVolume" readonly placeholder="Plaster Volume (m³)" style="height: 50px;">
+                                            </div>
+                                        </div>
+    
+                                        <!-- Converted Square Feet -->
+                                        <div class="col-12 col-sm-6">
+                                            <div class="input-group">
+                                                <span class="input-group-text border-0">
+                                                    <i class="bi bi-arrows-expand"></i>
+                                                </span>
+                                                <input type="text" class="form-control border-0" id="plasterSquareFeet" readonly placeholder="Converted ft²" style="height: 50px;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <!-- Quick Info Section -->
+                            <div class="col-12">
+                                <div class="info-section bg-white p-3 p-md-4 rounded mt-3">
+                                    <h6 class="text-uppercase mb-2 mb-md-3">
+                                        <i class="bi bi-info-circle me-2"></i>
+                                        Quick Conversions
+                                    </h6>
+                                    <div class="row g-2">
+                                        <div class="col-12 col-sm-6">
+                                            <small><i class="bi bi-arrow-right-short"></i> 1 m² = 10.764 ft²</small>
+                                        </div>
+                                        <div class="col-12 col-sm-6">
+                                            <small><i class="bi bi-arrow-right-short"></i> 1 ft² = 0.092903 m²</small>
+                                        </div>
+                                        <div class="col-12 col-sm-6">
+                                            <small><i class="bi bi-arrow-right-short"></i> 1 bag cement = 0.035 m³</small>
+                                        </div>
+                                        <div class="col-12 col-sm-6">
+                                            <small><i class="bi bi-arrow-right-short"></i> 12mm thick plaster ≈ 0.012 m³/m²</small>
+                                        </div>
+                                        <div class="col-12 col-sm-6">
+                                            <small><i class="bi bi-arrow-right-short"></i> 14mm thick plaster ≈ 0.014 m³/m²</small>
+                                        </div>
+                                        <div class="col-12 col-sm-6">
+                                            <small><i class="bi bi-arrow-right-short"></i> 1:5 ratio = 1 part cement, 5 parts sand</small>
+                                        </div>
+                                        <div class="col-12 col-sm-6">
+                                            <small><i class="bi bi-arrow-right-short"></i> 1:6 ratio = 1 part cement, 6 parts sand</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+ <!-- Footer Start -->
+ <div class="footer container-fluid position-relative bg-dark bg-light-radial text-white-50 py-6 px-5">
+    <div class="row g-5">
+        <div class="col-lg-6 pe-lg-5">
+            <a href="index.html" class="navbar-brand">
+               <h1 class="m-0 display-4 text-uppercase text-white d-flex align-items-center">
+                <img src="Bishwokarma.png" alt="Logo" style="width: 100px; height: 100px; margin-right: 10px;">
+                बिश्वकर्मा
+              </h1>
+            </a>
+            <p>With a focus on sustainability and excellence, we look forward to building lasting partnerships and shaping the future of infrastructure development.</p>
+            <p><i class="fa fa-map-marker-alt me-2"></i>Srijana Chowk, Pokhara</p>
+            <p><i class="fa fa-phone-alt me-2"></i>+977 9867705029</p>
+            <p><i class="fa fa-envelope me-2"></i>bishwokarma1025@gmail.com</p>
+            <div class="d-flex justify-content-start mt-4">
+                
+                <a class="btn btn-lg btn-primary btn-lg-square rounded-0 me-2" href="https://www.facebook.com/profile.php?id=100068650730625&mibextid=ZbWKwL"><i class="fab fa-facebook-f"></i></a>
+                <!--<a class="btn btn-lg btn-primary btn-lg-square rounded-0 me-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a class="btn btn-lg btn-primary btn-lg-square rounded-0" href="#"><i class="fab fa-instagram"></i></a> -->
+            </div>
+        </div>
+        <div class="col-lg-6 ps-lg-5">
+            <div class="row g-5">
+                <div class="col-sm-6">
+                    <h4 class="text-white text-uppercase mb-4">Quick Links</h4>
+                    <div class="d-flex flex-column justify-content-start">
+                        <a class="text-white-50 mb-2" href="http://idokaski.gandaki.gov.np/post/district-rate-kaski-2081-082"><i class="fa fa-angle-right me-2"></i>Kaski Jilla Dar Rates 081/082</a>
+                        <a class="text-white-50 mb-2" href="https://wa.me/9779860246836"><i class="fa fa-angle-right me-2"></i>Hilti-Gandaki - Er. Ashok Subedi</a>
+                        <a class="text-white-50 mb-2" href="https://ecopanelnepal.com/"><i class="fa fa-angle-right me-2"></i>Wall Panel - Nepal Eco Panel</a>
+                        
+                    </div>
+                </div>
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid bg-dark bg-light-radial text-white border-top border-primary px-0">
+    <div class="d-flex flex-column flex-md-row justify-content-between">
+        <div class="py-4 px-5 text-center text-md-start">
+            <p class="mb-0">&copy; <a class="text-primary" href="#">Developed by Er. Sarthak Aganja</a>. All Rights Reserved.</p>
+        </div>
+        <div class="py-4 px-5 bg-primary footer-shape position-relative text-center text-md-end">
+            
+        </div>
+    </div>
+</div>
+<!-- Footer End -->
+
+
+<!-- Footer End -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3.10.0/dist/email.min.js"></script>
+
+<script>
+  // Coverage rates for different paint types (in square meters per liter)
+// Coverage rates for different paint types (in square meters per liter)
+// Conversion constants
+const CONVERSION_FACTORS = {
+    CEMENT_BAG_VOLUME: 0.035,             // 1 cement bag = 0.035 m³
+    BRICK_VOLUME: 0.230 * 0.110 * 0.055,    // Volume of one brick (m³) for brick size 230x110x55mm
+    M3_TO_FT3: 35.3147,                   // 1 m³ = 35.3147 ft³
+    FT3_TO_M3: 0.0283168                  // 1 ft³ = 0.0283168 m³
+};
+
+// Hard-coded number of bricks per cubic meter of brickwork
+const BRICKS_PER_CUBIC_METER = 540;
+
+// DOM elements
+const unitType = document.getElementById("unitType");
+const cementSandRatio = document.getElementById("cementSandRatio");
+const inputValue = document.getElementById("inputValue");
+const calculateButton = document.getElementById("calculateButton");
+const cementBags = document.getElementById("cementBags");
+const sandCubicMeters = document.getElementById("sandCubicMeters");
+const numberOfBricks = document.getElementById("numberOfBricks");
+const cubicFeet = document.getElementById("cubicFeet");
+
+// Helper to format results with units
+const formatResult = (value, unit) => `${parseFloat(value.toFixed(2))} ${unit}`;
+
+calculateButton.addEventListener("click", () => {
+    const selectedUnit = unitType.value;
+    const selectedRatio = cementSandRatio.value;
+    const inputVal = parseFloat(inputValue.value);
+
+    // Validate inputs
+    if (!selectedUnit || !selectedRatio || isNaN(inputVal)) {
+        alert("Please select the unit, cement:sand ratio, and number of bricks.");
+        return;
+    }
+
+    // Extract mortar mix ratio parts (cement:sand)
+    const [cementPart, sandPart] = selectedRatio.split(":").map(Number);
+    const totalParts = cementPart + sandPart;
+
+    // Convert input volume to cubic meters
+    const volumeM3 = selectedUnit === "cubicMeter" 
+        ? inputVal 
+        : inputVal * CONVERSION_FACTORS.FT3_TO_M3;
+
+    // Calculate brick count using the hard-coded value per cubic meter
+    const bricks = volumeM3 * BRICKS_PER_CUBIC_METER;
+
+    // Calculate total volume occupied by bricks
+    const bricksVolumeTotal = bricks * CONVERSION_FACTORS.BRICK_VOLUME;
+
+    // Mortar volume is the difference between total brickwork volume and bricks' volume
+    const mortarVolume = volumeM3 - bricksVolumeTotal;
+
+    // From mortar volume, calculate cement and sand volumes based on the ratio
+    const cementVolume = (cementPart / totalParts) * mortarVolume;
+    const sandVolume = (sandPart / totalParts) * mortarVolume;
+
+    // Calculate number of cement bags
+    const cement = cementVolume / CONVERSION_FACTORS.CEMENT_BAG_VOLUME;
+
+    // Also provide the volume in cubic feet for reference
+    const volumeFt3 = selectedUnit === "cubicMeter" 
+        ? volumeM3 * CONVERSION_FACTORS.M3_TO_FT3 
+        : inputVal;
+
+    // Display results
+    cementBags.value = formatResult(cement, "बोरा");
+    sandCubicMeters.value = formatResult(sandVolume, "m³ sand");
+    numberOfBricks.value = Math.round(bricks).toLocaleString(); // Rounded brick count
+    cubicFeet.value = formatResult(volumeFt3, "ft sand³");
+});
+
+
+//another
+
+ // Constants for conversions
+const BAG_VOLUME = 0.035;        // 1 cement bag equals 0.035 m³
+const SQFT_PER_SQM = 10.764;       // 1 m² = 10.764 ft²
+const SQM_PER_SQFT = 0.092903;     // 1 ft² = 0.092903 m²
+
+// Get DOM elements
+const plasterCalculateButton = document.getElementById("plasterCalculateButton");
+const plasterUnitType = document.getElementById("plasterUnitType");
+const plasterRatio = document.getElementById("plasterRatio");
+const plasterArea = document.getElementById("plasterArea");
+const plasterCementBags = document.getElementById("plasterCementBags");
+const plasterSandCubicMeters = document.getElementById("plasterSandCubicMeters");
+const plasterVolumeInput = document.getElementById("plasterVolume");
+const plasterSquareFeet = document.getElementById("plasterSquareFeet");
+
+plasterCalculateButton.addEventListener("click", function () {
+    // Read input values
+    const unit = plasterUnitType.value;
+    const ratioValue = plasterRatio.value; // e.g. "1:5_12" or "1:6_14"
+    const areaInput = parseFloat(plasterArea.value);
+
+    // Validate inputs
+    if (!unit || !ratioValue || isNaN(areaInput)) {
+        alert("Please select unit type, cement:sand ratio and enter area.");
+        return;
+    }
+
+    // Convert input area to square meters and calculate converted area:
+    let areaM2 = 0;
+    let convertedArea = 0;
+    if (unit === "squareMeter") {
+        areaM2 = areaInput;
+        convertedArea = areaInput * SQFT_PER_SQM; // Convert m² to ft²
+    } else { // unit is squareFeet
+        areaM2 = areaInput * SQM_PER_SQFT;
+        convertedArea = areaInput * SQM_PER_SQFT; // Convert ft² to m²
+    }
+
+    // Parse the ratio value (format: "1:5_12" or "1:6_14")
+    const parts = ratioValue.split("_");
+    const ratioParts = parts[0].split(":"); // e.g., ["1", "5"]
+    const cementPart = parseFloat(ratioParts[0]);
+    const sandPart = parseFloat(ratioParts[1]);
+    const totalParts = cementPart + sandPart;
+
+    // Get plaster thickness in meters based on the thickness value from ratio
+    const thicknessMM = parts[1]; // "12" or "14"
+    let thicknessM = 0;
+    if (thicknessMM === "12") {
+        thicknessM = 0.012;
+    } else if (thicknessMM === "14") {
+        thicknessM = 0.014;
+    } else {
+        // Default to 12mm if something unexpected happens
+        thicknessM = 0.012;
+    }
+
+    // Calculate plaster volume in m³ (Area in m² * Thickness in m)
+    const plasterVolume = areaM2 * thicknessM;
+
+    // Calculate cement and sand volumes from plaster volume based on ratio
+    const cementVolume = plasterVolume * (cementPart / totalParts);
+    const sandVolume = plasterVolume * (sandPart / totalParts);
+
+    // Calculate the number of cement bags needed
+    const cementBags = cementVolume / BAG_VOLUME;
+
+    // Output results (formatted to 2 decimal places)
+    plasterCementBags.value = cementBags.toFixed(2) + "बोरा";
+    plasterSandCubicMeters.value = sandVolume.toFixed(2) + " m³ Sand";
+    plasterVolumeInput.value = plasterVolume.toFixed(2) + " m³ Plaster";
+
+    // Display the converted area:
+    if (unit === "squareMeter") {
+        plasterSquareFeet.value = convertedArea.toFixed(2) + " ft²";
+    } else {
+        plasterSquareFeet.value = convertedArea.toFixed(2) + " m²";
+    }
+});
+
+    </script>
+
+
+
+<!-- Back to Top -->
+<a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="lib/easing/easing.min.js"></script>
+<script src="lib/waypoints/waypoints.min.js"></script>
+<script src="lib/owlcarousel/owl.carousel.min.js"></script>
+<script src="lib/tempusdominus/js/moment.min.js"></script>
+<script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+<script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+<script src="lib/isotope/isotope.pkgd.min.js"></script>
+<script src="lib/lightbox/js/lightbox.min.js"></script>
+
+
+<!-- Template Javascript -->
+<script src="js/main.js"></script>
+</body>
+
+</html>

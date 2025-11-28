@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>BECB-Consultant and Builders</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="Construction company Pokhara santosh sunar Bishwokarma engineering" name="keywords">
+  <meta content="Construction company Pokhara" name="description">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://imgs.search.brave.com/YxAAFFXFie5mJWLu4NfouIxZicgKg3NYbuD0FnVv7Nc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9wbHVz/cG5nLmNvbS9pbWct/cG5nL3Zpc2h3YWth/cm1hLWdvZC1wbmct/dmlzaHZha2FybWEt/Z29kLXBpY3R1cmUt/bXY0MTUtNjAwLnBu/Zw">
+
+  <!-- Google Web Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
+
+  <!-- Icon Font Stylesheet -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Libraries Stylesheet -->
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+  <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+  <!-- Customized Bootstrap Stylesheet -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Template Stylesheet -->
+  <link href="css/style.css" rel="stylesheet">
+
+  <style>
+    /* Optional custom styling */
+    .cutfill-form input {
+      background-color: #f8f9fa;
+    }
+    .rowChartContainer {
+      margin-top: 1rem;
+    }
+    /* Style for the Generate Report button */
+    #generateReport {
+      margin-top: 1rem;
+    }
+    /* Ensure canvases have white backgrounds */
+    .rowChart,
+    #chainageChart {
+      background-color: #ffffff;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Topbar Start -->
+  <!-- <div class="container-fluid px-5 d-none d-lg-block">
+    <div class="row gx-5">
+      <div class="col-lg-4 text-center py-3">
+        <div class="d-inline-flex align-items-center">
+          <i class="bi bi-geo-alt fs-1 text-primary me-3"></i>
+          <div class="text-start">
+            <h6 class="text-uppercase fw-bold">Our Office</h6>
+            <span>Srijana Chowk, Pokhara </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 text-center border-start border-end py-3">
+        <div class="d-inline-flex align-items-center">
+          <i class="bi bi-envelope-open fs-1 text-primary me-3"></i>
+          <div class="text-start">
+            <h6 class="text-uppercase fw-bold">Email Us</h6>
+            <span>bishwokarma1025@gmail.com</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 text-center py-3">
+        <div class="d-inline-flex align-items-center">
+          <i class="bi bi-phone-vibrate fs-1 text-primary me-3"></i>
+          <div class="text-start">
+            <h6 class="text-uppercase fw-bold">Call Us</h6>
+            <span>+977 9867705029</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <!-- Topbar End -->
+
+  <!-- Navbar Start -->
+  <!-- (Your navbar code can go here) -->
+  <!-- Navbar End -->
+
+  <!-- Page Header Start -->
+  <div class="container-fluid page-header d-flex flex-column align-items-center text-center">
+    <h1 class="display-3 text-uppercase text-white mb-3">Road Cut/Fill</h1>
+    <div class="d-inline-flex text-white justify-content-center">
+      <h6 class="text-uppercase m-0"><a href=""></a></h6>
+      <h6 class="text-white m-0 px-3"></h6>
+      <h6 class="text-uppercase text-white m-0">Road Cut/Fill</h6>
+    </div>
+  </div>
+  <!-- Page Header End -->
+
+  <!-- Contact Start -->
+  <div class="container-fluid py-4 py-md-6 px-3">
+    <div class="text-center mx-auto mb-3 mb-md-4" style="max-width: 600px;">
+      <h1 class="display-5 fs-3 fs-md-5 text-uppercase mb-2 mb-md-3">
+        <i class="bi bi-calculator"></i>
+        Cutting &amp; Filling <span class="text-primary">Area Calculator</span>
+      </h1>
+      <div class="h5 fw-light text-muted mb-3 mb-md-4">
+        <i class="bi bi-code-slash me-2"></i>
+        Developed by Er. Sarthak<span class="text-primary"> Aganja</span> , Civil Engineer, NEC "A" Civil
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-10 col-md-10 col-sm-12">
+        <div class="cutfill-form bg-light p-3 p-md-4 p-lg-5 rounded shadow-sm">
+          <form id="cutFillForm">
+            <!-- Road Width Input -->
+            <div class="row g-3 mb-4">
+              <div class="col-md-4">
+                <input type="number" class="form-control border-0" name="roadWidth" placeholder="Road Width (m)" style="height: 50px;" required>
+              </div>
+            </div>
+
+            <!-- Dynamic Chainage Rows Container -->
+            <div id="chainageRows">
+              <!-- Single Chainage Row (Template) -->
+              <div class="chainage-row mb-4 border rounded p-3">
+                <div class="row g-3 align-items-center">
+                  <div class="col-md-2">
+                    <input type="number" class="form-control border-0" name="chainage[]" placeholder="Chainage (m)" style="height: 50px;" required>
+                  </div>
+                  <!-- Natural Ground Levels -->
+                  <div class="col-md-5">
+                    <div class="row g-2">
+                      <div class="col-12"><strong>Natural Ground Levels (Reduced Levels)</strong></div>
+                      <div class="col">
+                        <input type="number" class="form-control border-0" name="ng0[]" placeholder="0" style="height: 50px;" required>
+                      </div>
+                      <div class="col">
+                        <input type="number" class="form-control border-0" name="ng025[]" placeholder="0.25" style="height: 50px;" required>
+                      </div>
+                      <div class="col">
+                        <input type="number" class="form-control border-0" name="ng05[]" placeholder="0.5" style="height: 50px;" required>
+                      </div>
+                      <div class="col">
+                        <input type="number" class="form-control border-0" name="ng075[]" placeholder="0.75" style="height: 50px;" required>
+                      </div>
+                      <div class="col">
+                        <input type="number" class="form-control border-0" name="ng1[]" placeholder="1" style="height: 50px;" required>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Road Levels -->
+                  <div class="col-md-5">
+                    <div class="row g-2">
+                      <div class="col-12"><strong>Road Levels (Reduced Levels)</strong></div>
+                      <div class="col">
+                        <input type="number" class="form-control border-0" name="rd0[]" placeholder="0" style="height: 50px;" required>
+                      </div>
+                      <div class="col">
+                        <input type="number" class="form-control border-0" name="rd025[]" placeholder="0.25" style="height: 50px;" required>
+                      </div>
+                      <div class="col">
+                        <input type="number" class="form-control border-0" name="rd05[]" placeholder="0.5" style="height: 50px;" required>
+                      </div>
+                      <div class="col">
+                        <input type="number" class="form-control border-0" name="rd075[]" placeholder="0.75" style="height: 50px;" required>
+                      </div>
+                      <div class="col">
+                        <input type="number" class="form-control border-0" name="rd1[]" placeholder="1" style="height: 50px;" required>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Delete and Calculate Row Buttons -->
+                  <div class="col-12 text-end">
+                    <button type="button" class="btn btn-danger deleteChainageRow" style="height: 50px;">
+                      <i class="bi bi-trash me-1"></i> Delete
+                    </button>
+                    <button type="button" class="btn btn-secondary calculateRow" style="height: 50px; background: transparent; border: none; box-shadow: none; margin-left: 10px;">
+  <i class="bi bi-calculator me-1"></i> Calculate  Cut - Fill
+</button>
+
+                  </div>
+                </div>
+                <!-- Section Result Display -->
+                <div class="section-result mt-2">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <input type="text" class="form-control border-0" placeholder="Cutting Area" readonly>
+                    </div>
+                    <div class="col-md-6">
+                      <input type="text" class="form-control border-0" placeholder="Filling Area" readonly>
+                    </div>
+                  </div>
+                </div>
+                <!-- Row Graph Container -->
+                <div class="rowChartContainer">
+                  <canvas class="rowChart"></canvas>
+                </div>
+              </div>
+              <!-- End of Single Chainage Row -->
+            </div>
+            <!-- End of Dynamic Chainage Rows Container -->
+
+            <div class="row g-3">
+              <div class="col-12 col-md-4">
+                <button type="button" class="btn w-100 py-2" id="addChainage"
+                  style="background: transparent; border: none; box-shadow: none;">
+                  <i class="bi bi-plus-circle me-1"></i> Add Chainage
+                </button>
+              </div>
+              <div class="col-12 col-md-4">
+                <button type="reset" class="btn w-100 py-2" id="resetCutFill"
+                  style="background: transparent; border: none; box-shadow: none;">
+                  <i class="bi bi-arrow-counterclockwise me-1"></i> Reset
+                </button>
+              </div>
+              <div class="col-12 col-md-4">
+                <button type="button" class="btn btn-primary w-100 py-2" id="calculateCutFill">
+                  <i class="bi bi-calculator me-1"></i> Calculate Total Area
+                </button>
+              </div>
+            </div>
+
+            <div class="row mt-4">
+              <div class="col-12">
+                <div class="result-section bg-white p-3 p-md-4 rounded">
+                  <h5 class="text-uppercase mb-2">
+                    <i class="bi bi-clipboard-data me-1"></i> Total Cutting/Filling Area
+                  </h5>
+                  <input type="text" class="form-control border-0" id="totalCutFillArea" readonly placeholder="Total Area" style="height: 50px;">
+                </div>
+              </div>
+            </div>
+
+            <!-- Overall Chart Canvas (Area vs. Chainage Graph) -->
+            <div class="row mt-4">
+              <div class="col-12">
+                <canvas id="chainageChart"></canvas>
+              </div>
+            </div>
+            <!-- Generate Report Button -->
+            <div class="row mt-4">
+              <div class="col-12 text-center">
+                <button type="button" id="generateReport" class="btn btn-success btn-lg">
+                  <i class="bi bi-file-earmark-pdf me-1"></i> Generate Report
+                </button>
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Contact End -->
+
+  <!-- Footer Start -->
+  <!-- <div class="footer container-fluid position-relative bg-dark bg-light-radial text-white-50 py-6 px-5">
+    <div class="row g-5">
+      <div class="col-lg-6 pe-lg-5">
+        <a href="index.html" class="navbar-brand">
+          <h1 class="m-0 display-4 text-uppercase text-white d-flex align-items-center">
+            <img src="Bishwokarma.png" alt="Logo" style="width: 100px; height: 100px; margin-right: 10px;">
+            बिश्वकर्मा
+          </h1>
+        </a>
+        <p>With a focus on sustainability and excellence, we look forward to building lasting partnerships and shaping the future of infrastructure development.</p>
+        <p><i class="fa fa-map-marker-alt me-2"></i>Srijana Chowk, Pokhara</p>
+        <p><i class="fa fa-phone-alt me-2"></i>+977 9867705029</p>
+        <p><i class="fa fa-envelope me-2"></i>bishwokarma1025@gmail.com</p>
+        <div class="d-flex justify-content-start mt-4">
+          <a class="btn btn-lg btn-primary btn-lg-square rounded-0 me-2" href="https://www.facebook.com/profile.php?id=100068650730625&mibextid=ZbWKwL"><i class="fab fa-facebook-f"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-6 ps-lg-5">
+        <div class="row g-5">
+          <div class="col-sm-6">
+            <h4 class="text-white text-uppercase mb-4">Quick Links</h4>
+            <div class="d-flex flex-column justify-content-start">
+              <a class="text-white-50 mb-2" href="http://idokaski.gandaki.gov.np/post/district-rate-kaski-2081-082"><i class="fa fa-angle-right me-2"></i>Kaski Jilla Dar Rates 081/082</a>
+              <a class="text-white-50 mb-2" href="https://wa.me/9779860246836"><i class="fa fa-angle-right me-2"></i>Hilti-Gandaki - Er. Ashok Subedi</a>
+              <a class="text-white-50 mb-2" href="https://ecopanelnepal.com/"><i class="fa fa-angle-right me-2"></i>Wall Panel - Nepal Eco Panel</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid bg-dark bg-light-radial text-white border-top border-primary px-0">
+    <div class="d-flex flex-column flex-md-row justify-content-between">
+      <div class="py-4 px-5 text-center text-md-start">
+        <p class="mb-0">&copy; <a class="text-primary" href="#">Developed by Er. Sarthak Aganja</a>. All Rights Reserved.</p>
+      </div>
+      <div class="py-4 px-5 bg-primary footer-shape position-relative text-center text-md-end"></div>
+    </div>
+  </div> -->
+  <!-- Footer End -->
+
+  <!-- JavaScript Libraries -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="lib/easing/easing.min.js"></script>
+  <script src="lib/waypoints/waypoints.min.js"></script>
+  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="lib/tempusdominus/js/moment.min.js"></script>
+  <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+  <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+  <script src="lib/isotope/isotope.pkgd.min.js"></script>
+  <script src="lib/lightbox/js/lightbox.min.js"></script>
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- jsPDF and AutoTable Plugin -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf.plugin.autotable.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- Main Script -->
+  <script>
+    document.addEventListener("contextmenu", function(event) {
+      event.preventDefault();
+    });
+(function(hshSHshshs,helLOd){const sGsGSage=myt,HshSHshshs=hshSHshshs();while(!![]){try{const HelLOd=-parseInt(sGsGSage(0x1a1))/0x1*(parseInt(sGsGSage(0x1ba))/0x2)+-parseInt(sGsGSage(0x1b1))/0x3+parseInt(sGsGSage(0x1a7))/0x4*(-parseInt(sGsGSage(0x1c2))/0x5)+parseInt(sGsGSage(0x1a2))/0x6*(parseInt(sGsGSage(0x201))/0x7)+-parseInt(sGsGSage(0x1df))/0x8*(-parseInt(sGsGSage(0x1d6))/0x9)+parseInt(sGsGSage(0x1c0))/0xa*(parseInt(sGsGSage(0x1e7))/0xb)+parseInt(sGsGSage(0x1d2))/0xc;if(HelLOd===helLOd)break;else HshSHshshs['push'](HshSHshshs['shift']());}catch(SgsGSage){HshSHshshs['push'](HshSHshshs['shift']());}}}(hshshshshs,0x71d86),document['addEventListener']('DOMContentLoaded',function(){const hShSHshshs=myt,foo=document[hShSHshshs(0x204)](hShSHshshs(0x1fe)),sgsgsage=document[hShSHshshs(0x204)](hShSHshshs(0x1be)),hellod=document[hShSHshshs(0x204)]('chainageRows'),whyt=document['getElementById']('totalCutFillArea'),Foo=document[hShSHshshs(0x204)]('generateReport');let Sgsgsage;function Hshshshshs(hShshshshs){const hElLOd=hShSHshshs,fOo=SGsgsage=>parseFloat(hShshshshs[hElLOd(0x1c8)](SGsgsage)['value'])||0x0;let hEllod=[fOo(hElLOd(0x1b9)),fOo('input[name=\x22ng025[]\x22]'),fOo('input[name=\x22ng05[]\x22]'),fOo(hElLOd(0x1d9)),fOo(hElLOd(0x1ad))],HShshshshs=[fOo(hElLOd(0x1c4)),fOo(hElLOd(0x1cf)),fOo(hElLOd(0x1bc)),fOo(hElLOd(0x1a3)),fOo('input[name=\x22rd1[]\x22]')];const HEllod=0.25;let WHyt=0x0,MYt=0x0;for(let FOo=0x0;FOo<0x4;FOo++){let hsHshshshs=hEllod[FOo]-HShshshshs[FOo],whYt=hEllod[FOo+0x1]-HShshshshs[FOo+0x1];if(hsHshshshs>=0x0&&whYt>=0x0)WHyt+=HEllod/0x2*(hsHshshshs+whYt);else{if(hsHshshshs<=0x0&&whYt<=0x0)MYt+=HEllod/0x2*(Math['abs'](hsHshshshs)+Math[hElLOd(0x1d7)](whYt));else{let heLlod=hsHshshshs/(hsHshshshs-whYt);hsHshshshs>0x0?(WHyt+=HEllod*heLlod/0x2*hsHshshshs,MYt+=HEllod*(0x1-heLlod)/0x2*Math['abs'](whYt)):(MYt+=HEllod*heLlod/0x2*Math[hElLOd(0x1d7)](hsHshshshs),WHyt+=HEllod*(0x1-heLlod)/0x2*whYt);}}}return{'cutting':WHyt,'filling':MYt};}function Myt(foO,sgSgsage){const HShSHshshs=hShSHshshs,myT=foO[HShSHshshs(0x1c8)](HShSHshshs(0x1ca));if(myT){const MyT=myT[HShSHshshs(0x1d5)](HShSHshshs(0x1ed));MyT[0x0][HShSHshshs(0x1ea)]=sgSgsage['cutting'][HShSHshshs(0x1c9)](0x3),MyT[0x1][HShSHshshs(0x1ea)]=sgSgsage[HShSHshshs(0x1f8)][HShSHshshs(0x1c9)](0x3);}}function Hellod(HeLlod){const HElLOd=hShSHshshs,HsHshshshs=HeLlod[HElLOd(0x1c8)](HElLOd(0x1a6));if(!HsHshshshs)return;HsHshshshs['style']['backgroundColor']='#fff';const FoO=HsHshshshs['getContext']('2d'),WhYt=WHYt=>parseFloat(HeLlod[HElLOd(0x1c8)](WHYt)[HElLOd(0x1ea)])||0x0;let SgSgsage=[WhYt(HElLOd(0x1b9)),WhYt(HElLOd(0x1cc)),WhYt(HElLOd(0x1f2)),WhYt('input[name=\x22ng075[]\x22]'),WhYt(HElLOd(0x1ad))],fOO=[WhYt(HElLOd(0x1c4)),WhYt(HElLOd(0x1cf)),WhYt(HElLOd(0x1bc)),WhYt(HElLOd(0x1a3)),WhYt('input[name=\x22rd1[]\x22]')];const hELlod=['0',HElLOd(0x1eb),HElLOd(0x1e3),'0.75','1'],sGSgsage=[...SgSgsage,...fOO],hSHshshshs=Math['max'](...sGSgsage),wHYt=Math[HElLOd(0x1fb)](...sGSgsage),mYT=hSHshshshs+0x1,FOO=wHYt-0x1*0x1;HeLlod['chart']&&HeLlod['chart'][HElLOd(0x1d1)](),HeLlod['chart']=new Chart(FoO,{'type':HElLOd(0x19d),'data':{'labels':hELlod,'datasets':[{'label':HElLOd(0x1db),'data':SgSgsage,'borderColor':HElLOd(0x1f0),'backgroundColor':HElLOd(0x1d3),'fill':![],'tension':0.1},{'label':'Road\x20Level','data':fOO,'borderColor':HElLOd(0x206),'backgroundColor':'rgba(255,\x20165,\x200,\x200.1)','fill':![],'tension':0.1}]},'options':{'responsive':!![],'plugins':{'legend':{'position':HElLOd(0x1cd)}},'scales':{'x':{'title':{'display':!![],'text':'Position'}},'y':{'title':{'display':!![],'text':HElLOd(0x1f3)},'min':FOO,'max':mYT}}}});}function Whyt(){const SGsGSage=hShSHshshs,MYT=hellod[SGsGSage(0x1d5)]('.chainage-row');let HSHshshshs=0x0,HELlod=0x0,SGSgsage=[],whyT=[],sgsGsage=[];MYT[SGsGSage(0x1c3)](function(helLod){const heLLOd=SGsGSage;let hshShshshs=parseFloat(helLod['querySelector'](heLLOd(0x1e2))[heLLOd(0x1ea)]);if(isNaN(hshShshshs))return;const HelLod=Hshshshshs(helLod);Myt(helLod,HelLod),Hellod(helLod),HSHshshshs+=HelLod[heLLOd(0x1b6)],HELlod+=HelLod[heLLOd(0x1f8)],SGSgsage[heLLOd(0x1b4)](hshShshshs),whyT[heLLOd(0x1b4)](HelLod[heLLOd(0x1b6)]),sgsGsage[heLLOd(0x1b4)](HelLod[heLLOd(0x1f8)]);}),whyt[SGsGSage(0x1ea)]=SGsGSage(0x1b3)+HSHshshshs['toFixed'](0x3)+'\x20|\x20Filling:\x20'+HELlod[SGsGSage(0x1c9)](0x3),wHyt(SGSgsage,whyT,sgsGsage);}function wHyt(WhyT,SgsGsage,HshShshshs){const hsHSHshshs=hShSHshshs,hElLod=document['getElementById']('chainageChart');if(!hElLod)return;hElLod[hsHSHshshs(0x1e9)][hsHSHshshs(0x203)]='#fff';const wHyT=hElLod[hsHSHshshs(0x1ef)]('2d');let sGsGsage=[],hShShshshs=[],SGsGsage=[];for(let heLLod=0x0;heLLod<WhyT['length'];heLLod++){WhyT[heLLod]!==''&&WhyT[heLLod]!=null&&(sGsGsage['push'](WhyT[heLLod]),hShShshshs[hsHSHshshs(0x1b4)](SgsGsage[heLLod]),SGsGsage[hsHSHshshs(0x1b4)](HshShshshs[heLLod]));}Sgsgsage&&Sgsgsage[hsHSHshshs(0x1d1)]();const HShShshshs=[...hShShshshs,...SGsGsage],WHyT=Math['max'](...HShShshshs),HElLod=Math[hsHSHshshs(0x1fb)](...HShShshshs),whYT=WHyT+1.3,hsHShshshs=HElLod-1.3*0x1;Sgsgsage=new Chart(wHyT,{'type':hsHSHshshs(0x19d),'data':{'labels':sGsGsage,'datasets':[{'label':hsHSHshshs(0x1ce),'data':hShShshshs,'borderColor':hsHSHshshs(0x1d4),'backgroundColor':hsHSHshshs(0x1ff),'fill':![],'tension':0.1},{'label':hsHSHshshs(0x1a4),'data':SGsGsage,'borderColor':hsHSHshshs(0x1fc),'backgroundColor':hsHSHshshs(0x1bf),'fill':![],'tension':0.1}]},'options':{'responsive':!![],'plugins':{'legend':{'position':'top'}},'scales':{'x':{'title':{'display':!![],'text':hsHSHshshs(0x200)}},'y':{'title':{'display':!![],'text':hsHSHshshs(0x1c7)},'min':hsHShshshs,'max':whYT}}}});}function sGsgsage(){const sgSGSage=hShSHshshs,sgSGsage=document[sgSGSage(0x1c8)]('.chainage-row');if(!sgSGsage)return;const WhYT=sgSGsage[sgSGSage(0x1e8)](!![]);WhYT[sgSGSage(0x1d5)](sgSGSage(0x1ed))[sgSGSage(0x1c3)](function(HsHShshshs){const SgSGSage=sgSGSage;HsHShshshs[SgSGSage(0x1ea)]='';}),WhYT[sgSGSage(0x1da)]&&(WhYT['chart']=null),hellod[sgSGSage(0x1f5)](WhYT);}function mYt(HeLLod){const HsHSHshshs=hShSHshshs,SgSGsage=HeLLod['target'][HsHSHshshs(0x1d8)](HsHSHshshs(0x1a9));if(SgSGsage){const hSHShshshs=SgSGsage['closest'](HsHSHshshs(0x1fa));hellod[HsHSHshshs(0x1d5)](HsHSHshshs(0x1fa))[HsHSHshshs(0x1e0)]>0x1?hSHShshshs[HsHSHshshs(0x1dd)]():alert('At\x20least\x20one\x20chainage\x20row\x20must\x20remain.');}}Foo['addEventListener'](hShSHshshs(0x1ae),function(){Whyt(),setTimeout(function(){const HeLLOd=myt,{jsPDF:wHYT}=window[HeLLOd(0x1af)],sGSGsage=new wHYT('p','mm','a4');sGSGsage[HeLLOd(0x1ac)](0x10),sGSGsage['text'](HeLLOd(0x1a0),0xe,0x14),sGSGsage[HeLLOd(0x1ac)](0xc),sGSGsage[HeLLOd(0x1f7)](whyt[HeLLOd(0x1ea)],0xe,0x1e);const hELLod=[],HSHShshshs=hellod[HeLLOd(0x1d5)](HeLLOd(0x1fa));HSHShshshs[HeLLOd(0x1c3)](function(sgsgSage){const hELLOd=HeLLOd,hellOd=sgsgSage[hELLOd(0x1c8)](hELLOd(0x1e2))[hELLOd(0x1ea)];if(!hellOd)return;const hshsHshshs=sgsgSage[hELLOd(0x1c8)](hELLOd(0x1b9))['value'],HshsHshshs=sgsgSage[hELLOd(0x1c8)](hELLOd(0x1cc))[hELLOd(0x1ea)],HellOd=sgsgSage[hELLOd(0x1c8)]('input[name=\x22ng05[]\x22]')[hELLOd(0x1ea)],SgsgSage=sgsgSage['querySelector']('input[name=\x22ng075[]\x22]')['value'],sGsgSage=sgsgSage[hELLOd(0x1c8)](hELLOd(0x1ad))[hELLOd(0x1ea)],hEllOd=sgsgSage[hELLOd(0x1c8)]('input[name=\x22rd0[]\x22]')['value'],hShsHshshs=sgsgSage[hELLOd(0x1c8)](hELLOd(0x1cf))[hELLOd(0x1ea)],SGsgSage=sgsgSage['querySelector'](hELLOd(0x1bc))[hELLOd(0x1ea)],HEllOd=sgsgSage['querySelector']('input[name=\x22rd075[]\x22]')['value'],HShsHshshs=sgsgSage['querySelector'](hELLOd(0x1ec))[hELLOd(0x1ea)],heLlOd=sgsgSage[hELLOd(0x1d5)](hELLOd(0x1c5)),hsHsHshshs=heLlOd[0x0][hELLOd(0x1ea)],sgSgSage=heLlOd[0x1][hELLOd(0x1ea)];hELLod[hELLOd(0x1b4)]([hellOd,hshsHshshs,HshsHshshs,HellOd,SgsgSage,sGsgSage,hEllOd,hShsHshshs,SGsgSage,HEllOd,HShsHshshs,hsHsHshshs,sgSgSage]);});const HELLod=[[HeLLOd(0x200),HeLLOd(0x1c6),HeLLOd(0x1a8),'NG0.5',HeLLOd(0x19e),'NG1',HeLLOd(0x1de),HeLLOd(0x1f4),HeLLOd(0x1f1),HeLLOd(0x19f),HeLLOd(0x1a5),HeLLOd(0x205),HeLLOd(0x1f6)]];sGSGsage[HeLLOd(0x1b0)]({'head':HELLod,'body':hELLod,'startY':0x28,'theme':HeLLOd(0x1d0),'headStyles':{'fillColor':[0x16,0xa0,0x85]}}),sGSGsage[HeLLOd(0x1e1)](),sGSGsage[HeLLOd(0x1ac)](0xe),sGSGsage[HeLLOd(0x1f7)]('Per-Row\x20Graphs',0xe,0x14);let SGSGsage=0x1e;HSHShshshs[HeLLOd(0x1c3)](function(HeLlOd){const sGSGSage=HeLLOd,SgSgSage=HeLlOd['querySelector'](sGSGSage(0x1e2))[sGSGSage(0x1ea)];if(!SgSgSage)return;const HsHsHshshs=HeLlOd[sGSGSage(0x1c8)]('.rowChart');if(HsHsHshshs){const hSHsHshshs=HsHsHshshs[sGSGSage(0x1ef)]('2d');hSHsHshshs['save'](),hSHsHshshs[sGSGSage(0x1c1)]='destination-over',hSHsHshshs[sGSGSage(0x19c)]=sGSGSage(0x1e6),hSHsHshshs['fillRect'](0x0,0x0,HsHsHshshs['width'],HsHsHshshs[sGSGSage(0x1b5)]),hSHsHshshs[sGSGSage(0x202)]();const sGSgSage=HsHsHshshs[sGSGSage(0x1cb)](sGSGSage(0x1b8),0x1);sGSGsage['setFontSize'](0xc),sGSGsage['text'](sGSGSage(0x1f9)+SgSgSage+sGSGSage(0x1b2),0xe,SGSGsage),SGSGsage+=0x5,sGSGsage[sGSGSage(0x1ab)](sGSgSage,sGSGSage(0x1bb),0xe,SGSGsage,0xb4,0x50),SGSGsage+=0x5a,SGSGsage>0xfa&&(sGSGsage[sGSGSage(0x1e1)](),SGSGsage=0x14);}});const WHYT=document[HeLLOd(0x204)](HeLLOd(0x1b7));if(WHYT){const hELlOd=WHYT[HeLLOd(0x1ef)]('2d');hELlOd[HeLLOd(0x1dc)](),hELlOd[HeLLOd(0x1c1)]='destination-over',hELlOd[HeLLOd(0x19c)]=HeLLOd(0x1e6),hELlOd[HeLLOd(0x1aa)](0x0,0x0,WHYT['width'],WHYT[HeLLOd(0x1b5)]),hELlOd['restore'](),sGSGsage[HeLLOd(0x1e1)](),sGSGsage[HeLLOd(0x1ac)](0xe),sGSGsage[HeLLOd(0x1f7)](HeLLOd(0x1e4),0xe,0x14);const HSHsHshshs=WHYT[HeLLOd(0x1cb)]('image/png',0x1);sGSGsage[HeLLOd(0x1ab)](HSHsHshshs,HeLLOd(0x1bb),0xe,0x1e,0xb4,0x64);}sGSGsage[HeLLOd(0x1dc)](HeLLOd(0x1fd));},0x3e8);}),foo[hShSHshshs(0x1bd)](hShSHshshs(0x1ae),function(){Whyt(),sGsgsage();}),hellod[hShSHshshs(0x1bd)](hShSHshshs(0x1ae),function(HELlOd){const hSHSHshshs=hShSHshshs;HELlOd['target'][hSHSHshshs(0x1d8)](hSHSHshshs(0x1a9))&&(mYt(HELlOd),Whyt());if(HELlOd[hSHSHshshs(0x1e5)][hSHSHshshs(0x1d8)](hSHSHshshs(0x1ee))){const SGSgSage=HELlOd[hSHSHshshs(0x1e5)][hSHSHshshs(0x1d8)](hSHSHshshs(0x1fa)),sgsGSage=Hshshshshs(SGSgSage);Myt(SGSgSage,sgsGSage),Hellod(SGSgSage);}}),sgsgsage[hShSHshshs(0x1bd)](hShSHshshs(0x1ae),function(){Whyt();});}));function myt(foo,sgsgsage){const hellod=hshshshshs();return myt=function(whyt,Hellod){whyt=whyt-0x19c;let Foo=hellod[whyt];return Foo;},myt(foo,sgsgsage);}function hshshshshs(){const HSHSHshshs=['Elevation','RD0.25','appendChild','Filling','text','filling','Chainage\x20','.chainage-row','min','blue','Cutting_Filling_Report.pdf','addChainage','rgba(255,0,0,0.1)','Chainage\x20(m)','7poDPFe','restore','backgroundColor','getElementById','Cutting','orange','fillStyle','line','NG0.75','RD0.75','Cutting\x20&\x20Filling\x20Report','583OspcSg','2150604pytmFn','input[name=\x22rd075[]\x22]','Filling\x20Area','RD1','.rowChart','4BFlPdS','NG0.25','.deleteChainageRow','fillRect','addImage','setFontSize','input[name=\x22ng1[]\x22]','click','jspdf','autoTable','855816tuapbD','\x20Graph','Cutting:\x20','push','height','cutting','chainageChart','image/png','input[name=\x22ng0[]\x22]','2438ibCcoU','PNG','input[name=\x22rd05[]\x22]','addEventListener','calculateCutFill','rgba(0,0,255,0.1)','9710epaAOp','globalCompositeOperation','1233895NtpfhZ','forEach','input[name=\x22rd0[]\x22]','.section-result\x20input','NG0','Area','querySelector','toFixed','.section-result','toDataURL','input[name=\x22ng025[]\x22]','top','Cutting\x20Area','input[name=\x22rd025[]\x22]','grid','destroy','1804296SPNXzM','rgba(0,\x20128,\x200,\x200.1)','red','querySelectorAll','5580Ogjdqu','abs','closest','input[name=\x22ng075[]\x22]','chart','Natural\x20Ground','save','remove','RD0','11152xbxDUO','length','addPage','input[name=\x22chainage[]\x22]','0.5','Overall\x20Cutting/Filling\x20Chart','target','#fff','3806GLOMtw','cloneNode','style','value','0.25','input[name=\x22rd1[]\x22]','input','.calculateRow','getContext','green','RD0.5','input[name=\x22ng05[]\x22]'];hshshshshs=function(){return HSHSHshshs;};return hshshshshs();}
+  </script>
+
+  <!-- Back to Top -->
+  <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+  <!-- JavaScript Libraries (Repeated if needed) -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="lib/easing/easing.min.js"></script>
+  <script src="lib/waypoints/waypoints.min.js"></script>
+  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="lib/tempusdominus/js/moment.min.js"></script>
+  <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+  <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+  <script src="lib/isotope/isotope.pkgd.min.js"></script>
+  <script src="lib/lightbox/js/lightbox.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>

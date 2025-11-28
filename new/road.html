@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>BECB-Consultant and Builders</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Construction company Pokhara santosh sunar Bishwokarma engineering name="keywords">
+    <meta content="Construction company Pokhara" name="description">
+
+
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://imgs.search.brave.com/YxAAFFXFie5mJWLu4NfouIxZicgKg3NYbuD0FnVv7Nc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9wbHVz/cG5nLmNvbS9pbWct/cG5nL3Zpc2h3YWth/cm1hLWdvZC1wbmct/dmlzaHZha2FybWEt/Z29kLXBpY3R1cmUt/bXY0MTUtNjAwLnBu/Zw">
+
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet"> 
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Topbar Start -->
+    <div class="container-fluid px-5 d-none d-lg-block">
+        <div class="row gx-5">
+            <div class="col-lg-4 text-center py-3">
+                <div class="d-inline-flex align-items-center">
+                    <i class="bi bi-geo-alt fs-1 text-primary me-3"></i>
+                    <div class="text-start">
+                        <h6 class="text-uppercase fw-bold">Our Office</h6>
+                        <span>Srijana Chowk, Pokhara </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center border-start border-end py-3">
+                <div class="d-inline-flex align-items-center">
+                    <i class="bi bi-envelope-open fs-1 text-primary me-3"></i>
+                    <div class="text-start">
+                        <h6 class="text-uppercase fw-bold">Email Us</h6>
+                        <span>bishwokarma1025@gmail.com</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center py-3">
+                <div class="d-inline-flex align-items-center">
+                    <i class="bi bi-phone-vibrate fs-1 text-primary me-3"></i>
+                    <div class="text-start">
+                        <h6 class="text-uppercase fw-bold">Call Us</h6>
+                        <span>+977 9867705029</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    
+    <!-- Navbar End -->
+
+
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header d-flex flex-column align-items-center text-center">
+        <h1 class="display-3 text-uppercase text-white mb-3">Triangulation</h1>
+        <div class="d-inline-flex text-white justify-content-center">
+            <h6 class="text-uppercase m-0"><a href="">Dash</a></h6>
+            <h6 class="text-white m-0 px-3">/</h6>
+            <h6 class="text-uppercase text-white m-0">Triangulation</h6>
+        </div>
+    </div>
+    
+    <!-- Page Header Start -->
+
+
+    <!-- Contact Start -->
+    <div class="container-fluid py-4 py-md-6 px-3">
+        <div class="text-center mx-auto mb-3 mb-md-4" style="max-width: 600px;">
+          <h1 class="display-5 fs-3 fs-md-5 text-uppercase mb-2 mb-md-3">
+            <i class="bi bi-calculator"></i>
+            Cutting &amp; Filling <span class="text-primary">Area Calculator</span>
+          </h1>
+          <div class="h5 fw-light text-muted mb-3 mb-md-4">
+            <i class="bi bi-code-slash me-2"></i>
+            Developed by Er. Sarthak<span class="text-primary"> Aganja</span> , Civil Engineer, NEC "A" Civil
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-12 col-lg-10 col-md-10 col-sm-12">
+            <div class="cutfill-form bg-light p-3 p-md-4 p-lg-5 rounded shadow-sm">
+              <form id="cutFillForm">
+                <!-- Road Width Input -->
+                <div class="row g-3 mb-4">
+                  <div class="col-md-4">
+                    <input type="number" class="form-control border-0" name="roadWidth" placeholder="Road Width (m)" style="height: 50px;" required>
+                  </div>
+                </div>
+    
+                <!-- Dynamic Chainage Rows Container -->
+                <div id="chainageRows">
+                  <!-- Single Chainage Row (Template) -->
+                  <div class="chainage-row mb-4 border rounded p-3">
+                    <div class="row g-3 align-items-center">
+                      <div class="col-md-2">
+                        <input type="number" class="form-control border-0" name="chainage[]" placeholder="Chainage (m)" style="height: 50px;" required>
+                      </div>
+                      <!-- Natural Ground Levels -->
+                      <div class="col-md-5">
+                        <div class="row g-2">
+                          <div class="col-12"><strong>Natural Ground Levels(Reduced Levels)</strong></div>
+                          <div class="col">
+                            <input type="number" class="form-control border-0" name="ng0[]" placeholder="0" style="height: 50px;" required>
+                          </div>
+                          <div class="col">
+                            <input type="number" class="form-control border-0" name="ng025[]" placeholder="0.25" style="height: 50px;" required>
+                          </div>
+                          <div class="col">
+                            <input type="number" class="form-control border-0" name="ng05[]" placeholder="0.5" style="height: 50px;" required>
+                          </div>
+                          <div class="col">
+                            <input type="number" class="form-control border-0" name="ng075[]" placeholder="0.75" style="height: 50px;" required>
+                          </div>
+                          <div class="col">
+                            <input type="number" class="form-control border-0" name="ng1[]" placeholder="1" style="height: 50px;" required>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Road Levels -->
+                      <div class="col-md-5">
+                        <div class="row g-2">
+                          <div class="col-12"><strong>Road Levels(Reduced Levels)</strong></div>
+                          <div class="col">
+                            <input type="number" class="form-control border-0" name="rd0[]" placeholder="0" style="height: 50px;" required>
+                          </div>
+                          <div class="col">
+                            <input type="number" class="form-control border-0" name="rd025[]" placeholder="0.25" style="height: 50px;" required>
+                          </div>
+                          <div class="col">
+                            <input type="number" class="form-control border-0" name="rd05[]" placeholder="0.5" style="height: 50px;" required>
+                          </div>
+                          <div class="col">
+                            <input type="number" class="form-control border-0" name="rd075[]" placeholder="0.75" style="height: 50px;" required>
+                          </div>
+                          <div class="col">
+                            <input type="number" class="form-control border-0" name="rd1[]" placeholder="1" style="height: 50px;" required>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Delete Row Button -->
+                      <div class="col-12 text-end">
+                        <button type="button" class="btn btn-danger deleteChainageRow" style="height: 50px;">
+                          <i class="bi bi-trash me-1"></i> Delete
+                        </button>
+                      </div>
+                    </div>
+                    <!-- Section Result Display -->
+                    <div class="section-result mt-2">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <input type="text" class="form-control border-0" placeholder="Cutting Area" readonly>
+                        </div>
+                        <div class="col-md-6">
+                          <input type="text" class="form-control border-0" placeholder="Filling Area" readonly>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Row Graph Container -->
+                    <div class="rowChartContainer">
+                      <canvas class="rowChart"></canvas>
+                    </div>
+                  </div>
+                  <!-- End of Single Chainage Row -->
+                </div>
+                <!-- End of Dynamic Chainage Rows Container -->
+    
+                <div class="row g-3">
+                  <div class="col-12 col-md-4">
+                    <button type="button" class="btn w-100 py-2" id="addChainage"
+                            style="background: transparent; border: none; box-shadow: none;">
+                      <i class="bi bi-plus-circle me-1"></i> Add Chainage
+                    </button>
+                  </div>
+                  <div class="col-12 col-md-4">
+                    <button type="reset" class="btn w-100 py-2" id="resetCutFill"
+                            style="background: transparent; border: none; box-shadow: none;">
+                      <i class="bi bi-arrow-counterclockwise me-1"></i> Reset
+                    </button>
+                  </div>
+                  <div class="col-12 col-md-4">
+                    <button type="button" class="btn btn-primary w-100 py-2" id="calculateCutFill">
+                      <i class="bi bi-calculator me-1"></i> Calculate Total Area
+                    </button>
+                  </div>
+                </div>
+    
+                <div class="row mt-4">
+                  <div class="col-12">
+                    <div class="result-section bg-white p-3 p-md-4 rounded">
+                      <h5 class="text-uppercase mb-2">
+                        <i class="bi bi-clipboard-data me-1"></i> Total Cutting/Filling Area
+                      </h5>
+                      <input type="text" class="form-control border-0" id="totalCutFillArea" readonly placeholder="Total Area" style="height: 50px;">
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Overall Chart Canvas (Optional: Overall summary graph) -->
+                <div class="row mt-4">
+                  <div class="col-12">
+                    <canvas id="chainageChart"></canvas>
+                  </div>
+                </div>
+    
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+                <!-- Contact End -->
+
+    
+
+    <!-- Footer Start -->
+    <div class="footer container-fluid position-relative bg-dark bg-light-radial text-white-50 py-6 px-5">
+        <div class="row g-5">
+            <div class="col-lg-6 pe-lg-5">
+                <a href="index.html" class="navbar-brand">
+                   <h1 class="m-0 display-4 text-uppercase text-white d-flex align-items-center">
+                    <img src="Bishwokarma.png" alt="Logo" style="width: 100px; height: 100px; margin-right: 10px;">
+                    बिश्वकर्मा
+                  </h1>
+                </a>
+                <p>With a focus on sustainability and excellence, we look forward to building lasting partnerships and shaping the future of infrastructure development.</p>
+                <p><i class="fa fa-map-marker-alt me-2"></i>Srijana Chowk, Pokhara</p>
+                <p><i class="fa fa-phone-alt me-2"></i>+977 9867705029</p>
+                <p><i class="fa fa-envelope me-2"></i>bishwokarma1025@gmail.com</p>
+                <div class="d-flex justify-content-start mt-4">
+                    
+                    <a class="btn btn-lg btn-primary btn-lg-square rounded-0 me-2" href="https://www.facebook.com/profile.php?id=100068650730625&mibextid=ZbWKwL"><i class="fab fa-facebook-f"></i></a>
+                    <!--<a class="btn btn-lg btn-primary btn-lg-square rounded-0 me-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-lg btn-primary btn-lg-square rounded-0" href="#"><i class="fab fa-instagram"></i></a> -->
+                </div>
+            </div>
+            <div class="col-lg-6 ps-lg-5">
+                <div class="row g-5">
+                    <div class="col-sm-6">
+                        <h4 class="text-white text-uppercase mb-4">Quick Links</h4>
+                        <div class="d-flex flex-column justify-content-start">
+                            <a class="text-white-50 mb-2" href="http://idokaski.gandaki.gov.np/post/district-rate-kaski-2081-082"><i class="fa fa-angle-right me-2"></i>Kaski Jilla Dar Rates 081/082</a>
+                            <a class="text-white-50 mb-2" href="https://wa.me/9779860246836"><i class="fa fa-angle-right me-2"></i>Hilti-Gandaki - Er. Ashok Subedi</a>
+                            <a class="text-white-50 mb-2" href="https://ecopanelnepal.com/"><i class="fa fa-angle-right me-2"></i>Wall Panel - Nepal Eco Panel</a>
+                            
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid bg-dark bg-light-radial text-white border-top border-primary px-0">
+        <div class="d-flex flex-column flex-md-row justify-content-between">
+            <div class="py-4 px-5 text-center text-md-start">
+                <p class="mb-0">&copy; <a class="text-primary" href="#">Developed by Er. Sarthak Aganja</a>. All Rights Reserved.</p>
+            </div>
+            <div class="py-4 px-5 bg-primary footer-shape position-relative text-center text-md-end">
+                
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Footer End -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3.10.0/dist/email.min.js"></script>
+
+    <script>
+        // Conversion rates to square meters
+        document.addEventListener('DOMContentLoaded', function () {
+      // Get buttons and containers from the DOM
+      const addChainageBtn = document.getElementById('addChainage');
+      const calculateBtn = document.getElementById('calculateCutFill');
+      const chainageRowsContainer = document.getElementById('chainageRows');
+      const totalCutFillAreaInput = document.getElementById('totalCutFillArea');
+      let overallChart; // Global Chart for overall chainage summary
+
+      // ********************************************
+      // Utility Function: Calculate one section's areas
+      // ********************************************
+      function calculateSection(row) {
+        // Retrieve natural ground level values and road level values.
+        // (If an input is blank or not a number, default to 0)
+        const getValue = (selector) => parseFloat(row.querySelector(selector).value) || 0;
+        let ng = [
+          getValue('input[name="ng0[]"]'),
+          getValue('input[name="ng025[]"]'),
+          getValue('input[name="ng05[]"]'),
+          getValue('input[name="ng075[]"]'),
+          getValue('input[name="ng1[]"]')
+        ];
+        let rd = [
+          getValue('input[name="rd0[]"]'),
+          getValue('input[name="rd025[]"]'),
+          getValue('input[name="rd05[]"]'),
+          getValue('input[name="rd075[]"]'),
+          getValue('input[name="rd1[]"]')
+        ];
+
+        // We assume the spacing between sample points is 0.25 (as per the design)
+        const spacing = 0.25;
+        let cutting = 0;
+        let filling = 0;
+
+        // Process each segment (there are 4 segments between 5 points)
+        for (let i = 0; i < 4; i++) {
+          let f0 = ng[i] - rd[i];
+          let f1 = ng[i + 1] - rd[i + 1];
+
+          if (f0 >= 0 && f1 >= 0) {
+            let area = (spacing / 2) * (f0 + f1);
+            cutting += area;
+          } else if (f0 <= 0 && f1 <= 0) {
+            let area = (spacing / 2) * (Math.abs(f0) + Math.abs(f1));
+            filling += area;
+          } else {
+            let t = f0 / (f0 - f1);
+            if (f0 > 0) {
+              let areaCut = (spacing * t / 2) * (f0 + 0);
+              cutting += areaCut;
+              let segmentLength = spacing * (1 - t);
+              let areaFill = (segmentLength / 2) * (0 + Math.abs(f1));
+              filling += areaFill;
+            } else {
+              let areaFill = (spacing * t / 2) * (Math.abs(f0) + 0);
+              filling += areaFill;
+              let segmentLength = spacing * (1 - t);
+              let areaCut = (segmentLength / 2) * (0 + f1);
+              cutting += areaCut;
+            }
+          }
+        }
+        return { cutting: cutting, filling: filling };
+      }
+
+      // *************************************************
+      // Utility Function: Update the result display for a row
+      // *************************************************
+      function updateRowResult(row, result) {
+        const resultDiv = row.querySelector('.section-result');
+        if (resultDiv) {
+          const inputs = resultDiv.querySelectorAll('input');
+          inputs[0].value = result.cutting.toFixed(3);
+          inputs[1].value = result.filling.toFixed(3);
+        }
+      }
+
+      // *************************************************
+      // Utility Function: Update (or create) the chart for a chainage row
+      // *************************************************
+      function updateRowChart(row) {
+        // Get the canvas element within the row
+        const canvas = row.querySelector('.rowChart');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+
+        // Read the natural ground and road level values
+        const getValue = (selector) => parseFloat(row.querySelector(selector).value) || 0;
+        let ng = [
+          getValue('input[name="ng0[]"]'),
+          getValue('input[name="ng025[]"]'),
+          getValue('input[name="ng05[]"]'),
+          getValue('input[name="ng075[]"]'),
+          getValue('input[name="ng1[]"]')
+        ];
+        let rd = [
+          getValue('input[name="rd0[]"]'),
+          getValue('input[name="rd025[]"]'),
+          getValue('input[name="rd05[]"]'),
+          getValue('input[name="rd075[]"]'),
+          getValue('input[name="rd1[]"]')
+        ];
+        const labels = ["0", "0.25", "0.5", "0.75", "1"];
+
+        // Calculate y-axis bounds:
+        // Maximum is 1.3 times the maximum value among the natural ground and road levels.
+        // Minimum is -1.3 times the minimum value.
+        const allValues = [...ng, ...rd];
+        const maxElev = Math.max(...allValues);
+        const minElev = Math.min(...allValues);
+        const yMax = maxElev * 1.3;
+        const yMin = minElev-1.14 * Math.abs(minElev);
+
+        // If a previous chart exists for this row, destroy it.
+        if (row.chart) {
+          row.chart.destroy();
+        }
+        row.chart = new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: labels,
+            datasets: [
+              {
+                label: 'Natural Ground',
+                data: ng,
+                borderColor: 'green',
+                backgroundColor: 'rgba(0, 128, 0, 0.1)',
+                fill: false,
+                tension: 0.1
+              },
+              {
+                label: 'Road Level',
+                data: rd,
+                borderColor: 'orange',
+                backgroundColor: 'rgba(255, 165, 0, 0.1)',
+                fill: false,
+                tension: 0.1
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            plugins: { legend: { position: 'top' } },
+            scales: {
+              x: {
+                title: { display: true, text: 'Position' }
+              },
+              y: {
+                title: { display: true, text: 'Elevation' },
+                min: yMin,
+                max: yMax
+              }
+            }
+          }
+        });
+      }
+
+      // ********************************************
+      // Utility Function: Calculate and update all rows
+      // ********************************************
+      function calculateAll() {
+        const chainageRows = chainageRowsContainer.querySelectorAll('.chainage-row');
+        let totalCutting = 0;
+        let totalFilling = 0;
+        let chainageLabels = [];
+        let cuttingData = [];
+        let fillingData = [];
+
+        chainageRows.forEach(function (row) {
+          const result = calculateSection(row);
+          updateRowResult(row, result);
+          updateRowChart(row);
+          totalCutting += result.cutting;
+          totalFilling += result.filling;
+          let chainageVal = parseFloat(row.querySelector('input[name="chainage[]"]').value);
+          chainageLabels.push(isNaN(chainageVal) ? '' : chainageVal);
+          cuttingData.push(result.cutting);
+          fillingData.push(result.filling);
+        });
+        totalCutFillAreaInput.value = `Cutting: ${totalCutting.toFixed(3)} | Filling: ${totalFilling.toFixed(3)}`;
+        updateOverallChart(chainageLabels, cuttingData, fillingData);
+      }
+
+      // ********************************************
+      // Function: Update or create the overall Chart.js graph
+      // ********************************************
+      function updateOverallChart(labels, cuttingData, fillingData) {
+        const canvas = document.getElementById('chainageChart');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        if (overallChart) {
+          overallChart.destroy();
+        }
+        overallChart = new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: labels,
+            datasets: [
+              {
+                label: 'Cutting Area',
+                data: cuttingData,
+                borderColor: 'red',
+                backgroundColor: 'rgba(255,0,0,0.1)',
+                fill: false,
+                tension: 0.1
+              },
+              {
+                label: 'Filling Area',
+                data: fillingData,
+                borderColor: 'blue',
+                backgroundColor: 'rgba(0,0,255,0.1)',
+                fill: false,
+                tension: 0.1
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            scales: {
+              x: {
+                title: { display: true, text: 'Chainage (m)' }
+              },
+              y: {
+                title: { display: true, text: 'Area' }
+              }
+            }
+          }
+        });
+      }
+
+      // ********************************************
+      // Function: Add a new chainage row
+      // ********************************************
+      function addChainageRow() {
+        const template = document.querySelector('.chainage-row');
+        if (!template) return;
+        const newRow = template.cloneNode(true);
+        newRow.querySelectorAll('input').forEach(function (input) {
+          input.value = '';
+        });
+        // Remove any previous chart reference
+        if (newRow.chart) {
+          newRow.chart = null;
+        }
+        chainageRowsContainer.appendChild(newRow);
+      }
+
+      // ********************************************
+      // Function: Remove a chainage row
+      // ********************************************
+      function removeChainageRow(e) {
+        const btn = e.target.closest('.deleteChainageRow');
+        if (btn) {
+          const row = btn.closest('.chainage-row');
+          if (chainageRowsContainer.querySelectorAll('.chainage-row').length > 1) {
+            row.remove();
+          } else {
+            alert("At least one chainage row must remain.");
+          }
+        }
+      }
+
+      // ********************************************
+      // Attach event listeners
+      // ********************************************
+      addChainageBtn.addEventListener('click', function () {
+        calculateAll(); // update existing rows before adding new one
+        addChainageRow();
+      });
+
+      chainageRowsContainer.addEventListener('click', function (e) {
+        if (e.target.closest('.deleteChainageRow')) {
+          removeChainageRow(e);
+          calculateAll();
+        }
+      });
+
+      calculateBtn.addEventListener('click', function () {
+        calculateAll();
+      });
+    });
+  
+    </script>
+    
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Cut/Fill Cal=>By Sarthak</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="Construction company Pokhara" name="keywords">
+  <meta content="Construction company Pokhara" name="description">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://imgs.search.brave.com/YxAAFFXFie5mJWLu4NfouIxZicgKg3NYbuD0FnVv7Nc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9wbHVz/cG5nLmNvbS9pbWct/cG5nL3Zpc2h3YWth/cm1hLWdvZC1wbmct/dmlzaHZha2FybWEt/Z29kLXBpY3R1cmUt/bXY0MTUtNjAwLnBu/Zw">
+
+  <!-- Google Web Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
+
+  <!-- Icon Font Stylesheet -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Libraries Stylesheet -->
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+  <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+  <!-- Customized Bootstrap Stylesheet -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Template Stylesheet -->
+  <link href="css/style.css" rel="stylesheet">
+
+  <!-- Optional custom styling -->
+  <style>
+    .cutfill-form input {
+      background-color: #f8f9fa;
+    }
+    .rowChartContainer {
+      margin-top: 1rem;
+    }
+    #generateReport {
+      margin-top: 1rem;
+    }
+    .rowChart,
+    #chainageChart {
+      background-color: #ffffff;
+    }
+  </style>
+
+  <!-- Include SweetAlert2 for alerts -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- Include SheetJS (xlsx) for Excel file reading -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+
+<body>
+  <!-- Page Header Start -->
+  <div class="container-fluid page-header d-flex flex-column align-items-center text-center">
+    <h1 class="display-3 text-uppercase text-white mb-3">Road Cut/Fill</h1>
+    <div class="d-inline-flex text-white justify-content-center">
+      <h6 class="text-uppercase text-white m-0">with excel</h6>
+    </div>
+  </div>
+
+  <div style="text-align: center; margin-top: 20px;">
+    <p style="font-size: 16px; color: #333;">
+      Click the button below for detailed instructions on how to upload and format your Excel files correctly.
+    </p>
+    <a href="https://drive.google.com/drive/folders/1KSpdM8-8btxsdlo4zcjAF0nHdgMfoUmr?usp=drive_link" target="_blank">
+      <button type="button" id="viewInstructions" class="btn btn-primary">
+        <i class="bi bi-info-circle me-1"></i> View Instructions
+      </button>
+    </a>
+  </div>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+  
+  <!-- Page Header End -->
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+<style>
+    /* Apply transparent background to this specific button */
+    #feedbackBtn {
+        background-color: transparent !important;
+        color: black !important;
+        border: 1px solid black;
+         /* Optional: adds a border for better visibility */
+    }
+
+    /* Make icons black */
+    .bixx {
+        color: black !important;
+    }
+</style>
+
+<div class="text-center mt-3">
+    <a href="contact.html" id="feedbackBtn" class="btn d-inline-flex align-items-center gap-2 shadow">
+        <i class="bi bi-chat-square-heart"></i> Share Feedback
+    </a>
+    <div class="mt-3">
+        <a href="mailto:sarthak.aaganja12@gmail.com" class="me-3"><i class="bixx bi-envelope fs-4"></i></a>
+        <a href="https://www.linkedin.com/in/sarthak-aganja-899026166/" target="_blank"><i class="bixx bi-linkedin fs-4"></i></a>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+
+  <!-- Main Form Start -->
+  <div class="container-fluid py-4 py-md-6 px-3">
+    <div class="text-center mx-auto mb-3 mb-md-4" style="max-width: 600px;">
+      <h1 class="display-5 fs-3 fs-md-5 text-uppercase mb-2 mb-md-3">
+        <i class="bi bi-calculator"></i>
+        Cutting &amp; Filling <span class="text-primary">Area Calculator</span>
+      </h1>
+      <div class="h5 fw-light text-muted mb-3 mb-md-4">
+        <i class="bi bi-code-slash me-2"></i>
+        Developed by Er. Sarthak<span class="text-primary"> Aganja</span> , Civil Engineer, NEC "A" Civil
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-10 col-md-10 col-sm-12">
+        <div class="cutfill-form bg-light p-3 p-md-4 p-lg-5 rounded shadow-sm">
+          <form id="cutFillForm">
+            <!-- Road Width Input -->
+            <div class="row g-3 mb-4">
+              <div class="col-md-4">
+                <input type="number" class="form-control border-0" name="roadWidth" placeholder="Road Width (m)" style="height: 50px;" required>
+              </div>
+            </div>
+            
+            <!-- Excel File Upload Section -->
+            <div class="row g-3 mb-4">
+              <div class="col-md-6">
+                <label for="nglExcel" class="form-label">Upload NGL Excel File</label>
+                <input type="file" id="nglExcel" class="form-control" accept=".xlsx, .xls">
+              </div>
+              <div class="col-md-6">
+                <label for="rdExcel" class="form-label">Upload Road Level Excel File</label>
+                <input type="file" id="rdExcel" class="form-control" accept=".xlsx, .xls">
+              </div>
+            </div>
+            <div class="row g-3 mb-4">
+              <div class="col-12 text-center">
+                <button type="button" id="importExcel" class="btn btn-primary">
+                  <i class="bi bi-upload me-1"></i> Import Excel Data
+                </button>
+              </div>
+            </div>
+            
+            <!-- Dynamic Chainage Rows Container -->
+            <div id="chainageRows">
+              <!-- Single Chainage Row (Template) -->
+              <div class="chainage-row mb-4 border rounded p-3">
+                <div class="row g-3 align-items-center">
+                  <div class="col-md-2">
+                    <input type="number" class="form-control border-0" name="chainage[]" placeholder="Chainage (m)" style="height: 50px;" required>
+                  </div>
+                  <!-- Natural Ground Levels -->
+                  <div class="col-md-5">
+                    <div class="row g-2">
+                      <div class="col-12"><strong>Natural Ground Levels (Reduced Levels)</strong></div>
+                      <div class="col">
+                        <input type="number" class="form-control border-0" name="ng0[]" placeholder="0" style="height: 50px;" required>
+                      </div>
+                      <div class="col">
+                        <input type="number" class="form-control border-0" name="ng025[]" placeholder="0.25" style="height: 50px;" required>
+                      </div>
+                      <div class="col">
+                        <input type="number" class="form-control border-0" name="ng05[]" placeholder="0.5" style="height: 50px;" required>
+                      </div>
+                      <div class="col">
+                        <input type="number" class="form-control border-0" name="ng075[]" placeholder="0.75" style="height: 50px;" required>
+                      </div>
+                      <div class="col">
+                        <input type="number" class="form-control border-0" name="ng1[]" placeholder="1" style="height: 50px;" required>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Road Levels -->
+                  <div class="col-md-5">
+                    <div class="row g-2">
+                      <div class="col-12"><strong>Road Levels (Reduced Levels)</strong></div>
+                      <div class="col">
+                        <input type="number" class="form-control border-0" name="rd0[]" placeholder="0" style="height: 50px;" required>
+                      </div>
+                      <div class="col">
+                        <input type="number" class="form-control border-0" name="rd025[]" placeholder="0.25" style="height: 50px;" required>
+                      </div>
+                      <div class="col">
+                        <input type="number" class="form-control border-0" name="rd05[]" placeholder="0.5" style="height: 50px;" required>
+                      </div>
+                      <div class="col">
+                        <input type="number" class="form-control border-0" name="rd075[]" placeholder="0.75" style="height: 50px;" required>
+                      </div>
+                      <div class="col">
+                        <input type="number" class="form-control border-0" name="rd1[]" placeholder="1" style="height: 50px;" required>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Delete and Calculate Row Buttons -->
+                  <div class="col-12 text-end">
+                    <button type="button" class="btn btn-danger deleteChainageRow" style="height: 50px;">
+                      <i class="bi bi-trash me-1"></i> Delete
+                    </button>
+                    <button type="button" class="btn btn-secondary calculateRow" style="height: 50px; background: transparent; border: none; box-shadow: none; margin-left: 10px;">
+                      <i class="bi bi-calculator me-1"></i> Calculate Cut - Fill
+                    </button>
+                  </div>
+                </div>
+                <!-- Section Result Display -->
+                <div class="section-result mt-2">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <input type="text" class="form-control border-0" placeholder="Cutting Area" readonly>
+                    </div>
+                    <div class="col-md-6">
+                      <input type="text" class="form-control border-0" placeholder="Filling Area" readonly>
+                    </div>
+                  </div>
+                </div>
+                <!-- Row Graph Container -->
+                <div class="rowChartContainer">
+                  <canvas class="rowChart"></canvas>
+                </div>
+              </div>
+              <!-- End of Single Chainage Row -->
+            </div>
+            <!-- End of Dynamic Chainage Rows Container -->
+
+            <div class="row g-3">
+              <div class="col-12 col-md-4">
+                <button type="button" class="btn w-100 py-2" id="addChainage"
+                  style="background: transparent; border: none; box-shadow: none;">
+                  <i class="bi bi-plus-circle me-1"></i> Add Chainage
+                </button>
+              </div>
+              <div class="col-12 col-md-4">
+                <button type="reset" class="btn w-100 py-2" id="resetCutFill"
+                  style="background: transparent; border: none; box-shadow: none;">
+                  <i class="bi bi-arrow-counterclockwise me-1"></i> Reset
+                </button>
+              </div>
+              <div class="col-12 col-md-4">
+                <button type="button" class="btn btn-primary w-100 py-2" id="calculateCutFill">
+                  <i class="bi bi-calculator me-1"></i> Calculate Total Area
+                </button>
+              </div>
+            </div>
+
+            <div class="row mt-4">
+              <div class="col-12">
+                <div class="result-section bg-white p-3 p-md-4 rounded">
+                  <h5 class="text-uppercase mb-2">
+                    <i class="bi bi-clipboard-data me-1"></i> Total Cutting/Filling Area
+                  </h5>
+                  <input type="text" class="form-control border-0" id="totalCutFillArea" readonly placeholder="Total Area" style="height: 50px;">
+                </div>
+              </div>
+            </div>
+
+            <!-- Overall Chart Canvas (Area vs. Chainage Graph) -->
+            <div class="row mt-4">
+              <div class="col-12">
+                <canvas id="chainageChart"></canvas>
+              </div>
+            </div>
+            <!-- Generate Report Button -->
+            <div class="row mt-4">
+              <div class="col-12 text-center">
+                <button type="button" id="generateReport" class="btn btn-success btn-lg">
+                  <i class="bi bi-file-earmark-pdf me-1"></i> Generate Report
+                </button>
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Main Form End -->
+
+  <!-- JavaScript Libraries -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf.plugin.autotable.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Main Script -->
+  <script src="script.js"></script>
+ 
+  <script>
+    // Verify authentication when dashboard loads.
+    checkAuth();
+  </script>
+
+  <script>
+    // document.addEventListener("contextmenu", function(event) {
+    //   event.preventDefault();
+    // });
+    const hSHSHshshs=hellod;function whyt(){const HElloD=['utils','closest','min','input[name=\x22ng05[]\x22]','appendChild','4203iDzSoQ','24824cFTvKc','input[name=\x22ng0[]\x22]','createElement','#fff','addImage','click','Cutting','filling','rgba(0,\x20128,\x200,\x200.1)','.deleteChainageRow','input[name=\x22rd1[]\x22]','RD1','input[name=\x22ng025[]\x22]','innerHTML','.chainage-row','Row\x20','catch','array','cloneNode','Filling','Please\x20select\x20both\x20NGL\x20and\x20Road\x20Level\x20Excel\x20files.','input[name=\x22rd0[]\x22]','Chainage\x20(m)','grid','addEventListener','jspdf','NG0.5','remove','input[name=\x22roadWidth\x22]','getContext','abs','Filling\x20Area','18NRhPwD','onerror','toFixed','32030uRHTSF','DOMContentLoaded','NG0.25','2299PhwojW','\x20|\x20Filling:\x20','files','line','chart','input[name=\x22ng075[]\x22]','orange','.section-result\x20input','error','text','Natural\x20Ground','Per-Row\x20Graphs','style','pageSize','addPage','push','querySelectorAll','Chainage\x20','div','cutting','4ErtETz','warning','Please\x20provide\x20the\x20Road\x20Width\x20before\x20importing\x20Excel\x20data.','Position','input[name=\x22rd05[]\x22]','getHeight','input[name=\x22ng1[]\x22]','At\x20least\x20one\x20chainage\x20row\x20must\x20remain.','chainageRows','internal','target','4925276skBNtV','nglExcel','globalCompositeOperation','calculateCutFill','SheetNames','sheet_to_json','addChainage','getElementById','value','fillStyle','RD0.75','\x20does\x20not\x20have\x20enough\x20columns.','then','toDataURL','destination-over','rgba(255,0,0,0.1)','Missing\x20Road\x20Width','Cutting_Filling_Report.pdf','\x20Graph','input[name=\x22rd075[]\x22]','PNG','importExcel','backgroundColor','0.5','green','input[name=\x22rd025[]\x22]','setFontSize','1065792htCEoW','0.75','max','input','destroy','chainageChart','onload','RD0','save','contextmenu','683776zKmnIM','restore','0.25','fire','chainage-row\x20mb-4\x20border\x20rounded\x20p-3','readAsArrayBuffer','Sheets','RD0.25','20375VInsDd','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22row\x20g-3\x20align-items-center\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22col-md-2\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22number\x22\x20class=\x22form-control\x20border-0\x22\x20name=\x22chainage[]\x22\x20placeholder=\x22Chainage\x20(m)\x22\x20style=\x22height:\x2050px;\x22\x20required>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22col-md-5\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22row\x20g-2\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22col-12\x22><strong>Natural\x20Ground\x20Levels\x20(Reduced\x20Levels)</strong></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22col\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22number\x22\x20class=\x22form-control\x20border-0\x22\x20name=\x22ng0[]\x22\x20placeholder=\x220\x22\x20style=\x22height:\x2050px;\x22\x20required>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22col\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22number\x22\x20class=\x22form-control\x20border-0\x22\x20name=\x22ng025[]\x22\x20placeholder=\x220.25\x22\x20style=\x22height:\x2050px;\x22\x20required>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22col\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22number\x22\x20class=\x22form-control\x20border-0\x22\x20name=\x22ng05[]\x22\x20placeholder=\x220.5\x22\x20style=\x22height:\x2050px;\x22\x20required>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22col\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22number\x22\x20class=\x22form-control\x20border-0\x22\x20name=\x22ng075[]\x22\x20placeholder=\x220.75\x22\x20style=\x22height:\x2050px;\x22\x20required>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22col\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22number\x22\x20class=\x22form-control\x20border-0\x22\x20name=\x22ng1[]\x22\x20placeholder=\x221\x22\x20style=\x22height:\x2050px;\x22\x20required>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22col-md-5\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22row\x20g-2\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22col-12\x22><strong>Road\x20Levels\x20(Reduced\x20Levels)</strong></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22col\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22number\x22\x20class=\x22form-control\x20border-0\x22\x20name=\x22rd0[]\x22\x20placeholder=\x220\x22\x20style=\x22height:\x2050px;\x22\x20required>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22col\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22number\x22\x20class=\x22form-control\x20border-0\x22\x20name=\x22rd025[]\x22\x20placeholder=\x220.25\x22\x20style=\x22height:\x2050px;\x22\x20required>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22col\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22number\x22\x20class=\x22form-control\x20border-0\x22\x20name=\x22rd05[]\x22\x20placeholder=\x220.5\x22\x20style=\x22height:\x2050px;\x22\x20required>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22col\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22number\x22\x20class=\x22form-control\x20border-0\x22\x20name=\x22rd075[]\x22\x20placeholder=\x220.75\x22\x20style=\x22height:\x2050px;\x22\x20required>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22col\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22number\x22\x20class=\x22form-control\x20border-0\x22\x20name=\x22rd1[]\x22\x20placeholder=\x221\x22\x20style=\x22height:\x2050px;\x22\x20required>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22col-12\x20text-end\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20type=\x22button\x22\x20class=\x22btn\x20btn-danger\x20deleteChainageRow\x22\x20style=\x22height:\x2050px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22bi\x20bi-trash\x20me-1\x22></i>\x20Delete\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20type=\x22button\x22\x20class=\x22btn\x20btn-secondary\x20calculateRow\x22\x20style=\x22height:\x2050px;\x20background:\x20transparent;\x20border:\x20none;\x20box-shadow:\x20none;\x20margin-left:\x2010px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<i\x20class=\x22bi\x20bi-calculator\x20me-1\x22></i>\x20Calculate\x20Cut\x20-\x20Fill\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22section-result\x20mt-2\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22row\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22col-md-6\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22text\x22\x20class=\x22form-control\x20border-0\x22\x20placeholder=\x22Cutting\x20Area\x22\x20readonly>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22col-md-6\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22text\x22\x20class=\x22form-control\x20border-0\x22\x20placeholder=\x22Filling\x20Area\x22\x20readonly>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22rowChartContainer\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<canvas\x20class=\x22rowChart\x22></canvas>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','width','3CHLcRO','NG1','autoTable','Please\x20provide\x20the\x20Road\x20Width\x20before\x20generating\x20the\x20report.','<span\x20class=\x22spinner-border\x20spinner-border-sm\x22\x20role=\x22status\x22\x20aria-hidden=\x22true\x22></span>\x20Generating\x20PDF...','Cutting\x20Area','Overall\x20Cutting/Filling\x20Chart','disabled','input[name=\x22chainage[]\x22]','height','Cutting\x20&\x20Filling\x20Report\x20(Developer\x20Credit-\x20Sarthak\x20Aganja)','rdExcel','Chainage\x20value\x20mismatch\x20at\x20row\x20','NG0','The\x20number\x20of\x20rows\x20in\x20NGL\x20and\x20Road\x20Level\x20files\x20are\x20not\x20equal.','Elevation','Road\x20Level','length','Cutting:\x20','7881797MNkYvY','forEach','.rowChart','image/png','input[name=\x22rd0[]\x22],\x20input[name=\x22rd025[]\x22],\x20input[name=\x22rd05[]\x22],\x20input[name=\x22rd075[]\x22],\x20input[name=\x22rd1[]\x22]','fillRect','.section-result','querySelector'];whyt=function(){return HElloD;};return whyt();}function hellod(foo,myt){const hsfwury474rhiiowi3r843402304204284042=whyt();return hellod=function(hshshshshs,sgsgsage){hshshshshs=hshshshshs-0xef;let Hshshshshs=hsfwury474rhiiowi3r843402304204284042[hshshshshs];return Hshshshshs;},hellod(foo,myt);}(function(hsFWUry474rhiiowi3r843402304204284042,hsHSHshshs){const HsFWUry474rhiiowi3r843402304204284042=hellod,HsHSHshshs=hsFWUry474rhiiowi3r843402304204284042();while(!![]){try{const HeLLOd=-parseInt(HsFWUry474rhiiowi3r843402304204284042(0xf2))/0x1*(-parseInt(HsFWUry474rhiiowi3r843402304204284042(0x158))/0x2)+-parseInt(HsFWUry474rhiiowi3r843402304204284042(0xfd))/0x3*(-parseInt(HsFWUry474rhiiowi3r843402304204284042(0x163))/0x4)+-parseInt(HsFWUry474rhiiowi3r843402304204284042(0xfa))/0x5*(parseInt(HsFWUry474rhiiowi3r843402304204284042(0x13e))/0x6)+-parseInt(HsFWUry474rhiiowi3r843402304204284042(0x110))/0x7+parseInt(HsFWUry474rhiiowi3r843402304204284042(0x11e))/0x8*(-parseInt(HsFWUry474rhiiowi3r843402304204284042(0x11d))/0x9)+-parseInt(HsFWUry474rhiiowi3r843402304204284042(0x141))/0xa*(-parseInt(HsFWUry474rhiiowi3r843402304204284042(0x144))/0xb)+parseInt(HsFWUry474rhiiowi3r843402304204284042(0x17e))/0xc;if(HeLLOd===hsHSHshshs)break;else HsHSHshshs['push'](HsHSHshshs['shift']());}catch(SgSGSage){HsHSHshshs['push'](HsHSHshshs['shift']());}}}(whyt,0xbbf19),document[hSHSHshshs(0x136)](hSHSHshshs(0xf1),function(foo){foo['preventDefault']();}),document['addEventListener'](hSHSHshshs(0x142),function(){const hSFWUry474rhiiowi3r843402304204284042=hSHSHshshs,myt=document[hSFWUry474rhiiowi3r843402304204284042(0x16a)](hSFWUry474rhiiowi3r843402304204284042(0x169)),hsfwury474rhiiowi3r843402304204284042=document[hSFWUry474rhiiowi3r843402304204284042(0x16a)](hSFWUry474rhiiowi3r843402304204284042(0x166)),hshshshshs=document[hSFWUry474rhiiowi3r843402304204284042(0x16a)](hSFWUry474rhiiowi3r843402304204284042(0x160)),sgsgsage=document['getElementById']('totalCutFillArea'),Foo=document[hSFWUry474rhiiowi3r843402304204284042(0x16a)]('generateReport'),Hshshshshs=document[hSFWUry474rhiiowi3r843402304204284042(0x16a)](hSFWUry474rhiiowi3r843402304204284042(0x178));let Hellod;function Whyt(wHyt){const sGSGSage=hSFWUry474rhiiowi3r843402304204284042,hEllod=SGsgsage=>parseFloat(wHyt[sGSGSage(0x117)](SGsgsage)[sGSGSage(0x16b)])||0x0;let WHyt=[hEllod(sGSGSage(0x11f)),hEllod(sGSGSage(0x12a)),hEllod('input[name=\x22ng05[]\x22]'),hEllod(sGSGSage(0x149)),hEllod(sGSGSage(0x15e))],HEllod=[hEllod(sGSGSage(0x133)),hEllod('input[name=\x22rd025[]\x22]'),hEllod(sGSGSage(0x15c)),hEllod(sGSGSage(0x176)),hEllod('input[name=\x22rd1[]\x22]')];const HShshshshs=0.25;let MYt=0x0,HSfwury474rhiiowi3r843402304204284042=0x0;for(let whYt=0x0;whYt<0x4;whYt++){let hsHshshshs=WHyt[whYt]-HEllod[whYt],hsFwury474rhiiowi3r843402304204284042=WHyt[whYt+0x1]-HEllod[whYt+0x1];if(hsHshshshs>=0x0&&hsFwury474rhiiowi3r843402304204284042>=0x0)MYt+=HShshshshs/0x2*(hsHshshshs+hsFwury474rhiiowi3r843402304204284042);else{if(hsHshshshs<=0x0&&hsFwury474rhiiowi3r843402304204284042<=0x0)HSfwury474rhiiowi3r843402304204284042+=HShshshshs/0x2*(Math[sGSGSage(0x13c)](hsHshshshs)+Math[sGSGSage(0x13c)](hsFwury474rhiiowi3r843402304204284042));else{let heLlod=hsHshshshs/(hsHshshshs-hsFwury474rhiiowi3r843402304204284042);hsHshshshs>0x0?(MYt+=HShshshshs*heLlod/0x2*hsHshshshs,HSfwury474rhiiowi3r843402304204284042+=HShshshshs*(0x1-heLlod)/0x2*Math[sGSGSage(0x13c)](hsFwury474rhiiowi3r843402304204284042)):(HSfwury474rhiiowi3r843402304204284042+=HShshshshs*heLlod/0x2*Math[sGSGSage(0x13c)](hsHshshshs),MYt+=HShshshshs*(0x1-heLlod)/0x2*hsFwury474rhiiowi3r843402304204284042);}}}const FOo=parseFloat(document[sGSGSage(0x117)](sGSGSage(0x13a))[sGSGSage(0x16b)])||0x1;return MYt*=FOo,HSfwury474rhiiowi3r843402304204284042*=FOo,{'cutting':MYt,'filling':HSfwury474rhiiowi3r843402304204284042};}function Myt(sgSgsage,foO){const hELLOd=hSFWUry474rhiiowi3r843402304204284042,myT=sgSgsage[hELLOd(0x117)](hELLOd(0x116));if(myT){const MyT=myT[hELLOd(0x154)]('input');MyT[0x0][hELLOd(0x16b)]=foO[hELLOd(0x157)]['toFixed'](0x3),MyT[0x1][hELLOd(0x16b)]=foO[hELLOd(0x125)][hELLOd(0x140)](0x3);}}function Sgsgsage(HsHshshshs){const SGSGSage=hSFWUry474rhiiowi3r843402304204284042,HeLlod=HsHshshshs[SGSGSage(0x117)](SGSGSage(0x112));if(!HeLlod)return;HeLlod[SGSGSage(0x150)]['backgroundColor']=SGSGSage(0x121);const WhYt=HeLlod[SGSGSage(0x13b)]('2d'),SgSgsage=hELlod=>parseFloat(HsHshshshs[SGSGSage(0x117)](hELlod)[SGSGSage(0x16b)])||0x0;let HsFwury474rhiiowi3r843402304204284042=[SgSgsage('input[name=\x22ng0[]\x22]'),SgSgsage('input[name=\x22ng025[]\x22]'),SgSgsage(SGSGSage(0x11b)),SgSgsage(SGSGSage(0x149)),SgSgsage(SGSGSage(0x15e))],FoO=[SgSgsage(SGSGSage(0x133)),SgSgsage(SGSGSage(0x17c)),SgSgsage(SGSGSage(0x15c)),SgSgsage('input[name=\x22rd075[]\x22]'),SgSgsage(SGSGSage(0x128))];const mYT=['0',SGSGSage(0xf4),SGSGSage(0x17a),SGSGSage(0x17f),'1'],sGSgsage=[...HsFwury474rhiiowi3r843402304204284042,...FoO],fOO=Math[SGSGSage(0x180)](...sGSgsage),wHYt=Math[SGSGSage(0x11a)](...sGSgsage),hSFwury474rhiiowi3r843402304204284042=fOO+0x1,hSHshshshs=wHYt-0x1;HsHshshshs['chart']&&HsHshshshs['chart']['destroy'](),HsHshshshs['chart']=new Chart(WhYt,{'type':SGSGSage(0x147),'data':{'labels':mYT,'datasets':[{'label':SGSGSage(0x14e),'data':HsFwury474rhiiowi3r843402304204284042,'borderColor':SGSGSage(0x17b),'backgroundColor':SGSGSage(0x126),'fill':![],'tension':0.1},{'label':SGSGSage(0x10d),'data':FoO,'borderColor':SGSGSage(0x14a),'backgroundColor':'rgba(255,\x20165,\x200,\x200.1)','fill':![],'tension':0.1}]},'options':{'responsive':!![],'plugins':{'legend':{'position':'top'}},'scales':{'x':{'title':{'display':!![],'text':SGSGSage(0x15b)}},'y':{'title':{'display':!![],'text':SGSGSage(0x10c)},'min':hSHshshshs,'max':hSFwury474rhiiowi3r843402304204284042}}}});}function Hsfwury474rhiiowi3r843402304204284042(){const HSFWUry474rhiiowi3r843402304204284042=hSFWUry474rhiiowi3r843402304204284042,WHYt=hshshshshs['querySelectorAll']('.chainage-row');let SGSgsage=0x0,HSFwury474rhiiowi3r843402304204284042=0x0,MYT=[],HSHshshshs=[],HELlod=[];WHYt['forEach'](function(FOO){const HSHSHshshs=hellod;let whyT=parseFloat(FOO[HSHSHshshs(0x117)](HSHSHshshs(0x105))['value']);if(isNaN(whyT))return;const hsfWury474rhiiowi3r843402304204284042=Whyt(FOO);Myt(FOO,hsfWury474rhiiowi3r843402304204284042),Sgsgsage(FOO),SGSgsage+=hsfWury474rhiiowi3r843402304204284042[HSHSHshshs(0x157)],HSFwury474rhiiowi3r843402304204284042+=hsfWury474rhiiowi3r843402304204284042[HSHSHshshs(0x125)],MYT[HSHSHshshs(0x153)](whyT),HSHshshshs['push'](hsfWury474rhiiowi3r843402304204284042[HSHSHshshs(0x157)]),HELlod[HSHSHshshs(0x153)](hsfWury474rhiiowi3r843402304204284042['filling']);}),sgsgsage[HSFWUry474rhiiowi3r843402304204284042(0x16b)]=HSFWUry474rhiiowi3r843402304204284042(0x10f)+SGSgsage[HSFWUry474rhiiowi3r843402304204284042(0x140)](0x3)+HSFWUry474rhiiowi3r843402304204284042(0x145)+HSFwury474rhiiowi3r843402304204284042[HSFWUry474rhiiowi3r843402304204284042(0x140)](0x3),fOo(MYT,HSHshshshs,HELlod);}function fOo(sgsGsage,hshShshshs,helLod){const HELLOd=hSFWUry474rhiiowi3r843402304204284042,WhyT=document[HELLOd(0x16a)](HELLOd(0x183));if(!WhyT)return;WhyT[HELLOd(0x150)][HELLOd(0x179)]='#fff';const HsfWury474rhiiowi3r843402304204284042=WhyT[HELLOd(0x13b)]('2d');let HshShshshs=[],SgsGsage=[],HelLod=[];for(let WHyT=0x0;WHyT<sgsGsage[HELLOd(0x10e)];WHyT++){sgsGsage[WHyT]!==''&&sgsGsage[WHyT]!=null&&(HshShshshs[HELLOd(0x153)](sgsGsage[WHyT]),SgsGsage[HELLOd(0x153)](hshShshshs[WHyT]),HelLod[HELLOd(0x153)](helLod[WHyT]));}Hellod&&Hellod[HELLOd(0x182)]();const wHyT=[...SgsGsage,...HelLod],hSfWury474rhiiowi3r843402304204284042=Math[HELLOd(0x180)](...wHyT),hElLod=Math[HELLOd(0x11a)](...wHyT),sGsGsage=hSfWury474rhiiowi3r843402304204284042+1.3,hShShshshs=hElLod-1.3;Hellod=new Chart(HsfWury474rhiiowi3r843402304204284042,{'type':HELLOd(0x147),'data':{'labels':HshShshshs,'datasets':[{'label':HELLOd(0x102),'data':SgsGsage,'borderColor':'red','backgroundColor':HELLOd(0x172),'fill':![],'tension':0.1},{'label':HELLOd(0x13d),'data':HelLod,'borderColor':'blue','backgroundColor':'rgba(0,0,255,0.1)','fill':![],'tension':0.1}]},'options':{'responsive':!![],'plugins':{'legend':{'position':'top'}},'scales':{'x':{'title':{'display':!![],'text':'Chainage\x20(m)'}},'y':{'title':{'display':!![],'text':'Area'},'min':hShShshshs,'max':sGsGsage}}}});}function sGsgsage(){const hsfwuRy474rhiiowi3r843402304204284042=hSFWUry474rhiiowi3r843402304204284042,HElLod=document[hsfwuRy474rhiiowi3r843402304204284042(0x117)]('.chainage-row');if(!HElLod)return;const HShShshshs=HElLod[hsfwuRy474rhiiowi3r843402304204284042(0x130)](!![]);HShShshshs[hsfwuRy474rhiiowi3r843402304204284042(0x154)](hsfwuRy474rhiiowi3r843402304204284042(0x181))[hsfwuRy474rhiiowi3r843402304204284042(0x111)](function(SGsGsage){const hshshShshs=hsfwuRy474rhiiowi3r843402304204284042;SGsGsage[hshshShshs(0x16b)]='';}),HShShshshs['chart']&&(HShShshshs[hsfwuRy474rhiiowi3r843402304204284042(0x148)]=null),hshshshshs['appendChild'](HShShshshs);}function hShshshshs(HSfWury474rhiiowi3r843402304204284042){const helloD=hSFWUry474rhiiowi3r843402304204284042,whYT=HSfWury474rhiiowi3r843402304204284042[helloD(0x162)]['closest'](helloD(0x127));if(whYT){const hsHShshshs=whYT[helloD(0x119)](helloD(0x12c));hshshshshs['querySelectorAll'](helloD(0x12c))[helloD(0x10e)]>0x1?hsHShshshs[helloD(0x139)]():alert(helloD(0x15f));}}function hSfwury474rhiiowi3r843402304204284042(sgSGsage){return new Promise((hsFWury474rhiiowi3r843402304204284042,heLLod)=>{const sgsgsAge=hellod,WhYT=new FileReader();WhYT[sgsgsAge(0x184)]=function(HeLLod){const HsfwuRy474rhiiowi3r843402304204284042=sgsgsAge,SgSGsage=new Uint8Array(HeLLod[HsfwuRy474rhiiowi3r843402304204284042(0x162)]['result']),HsHShshshs=XLSX['read'](SgSGsage,{'type':HsfwuRy474rhiiowi3r843402304204284042(0x12f)}),HsFWury474rhiiowi3r843402304204284042=HsHShshshs[HsfwuRy474rhiiowi3r843402304204284042(0x167)][0x0],hELLod=HsHShshshs[HsfwuRy474rhiiowi3r843402304204284042(0xf8)][HsFWury474rhiiowi3r843402304204284042],wHYT=XLSX[HsfwuRy474rhiiowi3r843402304204284042(0x118)][HsfwuRy474rhiiowi3r843402304204284042(0x168)](hELLod,{'header':0x1});hsFWury474rhiiowi3r843402304204284042(wHYT);},WhYT[sgsgsAge(0x13f)]=function(hSFWury474rhiiowi3r843402304204284042){heLLod(hSFWury474rhiiowi3r843402304204284042);},WhYT[sgsgsAge(0xf7)](sgSGsage);});}function mYt(hSHShshshs,sGSGsage){const HelloD=hSFWUry474rhiiowi3r843402304204284042;hshshshshs[HelloD(0x12b)]='';for(let SGSGsage=0x0;SGSGsage<hSHShshshs['length'];SGSGsage++){const HELLod=hSHShshshs[SGSGsage],WHYT=sGSGsage[SGSGsage];if(HELLod[HelloD(0x10e)]<0x6||WHYT[HelloD(0x10e)]<0x6){alert(HelloD(0x12d)+(SGSGsage+0x1)+HelloD(0x16e));return;}if(HELLod[0x0]!=WHYT[0x0]){alert(HelloD(0x109)+(SGSGsage+0x1));return;}const HSHShshshs=document[HelloD(0x120)](HelloD(0x156));HSHShshshs['className']=HelloD(0xf6),HSHShshshs[HelloD(0x12b)]=HelloD(0xfb),HSHShshshs[HelloD(0x117)](HelloD(0x105))[HelloD(0x16b)]=HELLod[0x0];const HSFWury474rhiiowi3r843402304204284042=HSHShshshs[HelloD(0x154)]('input[name=\x22ng0[]\x22],\x20input[name=\x22ng025[]\x22],\x20input[name=\x22ng05[]\x22],\x20input[name=\x22ng075[]\x22],\x20input[name=\x22ng1[]\x22]');HSFWury474rhiiowi3r843402304204284042[HelloD(0x10e)]===0x5&&(HSFWury474rhiiowi3r843402304204284042[0x0][HelloD(0x16b)]=HELLod[0x1],HSFWury474rhiiowi3r843402304204284042[0x1]['value']=HELLod[0x2],HSFWury474rhiiowi3r843402304204284042[0x2][HelloD(0x16b)]=HELLod[0x3],HSFWury474rhiiowi3r843402304204284042[0x3][HelloD(0x16b)]=HELLod[0x4],HSFWury474rhiiowi3r843402304204284042[0x4][HelloD(0x16b)]=HELLod[0x5]);const hshsHshshs=HSHShshshs[HelloD(0x154)](HelloD(0x114));hshsHshshs[HelloD(0x10e)]===0x5&&(hshsHshshs[0x0]['value']=WHYT[0x1],hshsHshshs[0x1]['value']=WHYT[0x2],hshsHshshs[0x2][HelloD(0x16b)]=WHYT[0x3],hshsHshshs[0x3]['value']=WHYT[0x4],hshsHshshs[0x4][HelloD(0x16b)]=WHYT[0x5]),hshshshshs[HelloD(0x11c)](HSHShshshs);}Hsfwury474rhiiowi3r843402304204284042();}Hshshshshs[hSFWUry474rhiiowi3r843402304204284042(0x136)]('click',function(){const HshshShshs=hSFWUry474rhiiowi3r843402304204284042,hsfwUry474rhiiowi3r843402304204284042=document[HshshShshs(0x117)]('input[name=\x22roadWidth\x22]')[HshshShshs(0x16b)];if(!hsfwUry474rhiiowi3r843402304204284042){Swal[HshshShshs(0xf5)]({'icon':HshshShshs(0x159),'title':'Missing\x20Road\x20Width','text':HshshShshs(0x15a)});return;}const sgsgSage=document[HshshShshs(0x16a)](HshshShshs(0x164)),hellOd=document[HshshShshs(0x16a)](HshshShshs(0x108));if(!sgsgSage[HshshShshs(0x146)][0x0]||!hellOd[HshshShshs(0x146)][0x0]){alert(HshshShshs(0x132));return;}Promise['all']([hSfwury474rhiiowi3r843402304204284042(sgsgSage['files'][0x0]),hSfwury474rhiiowi3r843402304204284042(hellOd[HshshShshs(0x146)][0x0])])[HshshShshs(0x16f)](function([HshsHshshs,SgsgSage]){const SgsgsAge=HshshShshs;if(HshsHshshs[SgsgsAge(0x10e)]!==SgsgSage['length']){alert(SgsgsAge(0x10b));return;}mYt(HshsHshshs,SgsgSage);})[HshshShshs(0x12e)](function(HsfwUry474rhiiowi3r843402304204284042){const hElloD=HshshShshs;console[hElloD(0x14c)](HsfwUry474rhiiowi3r843402304204284042),alert('Error\x20reading\x20Excel\x20files:\x20'+HsfwUry474rhiiowi3r843402304204284042);});}),myt[hSFWUry474rhiiowi3r843402304204284042(0x136)]('click',function(){Hsfwury474rhiiowi3r843402304204284042(),sGsgsage();}),hshshshshs[hSFWUry474rhiiowi3r843402304204284042(0x136)](hSFWUry474rhiiowi3r843402304204284042(0x123),function(HellOd){const hSfwuRy474rhiiowi3r843402304204284042=hSFWUry474rhiiowi3r843402304204284042;HellOd[hSfwuRy474rhiiowi3r843402304204284042(0x162)][hSfwuRy474rhiiowi3r843402304204284042(0x119)](hSfwuRy474rhiiowi3r843402304204284042(0x127))&&(hShshshshs(HellOd),Hsfwury474rhiiowi3r843402304204284042());if(HellOd[hSfwuRy474rhiiowi3r843402304204284042(0x162)]['closest']('.calculateRow')){const sGsgSage=HellOd[hSfwuRy474rhiiowi3r843402304204284042(0x162)][hSfwuRy474rhiiowi3r843402304204284042(0x119)](hSfwuRy474rhiiowi3r843402304204284042(0x12c)),hShsHshshs=Whyt(sGsgSage);Myt(sGsgSage,hShsHshshs),Sgsgsage(sGsgSage);}}),hsfwury474rhiiowi3r843402304204284042[hSFWUry474rhiiowi3r843402304204284042(0x136)](hSFWUry474rhiiowi3r843402304204284042(0x123),function(){Hsfwury474rhiiowi3r843402304204284042();}),Foo[hSFWUry474rhiiowi3r843402304204284042(0x136)](hSFWUry474rhiiowi3r843402304204284042(0x123),function(){const sGsgsAge=hSFWUry474rhiiowi3r843402304204284042,hEllOd=document[sGsgsAge(0x117)](sGsgsAge(0x13a))[sGsgsAge(0x16b)];if(!hEllOd){Swal[sGsgsAge(0xf5)]({'icon':'warning','title':sGsgsAge(0x173),'text':sGsgsAge(0x100)});return;}Foo[sGsgsAge(0x104)]=!![];const hSfwUry474rhiiowi3r843402304204284042=Foo[sGsgsAge(0x12b)];Foo[sGsgsAge(0x12b)]=sGsgsAge(0x101),Hsfwury474rhiiowi3r843402304204284042(),setTimeout(function(){const hShshShshs=sGsgsAge,{jsPDF:HShsHshshs}=window[hShshShshs(0x137)],SGsgSage=new HShsHshshs('p','mm','a4'),HSfwUry474rhiiowi3r843402304204284042=0xe,HEllOd=0xe,hsFwUry474rhiiowi3r843402304204284042=0x14,heLlOd=0x14,sgSgSage=SGsgSage['internal'][hShshShshs(0x151)]['getWidth'](),hsHsHshshs=SGsgSage[hShshShshs(0x161)]['pageSize'][hShshShshs(0x15d)]();SGsgSage[hShshShshs(0x17d)](0x10),SGsgSage['text'](hShshShshs(0x107),HSfwUry474rhiiowi3r843402304204284042,hsFwUry474rhiiowi3r843402304204284042),SGsgSage['setFontSize'](0xc),SGsgSage[hShshShshs(0x14d)](sgsgsage[hShshShshs(0x16b)],HSfwUry474rhiiowi3r843402304204284042,hsFwUry474rhiiowi3r843402304204284042+0xa);const HsHsHshshs=[],HsFwUry474rhiiowi3r843402304204284042=hshshshshs[hShshShshs(0x154)](hShshShshs(0x12c));HsFwUry474rhiiowi3r843402304204284042[hShshShshs(0x111)](function(hSFwUry474rhiiowi3r843402304204284042){const SGsgsAge=hShshShshs,hELlOd=hSFwUry474rhiiowi3r843402304204284042[SGsgsAge(0x117)](SGsgsAge(0x105))[SGsgsAge(0x16b)];if(!hELlOd)return;const hSHsHshshs=hSFwUry474rhiiowi3r843402304204284042[SGsgsAge(0x117)](SGsgsAge(0x11f))[SGsgsAge(0x16b)],HELlOd=hSFwUry474rhiiowi3r843402304204284042[SGsgsAge(0x117)]('input[name=\x22ng025[]\x22]')[SGsgsAge(0x16b)],SGSgSage=hSFwUry474rhiiowi3r843402304204284042[SGsgsAge(0x117)](SGsgsAge(0x11b))[SGsgsAge(0x16b)],HSHsHshshs=hSFwUry474rhiiowi3r843402304204284042[SGsgsAge(0x117)]('input[name=\x22ng075[]\x22]')[SGsgsAge(0x16b)],HSFwUry474rhiiowi3r843402304204284042=hSFwUry474rhiiowi3r843402304204284042[SGsgsAge(0x117)](SGsgsAge(0x15e))['value'],helLOd=hSFwUry474rhiiowi3r843402304204284042[SGsgsAge(0x117)](SGsgsAge(0x133))[SGsgsAge(0x16b)],sgsGSage=hSFwUry474rhiiowi3r843402304204284042[SGsgsAge(0x117)](SGsgsAge(0x17c))[SGsgsAge(0x16b)],hshSHshshs=hSFwUry474rhiiowi3r843402304204284042[SGsgsAge(0x117)](SGsgsAge(0x15c))[SGsgsAge(0x16b)],hsfWUry474rhiiowi3r843402304204284042=hSFwUry474rhiiowi3r843402304204284042[SGsgsAge(0x117)](SGsgsAge(0x176))['value'],HshSHshshs=hSFwUry474rhiiowi3r843402304204284042[SGsgsAge(0x117)]('input[name=\x22rd1[]\x22]')['value'],HelLOd=hSFwUry474rhiiowi3r843402304204284042[SGsgsAge(0x154)](SGsgsAge(0x14b)),SgsGSage=HelLOd[0x0][SGsgsAge(0x16b)],HsfWUry474rhiiowi3r843402304204284042=HelLOd[0x1][SGsgsAge(0x16b)];HsHsHshshs[SGsgsAge(0x153)]([hELlOd,hSHsHshshs,HELlOd,SGSgSage,HSHsHshshs,HSFwUry474rhiiowi3r843402304204284042,helLOd,sgsGSage,hshSHshshs,hsfWUry474rhiiowi3r843402304204284042,HshSHshshs,SgsGSage,HsfWUry474rhiiowi3r843402304204284042]);});const HeLlOd=[[hShshShshs(0x134),hShshShshs(0x10a),hShshShshs(0x143),hShshShshs(0x138),'NG0.75',hShshShshs(0xfe),hShshShshs(0xef),hShshShshs(0xf9),'RD0.5',hShshShshs(0x16d),hShshShshs(0x129),hShshShshs(0x124),hShshShshs(0x131)]];SGsgSage[hShshShshs(0xff)]({'head':HeLlOd,'body':HsHsHshshs,'startY':hsFwUry474rhiiowi3r843402304204284042+0x14,'margin':{'left':HSfwUry474rhiiowi3r843402304204284042,'right':HEllOd,'top':hsFwUry474rhiiowi3r843402304204284042,'bottom':heLlOd},'theme':hShshShshs(0x135),'headStyles':{'fillColor':[0x16,0xa0,0x85]}}),SGsgSage[hShshShshs(0x152)](),SGsgSage[hShshShshs(0x17d)](0xe),SGsgSage[hShshShshs(0x14d)](hShshShshs(0x14f),HSfwUry474rhiiowi3r843402304204284042,hsFwUry474rhiiowi3r843402304204284042);let SgSgSage=hsFwUry474rhiiowi3r843402304204284042+0xa;HsFwUry474rhiiowi3r843402304204284042['forEach'](function(hSfWUry474rhiiowi3r843402304204284042){const HSfwuRy474rhiiowi3r843402304204284042=hShshShshs,hElLOd=hSfWUry474rhiiowi3r843402304204284042[HSfwuRy474rhiiowi3r843402304204284042(0x117)]('input[name=\x22chainage[]\x22]')[HSfwuRy474rhiiowi3r843402304204284042(0x16b)];if(!hElLOd)return;const sGsGSage=hSfWUry474rhiiowi3r843402304204284042['querySelector'](HSfwuRy474rhiiowi3r843402304204284042(0x112));if(sGsGSage){const hShSHshshs=sGsGSage['getContext']('2d');hShSHshshs[HSfwuRy474rhiiowi3r843402304204284042(0xf0)](),hShSHshshs[HSfwuRy474rhiiowi3r843402304204284042(0x165)]=HSfwuRy474rhiiowi3r843402304204284042(0x171),hShSHshshs[HSfwuRy474rhiiowi3r843402304204284042(0x16c)]='#fff',hShSHshshs[HSfwuRy474rhiiowi3r843402304204284042(0x115)](0x0,0x0,sGsGSage['width'],sGsGSage[HSfwuRy474rhiiowi3r843402304204284042(0x106)]),hShSHshshs[HSfwuRy474rhiiowi3r843402304204284042(0xf3)]();const HShSHshshs=sGsGSage[HSfwuRy474rhiiowi3r843402304204284042(0x170)](HSfwuRy474rhiiowi3r843402304204284042(0x113),0x1),HElLOd=0x50,SGsGSage=0x5+HElLOd+0xa;SgSgSage+SGsGSage>hsHsHshshs-heLlOd&&(SGsgSage[HSfwuRy474rhiiowi3r843402304204284042(0x152)](),SgSgSage=hsFwUry474rhiiowi3r843402304204284042),SGsgSage[HSfwuRy474rhiiowi3r843402304204284042(0x17d)](0xc),SGsgSage['text'](HSfwuRy474rhiiowi3r843402304204284042(0x155)+hElLOd+HSfwuRy474rhiiowi3r843402304204284042(0x175),HSfwUry474rhiiowi3r843402304204284042,SgSgSage),SgSgSage+=0x5,SGsgSage[HSfwuRy474rhiiowi3r843402304204284042(0x122)](HShSHshshs,HSfwuRy474rhiiowi3r843402304204284042(0x177),HSfwUry474rhiiowi3r843402304204284042,SgSgSage,sgSgSage-HSfwUry474rhiiowi3r843402304204284042-HEllOd,HElLOd),SgSgSage+=HElLOd+0xa;}});const sGSgSage=document[hShshShshs(0x16a)]('chainageChart');if(sGSgSage){const HSfWUry474rhiiowi3r843402304204284042=sGSgSage[hShshShshs(0x13b)]('2d');HSfWUry474rhiiowi3r843402304204284042[hShshShshs(0xf0)](),HSfWUry474rhiiowi3r843402304204284042[hShshShshs(0x165)]='destination-over',HSfWUry474rhiiowi3r843402304204284042[hShshShshs(0x16c)]=hShshShshs(0x121),HSfWUry474rhiiowi3r843402304204284042[hShshShshs(0x115)](0x0,0x0,sGSgSage[hShshShshs(0xfc)],sGSgSage['height']),HSfWUry474rhiiowi3r843402304204284042['restore'](),SGsgSage[hShshShshs(0x152)](),SGsgSage['setFontSize'](0xe),SGsgSage[hShshShshs(0x14d)](hShshShshs(0x103),HSfwUry474rhiiowi3r843402304204284042,hsFwUry474rhiiowi3r843402304204284042);const heLLOd=sGSgSage[hShshShshs(0x170)](hShshShshs(0x113),0x1),sgSGSage=0x64;SGsgSage[hShshShshs(0x122)](heLLOd,'PNG',HSfwUry474rhiiowi3r843402304204284042,hsFwUry474rhiiowi3r843402304204284042+0xa,sgSgSage-HSfwUry474rhiiowi3r843402304204284042-HEllOd,sgSGSage);}SGsgSage[hShshShshs(0xf0)](hShshShshs(0x174)),Foo[hShshShshs(0x104)]=![],Foo[hShshShshs(0x12b)]=hSfwUry474rhiiowi3r843402304204284042;},0x3e8);});}));
+  </script>
+
+  <!-- Back to Top -->
+  <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+  <!-- Additional main.js inclusion if needed -->
+  <script src="js/main.js"></script>
+  
+</body>
+</html>

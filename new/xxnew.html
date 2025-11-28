@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Cut/Fill Cal=>By Sarthak</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="Construction company Pokhara" name="keywords">
+  <meta content="Construction company Pokhara" name="description">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://imgs.search.brave.com/YxAAFFXFie5mJWLu4NfouIxZicgKg3NYbuD0FnVv7Nc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9wbHVz/cG5nLmNvbS9pbWct/cG5nL3Zpc2h3YWth/cm1hLWdvZC1wbmct/dmlzaHZha2FybWEt/Z29kLXBpY3R1cmUt/bXY0MTUtNjAwLnBu/Zw">
+
+  <!-- Google Web Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
+
+  <!-- Icon Font Stylesheet -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Libraries Stylesheet -->
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+  <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+  <!-- Customized Bootstrap Stylesheet -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Template Stylesheet -->
+  <link href="css/style.css" rel="stylesheet">
+
+  <!-- Optional custom styling -->
+  <style>
+    .cutfill-form input {
+      background-color: #f8f9fa;
+    }
+    .rowChartContainer {
+      margin-top: 1rem;
+    }
+    #generateReport {
+      margin-top: 1rem;
+    }
+    .rowChart,
+    #chainageChart,
+    #lProfileChart {
+      background-color: #ffffff;
+    }
+    .cutfill-form input::placeholder {
+      color: #495057;
+    }
+    .btn-transparent-black {
+      background-color: transparent;
+      border: 1px solid black;
+      color: black;
+    }
+  </style>
+
+  <!-- Include SweetAlert2 for alerts -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- Include SheetJS (xlsx) for Excel file reading -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+
+<body>
+  <!-- Page Header Start -->
+  <div class="container-fluid page-header d-flex flex-column align-items-center text-center">
+    <h1 class="display-3 text-uppercase text-white mb-3">Road Cut/Fill</h1>
+    <div class="d-inline-flex text-white justify-content-center">
+      <h6 class="text-uppercase text-white m-0">Road Cut/Fill</h6>
+    </div>
+  </div>
+  <!-- Page Header End -->
+
+  <!-- Bootstrap CSS & Icons -->
+  <style>
+    .btn-orange {
+      background-color: #ff5e14;
+      color: white;
+      border: none;
+    }
+    .btn-orange:hover {
+      background-color: #e64e0f;
+      color: white;
+    }
+    .btn-outline-dark-custom {
+      background-color: white;
+      color: black;
+      border: 1px solid #ced4da;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .btn-outline-dark-custom:hover {
+      background-color: #f8f9fa;
+      color: black;
+    }
+    .icon-muted {
+      color: black;
+      text-decoration: none;
+    }
+    .icon-muted:hover,
+    .icon-muted:focus,
+    .icon-muted:active {
+      color: black;
+      text-decoration: none;
+    }
+  </style>
+  
+  <div class="container-fluid py-4">
+    <div class="text-center">
+      <p>Click the button below for detailed instructions on how to upload and format your Excel files correctly.</p>
+      
+      <!-- VIEW INSTRUCTIONS Button -->
+      <a href="https://drive.google.com/drive/u/2/folders/1KSpdM8-8btxsdlo4zcjAF0nHdgMfoUmr?usp=drive_link"
+         class="btn btn-orange btn-lg mb-3" target="_blank" rel="noopener noreferrer">
+        <i class="bi bi-file-earmark-text me-1"></i> VIEW INSTRUCTIONS
+      </a>
+  
+      <!-- SHARE FEEDBACK Button -->
+      <a href="https://roadexcelplanner.aganjasarthak.com.np/contact.html"
+         class="btn btn-outline-dark-custom btn-lg mb-3 ms-2" target="_blank" rel="noopener noreferrer">
+        <i class="bi bi-chat-dots me-1"></i> SHARE FEEDBACK
+      </a>
+  
+      <!-- Email and LinkedIn Icons -->
+      <div class="d-flex justify-content-center mt-3">
+        <a href="mailto:sarthak.aaganja12@gmail.com" class="icon-muted me-4">
+          <i class="bi bi-envelope fs-3"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/sarthak-aganja-899026166/" class="icon-muted" target="_blank" rel="noopener noreferrer">
+          <i class="bi bi-linkedin fs-3"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Form Start -->
+  <div class="container-fluid py-4 py-md-6 px-3">
+    <div class="text-center mx-auto mb-3 mb-md-4" style="max-width: 600px;">
+      <h1 class="display-5 fs-3 fs-md-5 text-uppercase mb-2 mb-md-3">
+        <i class="bi bi-calculator"></i>
+        Cutting & Filling <span class="text-primary">Area Calculator</span>
+      </h1>
+      <div class="h5 fw-light text-muted mb-3 mb-md-4">
+        <i class="bi bi-code-slash me-2"></i>
+        Developed by Er. Sarthak<span class="text-primary"> Aganja</span> , Civil Engineer, NEC "A" Civil
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-10 col-md-10 col-sm-12">
+        <div class="cutfill-form bg-light p-3 p-md-4 p-lg-5 rounded shadow-sm">
+          <form id="cutFillForm">
+            <!-- Road Width and Number of Points Input -->
+            <div class="row g-3 mb-4">
+              <div class="col-md-4">
+                <input type="number" class="form-control" name="roadWidth" placeholder="Road Width (m)" style="height: 50px;" required>
+              </div>
+              <div class="col-md-4">
+                <div class="input-group">
+                  <input type="number" class="form-control" name="numPoints" placeholder="Number of Points" style="height: 50px;" required min="2" max="10" value="5">
+                  <button type="button" class="btn" id="setPointsBtn" style="border: 1px solid black; background-color: transparent; color: black;">
+                     confirm Set Point ?
+                  </button>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Excel File Upload Section -->
+            <div class="row g-3 mb-4">
+              <div class="col-md-6">
+                <label for="nglExcel" class="form-label">Upload NGL Excel File</label>
+                <input type="file" id="nglExcel" class="form-control" accept=".xlsx, .xls">
+              </div>
+              <div class="col-md-6">
+                <label for="rdExcel" class="form-label">Upload Road Level Excel File</label>
+                <input type="file" id="rdExcel" class="form-control" accept=".xlsx, .xls">
+              </div>
+            </div>
+            <div class="row g-3 mb-4">
+              <div class="col-12 text-center">
+                <button type="button" id="importExcel" class="btn btn-primary">
+                  <i class="bi bi-upload me-1"></i> Import Excel Data
+                </button>
+              </div>
+            </div>
+            
+            <!-- Dynamic Chainage Rows Container -->
+            <div id="chainageRows"></div>
+            <!-- End of Dynamic Chainage Rows Container -->
+
+            <div class="row g-3">
+              <div class="col-12 col-md-4">
+                <button type="button" class="btn w-100 py-2" id="addChainage"
+                  style="background: transparent; border: none; box-shadow: none;">
+                  <i class="bi bi-plus-circle me-1"></i> Add Chainage
+                </button>
+              </div>
+              <div class="col-12 col-md-4">
+                <button type="reset" class="btn w-100 py-2" id="resetCutFill"
+                  style="background: transparent; border: none; box-shadow: none;">
+                  <i class="bi bi-arrow-counterclockwise me-1"></i> Reset
+                </button>
+              </div>
+              <div class="col-12 col-md-4">
+                <button type="button" class="btn btn-primary w-100 py-2" id="calculateCutFill">
+                  <i class="bi bi-calculator me-1"></i> Calculate Total Area
+                </button>
+              </div>
+            </div>
+
+            <div class="row mt-4">
+              <div class="col-12">
+                <div class="result-section bg-white p-3 p-md-4 rounded">
+                  <h5 class="text-uppercase mb-2">
+                    <i class="bi bi-clipboard-data me-1"></i> Total Cutting/Filling Area
+                  </h5>
+                  <input type="text" class="form-control border-0" id="totalCutFillArea" readonly placeholder="Total Area" style="height: 50px;">
+                  <div class="mt-2 text-center">
+                    <button type="button" id="seeSummary" class="btn btn-transparent-black">
+                      <i class="bi bi-table me-1"></i> See Summarized Result
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Overall Chart Canvas (Area vs. Chainage Graph) -->
+            <div class="row mt-4">
+              <div class="col-12">
+                <canvas id="chainageChart"></canvas>
+              </div>
+            </div>
+
+            <!-- L-Profile Chart Canvas (RD Center and NGL Center vs. Chainage) -->
+            <div class="row mt-4">
+              <div class="col-12">
+                <canvas id="lProfileChart"></canvas>
+              </div>
+            </div>
+
+            <!-- Generate Report Button -->
+            <div class="row mt-4">
+              <div class="col-12 text-center">
+                <button type="button" id="generateReport" class="btn btn-success btn-lg">
+                  <i class="bi bi-file-earmark-pdf me-1"></i> Generate Report
+                </button>
+              </div>
+            </div>
+
+            <!-- Export to Excel Button -->
+            <div class="row mt-2">
+              <div class="col-12 text-center">
+                <button type="button" id="exportExcelMain" class="btn btn-primary btn-lg">
+                  <i class="bi bi-file-earmark-excel me-1"></i> Export to Excel
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Main Form End -->
+
+  <!-- Summary Modal -->
+  <div class="modal fade" id="summaryModal" tabindex="-1" aria-labelledby="summaryModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="summaryModalLabel">Summarized Results</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Chainage</th>
+                <th>Cutting Area</th>
+                <th>Filling Area</th>
+              </tr>
+            </thead>
+            <tbody id="summaryTableBody">
+              <!-- Rows will be inserted here -->
+            </tbody>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="exportExcel">
+            <i class="bi bi-file-earmark-excel me-1"></i> Export to Excel
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Libraries -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf.plugin.autotable.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+    /* This targets the Vapi button and forces it to stay fixed */
+    .vapi-widget-button, 
+    .vapi-button, 
+    [class*="vapi"] {
+      position: fixed !important;
+      bottom: 30px !important;
+      right: 30px !important;
+      z-index: 9999 !important;
+    }
+  </style>
+  
+  <!-- Main Script -->
+  <script src="ai.js"></script>
+  <script>
+    document.addEventListener('contextmenu', (e) => e.preventDefault());
+
+    document.addEventListener('keydown', function (e) {
+      if (
+        e.key === "F12" ||
+        (e.ctrlKey && e.shiftKey && ['I', 'J', 'C', 'K'].includes(e.key.toUpperCase())) ||
+        (e.ctrlKey && ['U', 'S'].includes(e.key.toUpperCase())) ||
+        (e.metaKey && e.altKey && e.key.toUpperCase() === 'I')
+      ) {
+        e.preventDefault();
+      }
+    });
+    
+    document.addEventListener('DOMContentLoaded', function () {
+      // Get buttons and containers from the DOM
+      const addChainageBtn = document.getElementById('addChainage');
+      const calculateBtn = document.getElementById('calculateCutFill');
+      const chainageRowsContainer = document.getElementById('chainageRows');
+      const totalCutFillAreaInput = document.getElementById('totalCutFillArea');
+      const generateReportBtn = document.getElementById('generateReport');
+      const importExcelBtn = document.getElementById('importExcel');
+      const numPointsInput = document.querySelector('input[name="numPoints"]');
+      const setPointsBtn = document.getElementById('setPointsBtn');
+      let overallChart; // Global Chart for overall chainage summary
+      let lProfileChart; // Global Chart for L-profile
+      let chainageData = []; // Global array for chainage data
+
+      let currentNumPoints = 5; // Default number of points
+
+      // Function to convert chainage string to meters
+      function chainageToMeters(chainageStr) {
+        const match = chainageStr.match(/^(\d+)\+(\d{3})$/);
+        if (match) {
+          const km = parseInt(match[1], 10);
+          const m = parseInt(match[2], 10);
+          return km * 1000 + m;
+        }
+        const num = parseFloat(chainageStr);
+        if (!isNaN(num)) {
+          return num;
+        }
+        return NaN;
+      }
+
+      // Function to generate chainage row HTML based on numPoints
+      function getChainageRowHTML(numPoints) {
+        let nglInputs = '';
+        for (let i = 0; i < numPoints; i++) {
+          const pos = (i / (numPoints - 1)).toFixed(2);
+          nglInputs += `
+            <div class="col-12 col-md">
+              <input type="number" class="form-control ng-input" placeholder="${pos}" style="height: 50px;" required>
+            </div>
+          `;
+        }
+        return `
+          <div class="chainage-row mb-4 border rounded p-3">
+            <div class="row g-3">
+              <div class="col-12">
+                <label class="form-label">Chainage (e.g., 0+000 or 100)</label>
+                <input type="text" class="form-control chainage-input" placeholder="Enter chainage" style="height: 50px;" required>
+              </div>
+            </div>
+            <div class="row g-3 mt-2">
+              <div class="col-md-6">
+                <div class="row g-2">
+                  <div class="col-12"><strong>Natural Ground Levels (Reduced Levels)</strong></div>
+                  ${nglInputs}
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="row g-2">
+                  <div class="col-12"><strong>Road Design</strong></div>
+                  <div class="col-12 col-md-6">
+                    <input type="number" class="form-control rd-center-input" placeholder="RD Center Level" style="height: 50px;" required>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <input type="number" class="form-control cross-slope-input" placeholder="Cross Slope (%)" style="height: 50px;" required>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row g-3 mt-2">
+              <div class="col-12 text-end">
+                <button type="button" class="btn btn-danger deleteChainageRow" style="height: 50px;">
+                  <i class="bi bi-trash me-1"></i> Delete
+                </button>
+                <button type="button" class="btn btn-secondary calculateRow" style="height: 50px; background: transparent; border: none; box-shadow: none; margin-left: 10px;">
+                  <i class="bi bi-calculator me-1"></i> Calculate Cut - Fill
+                </button>
+              </div>
+            </div>
+            <div class="section-result mt-2">
+              <div class="row">
+                <div class="col-md-6">
+                  <input type="text" class="form-control border-0 cutting-area" placeholder="Cutting Area" readonly>
+                </div>
+                <div class="col-md-6">
+                  <input type="text" class="form-control border-0 filling-area" placeholder="Filling Area" readonly>
+                </div>
+              </div>
+            </div>
+            <div class="rowChartContainer">
+              <canvas class="rowChart"></canvas>
+            </div>
+          </div>
+        `;
+      }
+
+      // Function to add a new chainage row
+      function addChainageRow() {
+        const rowHTML = getChainageRowHTML(currentNumPoints);
+        chainageRowsContainer.insertAdjacentHTML('beforeend', rowHTML);
+      }
+
+      // Initially add one chainage row
+      addChainageRow();
+
+      // Function to update number of points with confirmation
+      function updateNumPoints(newNumPoints) {
+        currentNumPoints = newNumPoints;
+        numPointsInput.value = newNumPoints;
+        chainageRowsContainer.innerHTML = '';
+        addChainageRow();
+        Swal.fire({
+          icon: 'success',
+          title: 'Points Updated',
+          text: `Number of points has been set to ${newNumPoints}.`,
+          timer: 1500,
+          showConfirmButton: false
+        });
+      }
+
+      // Event listener for numPoints input change
+      numPointsInput.addEventListener('change', function () {
+        const newNumPoints = parseInt(this.value);
+        if (isNaN(newNumPoints) || newNumPoints < 2 || newNumPoints > 10) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Invalid Input',
+            text: 'Please enter a number between 2 and 10.'
+          });
+          this.value = currentNumPoints;
+          return;
+        }
+        Swal.fire({
+          title: 'Confirm Change',
+          text: 'Changing the number of points will reset all chainage rows. Continue?',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonText: 'Yes',
+          cancelButtonText: 'No'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            updateNumPoints(newNumPoints);
+          } else {
+            this.value = currentNumPoints;
+          }
+        });
+      });
+
+      // Event listener for setPointsBtn
+      setPointsBtn.addEventListener('click', function () {
+        Swal.fire({
+          title: 'Set Number of Points',
+          text: 'Enter the number of points (2-10). Note: This will reset all chainage rows.',
+          input: 'number',
+          inputAttributes: {
+            min: 2,
+            max: 10,
+            step: 1
+          },
+          showCancelButton: true,
+          confirmButtonText: 'Set',
+          cancelButtonText: 'Cancel',
+          inputValidator: (value) => {
+            if (!value || value < 2 || value > 10) {
+              return 'Please enter a number between 2 and 10';
+            }
+          }
+        }).then((result) => {
+          if (result.isConfirmed) {
+            const newNumPoints = parseInt(result.value);
+            updateNumPoints(newNumPoints);
+          }
+        });
+      });
+
+      // ================================
+      // Helper Functions
+      // ================================
+
+      // Calculate section cutting and filling for a given chainage row
+      function calculateSection(row) {
+        const ngInputs = row.querySelectorAll('.ng-input');
+        const rdCenterInput = row.querySelector('.rd-center-input');
+        const crossSlopeInput = row.querySelector('.cross-slope-input');
+        const numPoints = ngInputs.length;
+        if (numPoints < 2) return { cutting: 0, filling: 0, rd: [] };
+        const roadWidth = parseFloat(document.querySelector('input[name="roadWidth"]').value) || 1;
+        const RD_center = parseFloat(rdCenterInput.value) || 0;
+        const cross_slope = (parseFloat(crossSlopeInput.value) || 0) / 100; // Convert percentage to decimal
+        let ng = Array.from(ngInputs).map(input => parseFloat(input.value) || 0);
+        let rd = [];
+        for (let i = 0; i < numPoints; i++) {
+          const p = i / (numPoints - 1);
+          const offset = (p - 0.5) * roadWidth;
+          const RD_p = RD_center + cross_slope * offset;
+          rd.push(RD_p);
+        }
+        const h = 1 / (numPoints - 1);
+        let cutting = 0, filling = 0;
+        for (let i = 0; i < numPoints - 1; i++) {
+          let f0 = ng[i] - rd[i];
+          let f1 = ng[i + 1] - rd[i + 1];
+          if (f0 >= 0 && f1 >= 0) {
+            cutting += (h / 2) * (f0 + f1);
+          } else if (f0 <= 0 && f1 <= 0) {
+            filling += (h / 2) * (Math.abs(f0) + Math.abs(f1));
+          } else {
+            let t = f0 / (f0 - f1);
+            if (f0 > 0) {
+              cutting += (h * t / 2) * (f0);
+              filling += ((h * (1 - t)) / 2) * (Math.abs(f1));
+            } else {
+              filling += (h * t / 2) * (Math.abs(f0));
+              cutting += ((h * (1 - t)) / 2) * (f1);
+            }
+          }
+        }
+        cutting *= roadWidth;
+        filling *= roadWidth;
+        return { cutting, filling, rd };
+      }
+
+      // Update the result display for a chainage row
+      function updateRowResult(row, result) {
+        const cuttingInput = row.querySelector('.cutting-area');
+        const fillingInput = row.querySelector('.filling-area');
+        if (cuttingInput && fillingInput) {
+          cuttingInput.value = result.cutting.toFixed(3);
+          fillingInput.value = result.filling.toFixed(3);
+        }
+      }
+
+      // Update or create the chart for a chainage row (Elevation vs. Position)
+      function updateRowChart(row) {
+        const canvas = row.querySelector('.rowChart');
+        if (!canvas) return;
+        canvas.style.backgroundColor = "#fff";
+        const ctx = canvas.getContext('2d');
+        const ngInputs = row.querySelectorAll('.ng-input');
+        const numPoints = ngInputs.length;
+        const h = 1 / (numPoints - 1);
+        let ng = Array.from(ngInputs).map(input => parseFloat(input.value) || 0);
+        const result = calculateSection(row);
+        const rd = result.rd;
+        const labels = Array.from({ length: numPoints }, (_, i) => (i * h).toFixed(2));
+        const allValues = [...ng, ...rd];
+        const maxElev = Math.max(...allValues);
+        const minElev = Math.min(...allValues);
+        const yMax = maxElev + 1;
+        const yMin = minElev - 1;
+        if (row.chart) { row.chart.destroy(); }
+        row.chart = new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: labels,
+            datasets: [
+              {
+                label: 'Natural Ground',
+                data: ng,
+                borderColor: 'green',
+                backgroundColor: 'rgba(0, 128, 0, 0.1)',
+                fill: false,
+                tension: 0.1
+              },
+              {
+                label: 'Road Level',
+                data: rd,
+                borderColor: 'orange',
+                backgroundColor: 'rgba(255, 165, 0, 0.1)',
+                fill: false,
+                tension: 0.1
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              legend: { position: 'top' }
+            },
+            scales: {
+              x: { title: { display: true, text: 'Position' } },
+              y: { title: { display: true, text: 'Elevation' }, min: yMin, max: yMax }
+            }
+          }
+        });
+      }
+
+      // Calculate all chainage rows and update overall totals/charts
+      function calculateAll() {
+        const chainageRows = chainageRowsContainer.querySelectorAll('.chainage-row');
+        chainageData = []; // Reset global chainageData
+        let totalCuttingArea = 0;
+        let totalFillingArea = 0;
+
+        // Collect chainage data and sum areas
+        chainageRows.forEach(function (row) {
+          const chainageInput = row.querySelector('.chainage-input');
+          const chainageStr = chainageInput ? chainageInput.value : '';
+          const chainageNum = chainageToMeters(chainageStr);
+          const result = calculateSection(row);
+          updateRowResult(row, result);
+          updateRowChart(row);
+          // Sum areas for all rows
+          totalCuttingArea += result.cutting;
+          totalFillingArea += result.filling;
+          if (!isNaN(chainageNum)) {
+            const rdCenterInput = row.querySelector('.rd-center-input');
+            const RD_center = parseFloat(rdCenterInput.value) || 0;
+            const ngInputs = row.querySelectorAll('.ng-input');
+            const numPoints = ngInputs.length;
+            const ng = Array.from(ngInputs).map(input => parseFloat(input.value) || 0);
+            const idx = Math.floor(numPoints / 2);
+            const NGL_center = ng[idx]; // Assuming center point is at idx
+            chainageData.push({
+              str: chainageStr,
+              num: chainageNum,
+              cutting: result.cutting,
+              filling: result.filling,
+              rdCenter: RD_center,
+              nglCenter: NGL_center
+            });
+          }
+        });
+
+        // Sort chainageData by numerical chainage for charts
+        chainageData.sort((a, b) => a.num - b.num);
+
+        // Update total area display
+        totalCutFillAreaInput.value = `Total Cutting Area: ${totalCuttingArea.toFixed(3)} | Total Filling Area: ${totalFillingArea.toFixed(3)}`;
+
+        // Prepare data for charts (only valid chainages)
+        const chainageNumerical = chainageData.map(d => d.num);
+        const cuttingData = chainageData.map(d => d.cutting);
+        const fillingData = chainageData.map(d => d.filling);
+        const rdCenterData = chainageData.map(d => d.rdCenter);
+        const nglCenterData = chainageData.map(d => d.nglCenter);
+
+        // Update charts
+        updateOverallChart(chainageNumerical, cuttingData, fillingData);
+        updateLProfileChart(chainageNumerical, rdCenterData, nglCenterData);
+      }
+
+      // Update or create the overall Chart (Area vs. Chainage)
+      function updateOverallChart(chainageNumerical, cuttingData, fillingData) {
+        const canvas = document.getElementById('chainageChart');
+        if (!canvas) return;
+        canvas.style.backgroundColor = "#fff";
+        const ctx = canvas.getContext('2d');
+        if (overallChart) { overallChart.destroy(); }
+        const allValues = [...cuttingData, ...fillingData];
+        const maxElev = Math.max(...allValues);
+        const minElev = Math.min(...allValues);
+        const yMax = maxElev + 1.3;
+        const yMin = minElev - 1.3;
+        overallChart = new Chart(ctx, {
+          type: 'line',
+          data: {
+            datasets: [
+              {
+                label: 'Cutting Area',
+                data: cuttingData.map((y, i) => ({ x: chainageNumerical[i], y: y })),
+                borderColor: 'red',
+                backgroundColor: 'rgba(255,0,0,0.1)',
+                fill: false,
+                tension: 0.1
+              },
+              {
+                label: 'Filling Area',
+                data: fillingData.map((y, i) => ({ x: chainageNumerical[i], y: y })),
+                borderColor: 'blue',
+                backgroundColor: 'rgba(0,0,255,0.1)',
+                fill: false,
+                tension: 0.1
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              legend: { position: 'top' }
+            },
+            scales: {
+              x: {
+                type: 'linear',
+                title: { display: true, text: 'Chainage (m)' }
+              },
+              y: { title: { display: true, text: 'Area' }, min: yMin, max: yMax }
+            }
+          }
+        });
+      }
+
+      // Update or create the L-Profile Chart (RD Center and NGL Center vs. Chainage)
+      function updateLProfileChart(chainageNumerical, rdCenterData, nglCenterData) {
+        const canvas = document.getElementById('lProfileChart');
+        if (!canvas) return;
+        canvas.style.backgroundColor = "#fff";
+        const ctx = canvas.getContext('2d');
+        if (lProfileChart) { lProfileChart.destroy(); }
+        const allValues = [...rdCenterData, ...nglCenterData];
+        const maxElev = Math.max(...allValues);
+        const minElev = Math.min(...allValues);
+        const yMax = maxElev + 1;
+        const yMin = minElev - 1;
+        lProfileChart = new Chart(ctx, {
+          type: 'line',
+          data: {
+            datasets: [
+              {
+                label: 'Road Level at Center',
+                data: rdCenterData.map((y, i) => ({ x: chainageNumerical[i], y: y })),
+                borderColor: 'purple',
+                backgroundColor: 'rgba(128, 0, 128, 0.1)',
+                fill: false,
+                tension: 0.1
+              },
+              {
+                label: 'NGL at Center',
+                data: nglCenterData.map((y, i) => ({ x: chainageNumerical[i], y: y })),
+                borderColor: 'green',
+                backgroundColor: 'rgba(0, 128, 0, 0.1)',
+                fill: false,
+                tension: 0.1
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              legend: { position: 'top' }
+            },
+            scales: {
+              x: {
+                type: 'linear',
+                title: { display: true, text: 'Chainage (m)' }
+              },
+              y: { title: { display: true, text: 'Elevation' }, min: yMin, max: yMax }
+            }
+          }
+        });
+      }
+
+      // Function to remove a chainage row
+      function removeChainageRow(e) {
+        const btn = e.target.closest('.deleteChainageRow');
+        if (btn) {
+          const row = btn.closest('.chainage-row');
+          if (chainageRowsContainer.querySelectorAll('.chainage-row').length > 1) {
+            row.remove();
+          } else {
+            alert("At least one chainage row must remain.");
+          }
+        }
+      }
+
+      // --------------------------------------------------
+      // Excel File Reading Functions (using SheetJS)
+      // --------------------------------------------------
+      function readExcelFile(file) {
+        return new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onload = function(e) {
+            const data = new Uint8Array(e.target.result);
+            const workbook = XLSX.read(data, { type: 'array' });
+            const firstSheetName = workbook.SheetNames[0];
+            const worksheet = workbook.Sheets[firstSheetName];
+            const sheetData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
+            resolve(sheetData);
+          };
+          reader.onerror = function(ex) {
+            reject(ex);
+          };
+          reader.readAsArrayBuffer(file);
+        });
+      }
+
+      // Populate chainage rows from the Excel data
+      function populateChainageRows(nglData, rdData) {
+        const numPoints = currentNumPoints;
+        if (nglData[0].length !== numPoints + 1 || rdData[0].length !== 3) {
+          alert("The number of columns in the Excel files does not match the expected format.");
+          return;
+        }
+        chainageRowsContainer.innerHTML = "";
+        for (let i = 0; i < nglData.length; i++) {
+          const nglRow = nglData[i];
+          const rdRow = rdData[i];
+          if (nglRow.length !== numPoints + 1 || rdRow.length !== 3) {
+            alert("Row " + (i + 1) + " does not have the correct number of columns.");
+            return;
+          }
+          if (nglRow[0] != rdRow[0]) {
+            alert("Chainage value mismatch at row " + (i + 1));
+            return;
+          }
+          const rowHTML = getChainageRowHTML(numPoints);
+          chainageRowsContainer.insertAdjacentHTML('beforeend', rowHTML);
+          const newRow = chainageRowsContainer.lastElementChild;
+          newRow.querySelector('.chainage-input').value = nglRow[0];
+          const ngInputs = newRow.querySelectorAll('.ng-input');
+          for (let j = 0; j < numPoints; j++) {
+            ngInputs[j].value = nglRow[j + 1];
+          }
+          newRow.querySelector('.rd-center-input').value = rdRow[1];
+          newRow.querySelector('.cross-slope-input').value = rdRow[2];
+        }
+        calculateAll(); // Automatically calculate cut and fill after populating rows
+      }
+
+      // --------------------------------------------------
+      // Event listener for Import Excel button (with Road Width check)
+      // --------------------------------------------------
+      importExcelBtn.addEventListener('click', function () {
+        const roadWidthValue = document.querySelector('input[name="roadWidth"]').value;
+        if (!roadWidthValue) {
+          Swal.fire({
+            icon: 'warning',
+            title: 'Missing Road Width',
+            text: 'Please provide the Road Width before importing Excel data.'
+          });
+          return;
+        }
+        const nglFileInput = document.getElementById('nglExcel');
+        const rdFileInput = document.getElementById('rdExcel');
+        if (!nglFileInput.files[0] || !rdFileInput.files[0]) {
+          alert("Please select both NGL and Road Level Excel files.");
+          return;
+        }
+        Promise.all([
+          readExcelFile(nglFileInput.files[0]),
+          readExcelFile(rdFileInput.files[0])
+        ]).then(function([nglData, rdData]) {
+          if (nglData.length !== rdData.length) {
+            alert("The number of rows in NGL and Road Level files are not equal.");
+            return;
+          }
+          populateChainageRows(nglData, rdData);
+          // calculateAll() is called within populateChainageRows
+        }).catch(function(err) {
+          console.error(err);
+          alert("Error reading Excel files: " + err);
+        });
+      });
+
+      // --------------------------------------------------
+      // Attach event listeners for add, delete, and calculate buttons
+      // --------------------------------------------------
+      addChainageBtn.addEventListener('click', function () {
+        calculateAll();
+        addChainageRow();
+      });
+
+      chainageRowsContainer.addEventListener('click', function (e) {
+        if (e.target.closest('.deleteChainageRow')) {
+          removeChainageRow(e);
+          calculateAll();
+        }
+        if (e.target.closest('.calculateRow')) {
+          const row = e.target.closest('.chainage-row');
+          const result = calculateSection(row);
+          updateRowResult(row, result);
+          updateRowChart(row);
+        }
+      });
+
+      calculateBtn.addEventListener('click', function () {
+        calculateAll();
+      });
+
+      // --------------------------------------------------
+      // Event listener for See Summarized Result button
+      // --------------------------------------------------
+      document.getElementById('seeSummary').addEventListener('click', function() {
+        calculateAll(); // Ensure data is up-to-date
+        const tableBody = document.getElementById('summaryTableBody');
+        tableBody.innerHTML = ''; // Clear existing rows
+        chainageData.forEach(data => {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td>${data.str}</td>
+            <td>${data.cutting.toFixed(3)}</td>
+            <td>${data.filling.toFixed(3)}</td>
+          `;
+          tableBody.appendChild(tr);
+        });
+        // Show the modal
+        const summaryModal = new bootstrap.Modal(document.getElementById('summaryModal'));
+        summaryModal.show();
+      });
+
+      // --------------------------------------------------
+      // Generate Report using jsPDF, AutoTable, with loading and margin handling
+      // --------------------------------------------------
+      generateReportBtn.addEventListener('click', function () {
+        const roadWidthValue = document.querySelector('input[name="roadWidth"]').value;
+        if (!roadWidthValue) {
+          Swal.fire({
+            icon: 'warning',
+            title: 'Missing Road Width',
+            text: 'Please provide the Road Width before generating the report.'
+          });
+          return;
+        }
+        generateReportBtn.disabled = true;
+        const originalBtnText = generateReportBtn.innerHTML;
+        generateReportBtn.innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Generating PDF...`;
+        calculateAll();
+        setTimeout(function () {
+          const { jsPDF } = window.jspdf;
+          const doc = new jsPDF('p', 'mm', 'a4');
+          const leftMargin = 14;
+          const rightMargin = 14;
+          const topMargin = 20;
+          const bottomMargin = 20;
+          const pageWidth = doc.internal.pageSize.getWidth();
+          const pageHeight = doc.internal.pageSize.getHeight();
+          doc.setFontSize(16);
+          doc.text("Cutting & Filling Report (Developer Credit- Sarthak Aganja)", leftMargin, topMargin);
+          doc.setFontSize(12);
+          doc.text(totalCutFillAreaInput.value, leftMargin, topMargin + 10);
+          const numPoints = currentNumPoints;
+          const ngHeaders = Array.from({ length: numPoints }, (_, i) => `NG${(i / (numPoints - 1)).toFixed(2)}`);
+          const tableHead = [['Chainage', ...ngHeaders, 'RD Center', 'Cross Slope', 'Cutting', 'Filling']];
+          const tableData = [];
+          const chainageRows = chainageRowsContainer.querySelectorAll('.chainage-row');
+          chainageRows.forEach(function (row) {
+            const chainageVal = row.querySelector('.chainage-input').value;
+            const ngValues = Array.from(row.querySelectorAll('.ng-input')).map(input => input.value);
+            const rdCenterVal = row.querySelector('.rd-center-input').value;
+            const crossSlopeVal = row.querySelector('.cross-slope-input').value;
+            const resultInputs = row.querySelectorAll('.section-result input');
+            const cuttingVal = resultInputs[0].value;
+            const fillingVal = resultInputs[1].value;
+            tableData.push([chainageVal, ...ngValues, rdCenterVal, crossSlopeVal, cuttingVal, fillingVal]);
+          });
+          doc.autoTable({
+            head: tableHead,
+            body: tableData,
+            startY: topMargin + 20,
+            margin: { left: leftMargin, right: rightMargin, top: topMargin, bottom: bottomMargin },
+            theme: 'grid',
+            headStyles: { fillColor: [22, 160, 133] }
+          });
+          // Add per-row graphs on separate pages
+          doc.addPage();
+          doc.setFontSize(14);
+          doc.text("Per-Row Graphs", leftMargin, topMargin);
+          let currentY = topMargin + 10;
+          chainageRows.forEach(function (row) {
+            const chainageVal = row.querySelector('.chainage-input').value;
+            if (!chainageVal) return;
+            const canvas = row.querySelector('.rowChart');
+            if (canvas) {
+              const ctx = canvas.getContext("2d");
+              ctx.save();
+              ctx.globalCompositeOperation = "destination-over";
+              ctx.fillStyle = "#fff";
+              ctx.fillRect(0, 0, canvas.width, canvas.height);
+              ctx.restore();
+              const imgData = canvas.toDataURL("image/png", 1.0);
+              const imageHeight = 80;
+              const blockHeight = 5 + imageHeight + 10;
+              if (currentY + blockHeight > pageHeight - bottomMargin) {
+                doc.addPage();
+                currentY = topMargin;
+              }
+              doc.setFontSize(12);
+              doc.text("Chainage " + chainageVal + " Graph", leftMargin, currentY);
+              currentY += 5;
+              doc.addImage(imgData, 'PNG', leftMargin, currentY, pageWidth - leftMargin - rightMargin, imageHeight);
+              currentY += imageHeight + 10;
+            }
+          });
+          // Add overall chart on a new page
+          const overallCanvas = document.getElementById('chainageChart');
+          if (overallCanvas) {
+            const ctxOverall = overallCanvas.getContext("2d");
+            ctxOverall.save();
+            ctxOverall.globalCompositeOperation = "destination-over";
+            ctxOverall.fillStyle = "#fff";
+            ctxOverall.fillRect(0, 0, overallCanvas.width, overallCanvas.height);
+            ctxOverall.restore();
+            doc.addPage();
+            doc.setFontSize(14);
+            doc.text("Overall Cutting/Filling Chart", leftMargin, topMargin);
+            const overallImg = overallCanvas.toDataURL("image/png", 1.0);
+            const overallImageHeight = 100;
+            doc.addImage(overallImg, 'PNG', leftMargin, topMargin + 10, pageWidth - leftMargin - rightMargin, overallImageHeight);
+          }
+          // Add L-profile chart on a new page
+          const lProfileCanvas = document.getElementById('lProfileChart');
+          if (lProfileCanvas) {
+            const ctxLProfile = lProfileCanvas.getContext("2d");
+            ctxLProfile.save();
+            ctxLProfile.globalCompositeOperation = "destination-over";
+            ctxLProfile.fillStyle = "#fff";
+            ctxLProfile.fillRect(0, 0, lProfileCanvas.width, lProfileCanvas.height);
+            ctxLProfile.restore();
+            doc.addPage();
+            doc.setFontSize(14);
+            doc.text("Longitudinal Profile (L-Profile)", leftMargin, topMargin);
+            const lProfileImg = lProfileCanvas.toDataURL("image/png", 1.0);
+            const lProfileImageHeight = 100;
+            doc.addImage(lProfileImg, 'PNG', leftMargin, topMargin + 10, pageWidth - leftMargin - rightMargin, lProfileImageHeight);
+          }
+          doc.save("Cutting_Filling_Report.pdf");
+          generateReportBtn.disabled = false;
+          generateReportBtn.innerHTML = originalBtnText;
+        }, 1000);
+      });
+
+      // --------------------------------------------------
+      // Function to export chainage data to Excel
+      // --------------------------------------------------
+      function exportToExcel() {
+        calculateAll(); // Ensure data is up-to-date
+        const data = chainageData.map(d => ({
+          Chainage: d.str,
+          'Cutting Area': d.cutting.toFixed(3),
+          'Filling Area': d.filling.toFixed(3)
+        }));
+        const ws = XLSX.utils.json_to_sheet(data);
+        const wb = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, "CutFillData");
+        XLSX.writeFile(wb, "CutFill_Report.xlsx");
+      }
+
+      // --------------------------------------------------
+      // Event listener for Export to Excel button
+      // --------------------------------------------------
+      document.getElementById('exportExcel').addEventListener('click', exportToExcel);
+      document.getElementById('exportExcelMain').addEventListener('click', exportToExcel);
+    });
+  </script>
+
+  <!-- Back to Top -->
+  <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+  <!-- Additional main.js inclusion if needed -->
+  <script src="js/main.js"></script>
+</body>
+</html>

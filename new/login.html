@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Road Excel Planner - Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <script src="https://www.google.com/recaptcha/api.js?render=6LdHfdMqAAAAADRtQIoMx9IWiLR47lDQmAttulTC"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('img/carousel-1.jpg') no-repeat center center fixed;
+            background-size: cover;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* No background blur for mobile devices */
+        @media (max-width: 768px) {
+            body {
+                background: url('img/carousel-1.jpg') no-repeat center center fixed;
+                background-size: cover;
+            }
+        }
+
+        .login-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            padding: 40px;
+            border-radius: 24px;
+            width: 100%;
+            max-width: 450px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .login-container:hover {
+            transform: translate(-50%, -51%);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .logo-container {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo-icon {
+            font-size: 3.5rem;
+            color: #ffffff;
+            margin-bottom: 15px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        h2 {
+            color: white;
+            text-align: center;
+            font-size: 2.4rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2rem;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .form-control {
+            border-radius: 15px;
+            padding: 15px 15px 15px 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus + .input-icon {
+            color: white;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .btn-login {
+            background: linear-gradient(45deg, #2196F3, #00BCD4);
+            color: white;
+            width: 100%;
+            border-radius: 15px;
+            padding: 15px;
+            font-size: 1.2rem;
+            border: none;
+            margin-top: 15px;
+            transition: all 0.4s ease;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-login:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: all 0.5s ease;
+        }
+
+        .btn-login:hover:before {
+            left: 100%;
+        }
+
+        .btn-login:hover {
+            background: linear-gradient(45deg, #1976D2, #0097A7);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .processing-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            border-radius: 24px;
+            backdrop-filter: blur(5px);
+        }
+
+        .processing-content {
+            text-align: center;
+            color: white;
+        }
+
+        .success-checkmark {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            background: #4CAF50;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: scale(0);
+            animation: scaleIn 0.5s ease forwards;
+        }
+
+        @keyframes scaleIn {
+            0% { transform: scale(0); }
+            80% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .success-checkmark i {
+            font-size: 40px;
+            color: white;
+        }
+
+        .login-message {
+            padding: 15px;
+            border-radius: 12px;
+            margin-top: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .success-message {
+            background: rgba(76, 175, 80, 0.2);
+            color: #4CAF50;
+            border: 1px solid rgba(76, 175, 80, 0.3);
+        }
+
+        .error-message {
+            background: rgba(244, 67, 54, 0.2);
+            color: #F44336;
+            border: 1px solid rgba(244, 67, 54, 0.3);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-container animate__animated animate__fadeIn">
+        <div class="logo-container">
+            <i class="bi bi-graph-up-arrow logo-icon"></i>
+            <h2>Road Excel Planner</h2>
+            <p>Access advanced road volume calculations</p>
+        </div>
+
+        <form id="loginForm">
+            <div class="form-group">
+                <input type="text" id="username" class="form-control" placeholder="Username" required>
+                <i class="bi bi-person input-icon"></i>
+            </div>
+
+            <div class="form-group">
+                <input type="password" id="password" class="form-control" placeholder="Password" required>
+                <i class="bi bi-lock input-icon"></i>
+            </div>
+
+            <button type="submit" class="btn-login" id="loginButton">
+                <span class="button-text">Login</span>
+                <span class="spinner-border spinner-border-sm ms-2 d-none" role="status" aria-hidden="true"></span>
+            </button>
+        </form>
+
+        <div id="loginMessage" class="login-message d-none"></div>
+
+        <div class="processing-overlay" id="processingOverlay">
+            <div class="processing-content">
+                <div class="success-checkmark">
+                    <i class="bi bi-check-lg"></i>
+                </div>
+                <h3 class="mb-3">Login Successful!</h3>
+                <p class="mb-0">Redirecting to dashboard...</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+    <script>
+       async function getCaptchaToken() {
+    // Executes reCAPTCHA to get a token.
+    const token = await grecaptcha.execute('6LdHfdMqAAAAADRtQIoMx9IWiLR47lDQmAttulTC', { action: 'login' });
+    return token;
+}
+
+function showMessage(message, isError = false) {
+    const messageElement = document.getElementById('loginMessage');
+    messageElement.textContent = message;
+    messageElement.classList.remove('d-none', 'success-message', 'error-message');
+    messageElement.classList.add(isError ? 'error-message' : 'success-message');
+}
+
+function showProcessingOverlay() {
+    const overlay = document.getElementById('processingOverlay');
+    overlay.style.display = 'flex';
+    overlay.classList.add('animate__animated', 'animate__fadeIn');
+}
+
+function setLoading(loading) {
+    const button = document.getElementById('loginButton');
+    const spinner = button.querySelector('.spinner-border');
+    const buttonText = button.querySelector('.button-text');
+
+    button.disabled = loading;
+    if (loading) {
+        spinner.classList.remove('d-none');
+        buttonText.textContent = 'Processing...';
+    } else {
+        spinner.classList.add('d-none');
+        buttonText.textContent = 'Login';
+    }
+}
+
+document.getElementById('loginForm').addEventListener('submit', async (event) => {
+    event.preventDefault();
+    
+    // Collect the username and password from the form.
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    setLoading(true);
+    try {
+        // Retrieve the captcha token.
+        const captchaToken = await getCaptchaToken();
+
+        // Send a POST request to the worker's /login endpoint.
+        const response = await fetch("https://young-poetry-0efa.sarthak-aganja12345.workers.dev/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ username, password, captchaResponse: captchaToken })
+        });
+
+        const result = await response.json();
+
+        // Check the worker's returned result.
+        if (result.success) {
+            showProcessingOverlay();
+            setTimeout(() => {
+                window.location.href = "home.html";
+            }, 2000);
+        } else {
+            showMessage(result.message || 'Login failed. Please check your credentials.', true);
+        }
+    } catch (error) {
+        showMessage('Connection error. Please try again later.', true);
+    } finally {
+        setLoading(false);
+    }
+});
+    </script>
+</body>
+</html>
