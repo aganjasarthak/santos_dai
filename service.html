@@ -341,6 +341,85 @@
 
   
     <!-- Appointment End -->
+     <!-- Recently Completed Projects Start -->
+<div class="container-fluid bg-light py-6 px-5">
+    <div class="text-center mx-auto mb-5" style="max-width: 600px;">
+        <h1 class="display-5 text-uppercase mb-4">
+            Recently <span class="text-primary">Completed Projects</span>
+        </h1>
+    </div>
+
+    <div class="row g-5 portfolio-container justify-content-center">
+
+        <!-- Teku Maya Gurung Project – Title NOW CLEARLY VISIBLE -->
+        <div class="col-lg-8 col-md-10 col-12 portfolio-item first">
+            <div class="position-relative portfolio-box overflow-hidden rounded shadow-lg">
+
+                <!-- Auto-rotating Images (click = lightbox) -->
+                <div class="completed-slider">
+                    <a href="images1/tek1.jpg" data-lightbox="recent" data-title="Handover Ceremony">
+                        <img src="images1/tek1.jpg" class="img-fluid w-100 slider-img" alt="Handover">
+                    </a>
+                    <a href="images1/tek2.jpg" data-lightbox="recent" data-title="Completed Building">
+                        <img src="images1/tek2.jpg" class="img-fluid w-100 slider-img" alt="Structure">
+                    </a>
+                    <a href="images1/tek3.jpg" data-lightbox="recent" data-title="Final Look">
+                        <img src="images1/tek3.jpg" class="img-fluid w-100 slider-img" alt="Final">
+                    </a>
+                </div>
+
+                <!-- Title + Subtitle – EXACT SAME STYLE & POSITION AS ALL YOUR OTHER CARDS -->
+                <div class="portfolio-title shadow-sm position-absolute bottom-0 start-0 w-100 p-4 text-white"
+                     style="background: linear-gradient(transparent, rgba(0,0,0,0.8)); pointer-events: none;">
+                    <p class="h4 text-uppercase mb-1">Teku Maya Gurung Building Handover</p>
+                    <p class="mb-0" style="font-size:1.1rem; opacity: 0.95;">
+                        Successfully completed and handed over with full client satisfaction
+                    </p>
+                </div>
+
+                <!-- Plus button (same as others) -->
+                <a class="portfolio-btn" href="images1/tek1.jpg" data-lightbox="recent">
+                    <i class="bi bi-plus text-white"></i>
+                </a>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- Recently Completed Projects End -->
+ <style>
+    .completed-slider {
+        position: relative;
+        width: 100%;
+        height: 520px;
+        overflow: hidden;
+        border-radius: 0.5rem;
+    }
+    .slider-img {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0;
+        transition: opacity 1.6s ease-in-out;
+        border-radius: 0.5rem;
+    }
+    .slider-img.active { opacity: 1; }
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const imgs = document.querySelectorAll('.completed-slider .slider-img');
+        let i = 0;
+        imgs[0].classList.add('active');
+        setInterval(function() {
+            imgs[i].classList.remove('active');
+            i = (i + 1) % imgs.length;
+            imgs[i].classList.add('active');
+        }, 4200);
+    });
+</script>
 
 
     <!-- Testimonial Start -->
